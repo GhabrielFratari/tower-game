@@ -7,17 +7,23 @@ public class TowerMove : MonoBehaviour
     public float velocidade;
     public float contadorVelocidade;
     Vector2 deslocamento;
-   
+    Renderer rend;
+
+    private void Awake()
+    {
+        rend = GetComponent<Renderer>();
+    }
+
     void Start()
     {
         
+  
     }
-
     
     void Update()
     {
         deslocamento = new Vector2 (0, Time.time * velocidade);
-        GetComponent<Renderer>().material.mainTextureOffset = deslocamento;
+        rend.material.mainTextureOffset = deslocamento;
         contadorVelocidade += 0.0001f;
         if(velocidade < 0.5f){
             velocidade += 0.0001f;
@@ -25,6 +31,6 @@ public class TowerMove : MonoBehaviour
         else if(contadorVelocidade > 0.5f && velocidade < 0.7f){
             velocidade += 0.00001f;
         }
-        Debug.Log (velocidade);
+        //Debug.Log (velocidade);
     }
 }
