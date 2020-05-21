@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class InstanciarAgarra : MonoBehaviour
 {
-    public GameObject agarrasPrefabs;
+    public GameObject[] agarrasPrefabs;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
+    public float[] positions;
 
     void Start()
     {
@@ -15,8 +16,11 @@ public class InstanciarAgarra : MonoBehaviour
     }
 
     private void spawnAgarra() {
-        GameObject a = Instantiate(agarrasPrefabs) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y * 2);
+        int rand = Random.Range(0, agarrasPrefabs.Length);
+        int randomPos = Random.Range(0, positions.Length);
+
+        GameObject a = Instantiate(agarrasPrefabs[rand]) as GameObject;
+        a.transform.position = new Vector2(positions[randomPos], screenBounds.y * 2);
     }
     IEnumerator coroutineAgarras()
     {

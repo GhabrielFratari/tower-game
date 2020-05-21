@@ -31,6 +31,5 @@ public class TowerMove : MonoBehaviour
         else if(contadorVelocidade > 0.5f && velocidade < 0.7f){
             velocidade += 0.00001f;
         }
-        //Debug.Log (velocidade);
     }
 }

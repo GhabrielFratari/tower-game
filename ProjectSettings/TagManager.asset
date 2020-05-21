@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - Background
-  - 
-  - 
-  - 
+  - "c\xE9u"
+  - torre
+  - agarras
+  - jogador
   - 
   - 
   - 
@@ -43,4 +43,16 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: "c\xE9u"
+    uniqueID: 600091469
+    locked: 0
+  - name: torre
+    uniqueID: 4232501009
+    locked: 0
+  - name: agarras
+    uniqueID: 3964580951
+    locked: 0
+  - name: jogador
+    uniqueID: 4001297599
     locked: 0
