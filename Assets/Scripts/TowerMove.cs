@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TowerMove : MonoBehaviour
 {
-    public float velocidade;
-    public float contadorVelocidade;
-    Vector2 deslocamento;
+    public float velocidade = 0.2f;
+    public float contadorVelocidade = 0f;
+    
+    public Vector2 deslocamento;
     Renderer rend;
 
     private void Awake()
@@ -16,8 +17,7 @@ public class TowerMove : MonoBehaviour
 
     void Start()
     {
-        
-  
+
     }
     
     void FixedUpdate()
