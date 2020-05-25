@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 0.2
   contadorVelocidade: 0
+  deslocamento: {x: 0, y: 0}
 --- !u!210 &128193760
 SortingGroup:
   m_ObjectHideFlags: 0

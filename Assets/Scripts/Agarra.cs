@@ -17,9 +17,9 @@ public class Agarra : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(speed);
+        //print(speed);
         rb.velocity = new Vector2(0, -speed);
-        speed += 0.0000955f;
+        speed += 0.00009555f;
         if (transform.position.y < -screenBounds.y * 4)
         {
             Destroy(this.gameObject);
