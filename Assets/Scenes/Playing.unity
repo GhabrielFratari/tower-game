@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 128193757}
   - component: {fileID: 128193756}
   - component: {fileID: 128193759}
+  - component: {fileID: 128193761}
   - component: {fileID: 128193760}
   m_Layer: 0
   m_Name: Torre
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128193755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ef8c442a2d2a8f4fa95bfa862a7a533, type: 3}
   m_Name: 
@@ -370,6 +371,20 @@ SortingGroup:
   m_SortingLayerID: -62466287
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &128193761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128193755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8ed3d3e5f9ce24eb771aa45e907da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeX: 0
+  velocidadeY: 0.2
 --- !u!850595691 &142055665
 LightingSettings:
   m_ObjectHideFlags: 0

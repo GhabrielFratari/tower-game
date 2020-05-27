@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5608750208842782654}
   - component: {fileID: 5608750208842782649}
   - component: {fileID: 5608750208842782648}
+  - component: {fileID: 2715403676072810976}
   m_Layer: 0
   m_Name: 39
   m_TagString: Untagged
@@ -92,13 +93,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608750208842782597}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4826752467462c4fa31cee4a3df458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 0.2
-  contadorVelocidade: 0
 --- !u!50 &5608750208842782649
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +135,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!114 &2715403676072810976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608750208842782597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae978474888644e489ccda4395256054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
