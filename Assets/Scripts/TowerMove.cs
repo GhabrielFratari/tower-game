@@ -26,10 +26,10 @@ public class TowerMove : MonoBehaviour
         rend.material.mainTextureOffset = deslocamento;
         contadorVelocidade += 0.00001f;
         if(velocidade < 0.5f){
-            velocidade += 0.000009f;
+            velocidade += 0.00001f;
         }
         else if(contadorVelocidade > 0.5f && velocidade < 0.7f){
-            velocidade += 0.000001f;
+            velocidade += 0.00001f;
         }
     }
 }
