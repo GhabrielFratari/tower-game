@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4760997956459225418}
   - component: {fileID: 4760997956459225419}
   - component: {fileID: 2259922943335758303}
+  - component: {fileID: 6890701672896946635}
   m_Layer: 0
   m_Name: 31
   m_TagString: Untagged
@@ -147,3 +148,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae978474888644e489ccda4395256054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!255 &6890701672896946635
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760997956459225422}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
