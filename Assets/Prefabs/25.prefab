@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 4842579051114222247}
   - component: {fileID: 4842579051114222232}
   - component: {fileID: 4842579051114222244}
-  - component: {fileID: 4842579051114222245}
   - component: {fileID: 4842579051114222246}
   - component: {fileID: 2215850583171200457}
-  - component: {fileID: -7597614315035625649}
-  m_Layer: 0
+  - component: {fileID: 2968012121986895435}
+  m_Layer: 10
   m_Name: 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,27 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4826752467462c4fa31cee4a3df458d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &4842579051114222245
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4842579051114222233}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &4842579051114222246
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,21 +126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae978474888644e489ccda4395256054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!255 &-7597614315035625649
-FixedJoint2D:
+--- !u!50 &2968012121986895435
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4842579051114222233}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

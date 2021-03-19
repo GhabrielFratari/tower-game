@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InstanciarAgarra : MonoBehaviour
 {
-    public GameObject[] agarrasPrefabs;
-    public float respawnTime = 1.0f;
+    [SerializeField] GameObject[] agarrasPrefabs;
+    [SerializeField] float respawnTime = 1.0f;
     private Vector2 screenBounds;
-    public float[] positions;
+    [SerializeField] float[] positions;
 
     void Start()
     {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TowerMove : MonoBehaviour
 {
-    public float velocidade = 0.2f;
-    public float contadorVelocidade = 0f;
+    [SerializeField] float velocidade = 0.2f;
+    [SerializeField] float contadorVelocidade = 0f;
     
-    public Vector2 deslocamento;
+    [SerializeField] Vector2 deslocamento;
     Renderer rend;
 
     private void Awake()
@@ -24,12 +24,12 @@ public class TowerMove : MonoBehaviour
     {
         deslocamento = new Vector2 (0, Time.time * velocidade);
         rend.material.mainTextureOffset = deslocamento;
-        contadorVelocidade += 0.00001f;
-        if(velocidade < 0.5f){
-            velocidade += 0.00001f;
-        }
-        else if(contadorVelocidade > 0.5f && velocidade < 0.7f){
-            velocidade += 0.00001f;
-        }
+        /* contadorVelocidade += 0.00001f;
+         if(velocidade < 0.5f){
+             velocidade += 0.00001f;
+         }
+         else if(contadorVelocidade > 0.5f && velocidade < 0.7f){
+             velocidade += 0.00001f;
+         }*/
     }
 }
