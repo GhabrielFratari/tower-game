@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 80756596}
   - component: {fileID: 80756595}
   m_Layer: 0
-  m_Name: "C\xE9u"
+  m_Name: Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,9 +889,9 @@ RectTransform:
   m_Father: {fileID: 1912657093}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -380, y: 820}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160, y: -140}
   m_SizeDelta: {x: 204, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301068504
@@ -1075,9 +1075,9 @@ RectTransform:
   m_Father: {fileID: 1912657093}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 380, y: 830}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -160, y: -130}
   m_SizeDelta: {x: 204, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559402908

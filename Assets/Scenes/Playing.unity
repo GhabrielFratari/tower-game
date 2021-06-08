@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 56917067}
   m_Layer: 0
-  m_Name: direita
+  m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156253422}
   m_Layer: 0
-  m_Name: meio
+  m_Name: mid
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472713646}
   m_Layer: 0
-  m_Name: esquerda
+  m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 590782531}
   - component: {fileID: 590782530}
   m_Layer: 11
-  m_Name: Jogador
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +850,7 @@ PrefabInstance:
     - target: {fileID: 138694568522455168, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
       propertyPath: m_Name
-      value: Torre
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 138694568522455173, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
@@ -1062,7 +1062,7 @@ PrefabInstance:
     - target: {fileID: 9027682957312379768, guid: 674fcc72d8088a448a3a529f712ba055,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.0964
+      value: 14.84
       objectReference: {fileID: 0}
     - target: {fileID: 9027682957312379768, guid: 674fcc72d8088a448a3a529f712ba055,
         type: 3}
@@ -1109,10 +1109,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027682957312379768, guid: 674fcc72d8088a448a3a529f712ba055,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.350273
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027682957312379768, guid: 674fcc72d8088a448a3a529f712ba055,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 46.76215
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027682957312379768, guid: 674fcc72d8088a448a3a529f712ba055,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0784628
+      objectReference: {fileID: 0}
     - target: {fileID: 9027682957312379773, guid: 674fcc72d8088a448a3a529f712ba055,
         type: 3}
       propertyPath: m_Name
-      value: "C\xE9u"
+      value: Sky
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674fcc72d8088a448a3a529f712ba055, type: 3}
