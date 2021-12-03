@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5489739820160983043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5489739820160983295}
+  - component: {fileID: 5489739820160983040}
+  - component: {fileID: 5489739820160983042}
+  - component: {fileID: 5489739820160983041}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5489739820160983295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489739820160983043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &5489739820160983040
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489739820160983043}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 6
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 0
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &5489739820160983042
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489739820160983043}
+  m_Enabled: 1
+--- !u!114 &5489739820160983041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489739820160983043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbe70855ea0fc9478c3dd41f0c0a343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agarrasPrefabs:
+  - {fileID: 56145000713317742, guid: a9426121241b02e4da2d713b4bcd7503, type: 3}
+  - {fileID: 4227863187761061058, guid: 075da30e80229084191ff45c8950dd55, type: 3}
+  - {fileID: 3541050403928523898, guid: a12d48b65386ff64cba9852e90cf7bc3, type: 3}
+  - {fileID: 8338871046003243498, guid: 9f1d084554c0488468e2df44969a508a, type: 3}
+  - {fileID: 2905140692164626682, guid: c13fefc65e6030e4cb7183163452fb1d, type: 3}
+  - {fileID: 914198394427269694, guid: 16629d7ead4958e41ae8d8954c219dac, type: 3}
+  - {fileID: 1693897726347011121, guid: 5e313eb6f8bb25a4a98f23c842e5ea74, type: 3}
+  - {fileID: 6209220503408368433, guid: ff5d2a970be2f6e4eb9c3ab40ac77f4e, type: 3}
+  - {fileID: 2799024454102514397, guid: 9803b37886a9cd14994695b1c1cbb14d, type: 3}
+  - {fileID: 3704802536291377377, guid: 06ec2ac9622c5eb4ebcea2151383f8d8, type: 3}
+  - {fileID: 5827088553875383515, guid: 94c37ca479a2263469a1915fb94254ac, type: 3}
+  - {fileID: 5458758027353818791, guid: febdd42eba3e87f4695765aa65c07e4c, type: 3}
+  - {fileID: 7095069702204861470, guid: 0b26daf8da4f7ad4990a126b3e116f2c, type: 3}
+  - {fileID: 1863626321357529662, guid: da1328f213714914a8f3768050e839e6, type: 3}
+  - {fileID: 5913474744153080127, guid: e8d0edbd113c49f46b9ff0f0588d438a, type: 3}
+  - {fileID: 4409626558696061544, guid: a6f1293bebb006f489fc9a683788f485, type: 3}
+  - {fileID: 251443196833659012, guid: b6ebf86c919ca8d4a87a51eb48108bfb, type: 3}
+  - {fileID: 3323096423728546476, guid: 0fbb93f1a7919a04eab860767d81efe3, type: 3}
+  - {fileID: 5250558517657821341, guid: 94511eb73daa8764b959785e3de119ee, type: 3}
+  - {fileID: 9011974644417877460, guid: 2a1a1533872202e4a9d5be5345ba34a1, type: 3}
+  - {fileID: 6852025412332246536, guid: 84a769d9a38e106438c799ec34728198, type: 3}
+  - {fileID: 920631490255065082, guid: 8ecbb9c38b940714ba24f42c4d5d9ea0, type: 3}
+  - {fileID: 4730425515469817811, guid: eb2616cb54b5a024a96148bf0416f189, type: 3}
+  - {fileID: 2255369578883068357, guid: 565c56ab97dc0ca4a8a08c66de3b571c, type: 3}
+  - {fileID: 4842579051114222233, guid: 021e91e1d78462f43acddc6db3105907, type: 3}
+  - {fileID: 3636207005946587367, guid: eccc834d9f0a5ad479d71817ef9eaac7, type: 3}
+  - {fileID: 6165453266704598046, guid: 0cbb00e4457c21a4f8864675b7a689d7, type: 3}
+  - {fileID: 2262785922793257747, guid: 830cf0b460f67ee4faa300c0c43a8599, type: 3}
+  - {fileID: 8126510865310356852, guid: f6310010abbae0c49be7958ea321b3c6, type: 3}
+  - {fileID: 3891354402383915081, guid: b7266ede1aa7e0e4793400c63c27f4c0, type: 3}
+  - {fileID: 4760997956459225422, guid: d165338a770abb3499d56af282281335, type: 3}
+  - {fileID: 4223990841470847103, guid: 25f94c8483e2c644d95cc5683898e5a5, type: 3}
+  - {fileID: 7883021498106987130, guid: 9f0b2b79c9851614e98f91130d9a3a8b, type: 3}
+  - {fileID: 4113838351681522486, guid: 923bf2986f6cc0c419acb653c92abf18, type: 3}
+  - {fileID: 8002046569862720307, guid: fe3a8ee1e7c6c874da7bbad932e14ec8, type: 3}
+  - {fileID: 4189985676375965280, guid: f7530b660d88d5d45971a57407655f4a, type: 3}
+  - {fileID: 9179430934944861304, guid: b4c96ae045a30c24ba93d6346c0d6be0, type: 3}
+  - {fileID: 294350609838573238, guid: 4c28ad1ba33881e468ad7ddb3ea7d6d0, type: 3}
+  - {fileID: 5608750208842782597, guid: f3547c50d9712aa498902d5abaf49118, type: 3}
+  - {fileID: 7571988371636216576, guid: 9117d1115fa66e54cb62ba2b20e47fdc, type: 3}
+  - {fileID: 7091178703042123564, guid: aaad6eb56fc45094ead7defd861aa89e, type: 3}
+  respawnTime: 1
+  positions:
+  - 0
+  - 1.5
+  - -1.5
