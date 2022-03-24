@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 56145000713317738, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.73
       objectReference: {fileID: 0}
     - target: {fileID: 56145000713317738, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
@@ -650,6 +650,7 @@ GameObject:
   - component: {fileID: 1663600057}
   - component: {fileID: 1663600059}
   - component: {fileID: 1663600058}
+  - component: {fileID: 1663600060}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -735,7 +736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663600053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.85, z: 0}
+  m_LocalPosition: {x: 0, y: 0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1610985190}
@@ -770,6 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385373eb80f122744b740f0e90ad74c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 10
+  handsCollider: {fileID: 1610985192}
 --- !u!50 &1663600059
 Rigidbody2D:
   serializedVersion: 4
@@ -790,7 +793,38 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &1663600060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663600053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9520ba5ed86d00346a55eda79c420463,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &138694568616561755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,7 +973,7 @@ PrefabInstance:
     - target: {fileID: 5489739820160983041, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5489739820160983041, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}

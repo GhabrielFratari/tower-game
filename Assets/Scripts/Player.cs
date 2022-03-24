@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float jumpForce;
+    [SerializeField] float jumpForce = 10;
 
-
+    [SerializeField] CapsuleCollider2D handsCollider;
     Rigidbody2D myRigidBody;
-    void Start()
+
+    private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
@@ -30,16 +37,22 @@ public class Player : MonoBehaviour
 
     }
 
+    void OnJumpUp(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            {
+                JumpUp();
+
+            }
+        }
+    }
+
     void JumpUp()
     {
-        if(myRigidBody.bodyType == RigidbodyType2D.Kinematic)
-        {
-            myRigidBody.bodyType = RigidbodyType2D.Dynamic;
-        }
-        else
-        {
-            myRigidBody.velocity += new Vector2(0f, jumpForce);
-        }
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.velocity += new Vector2(0f, jumpForce);
     }
 
 }
