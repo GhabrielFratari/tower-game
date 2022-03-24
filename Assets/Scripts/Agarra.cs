@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Agarra : MonoBehaviour
 {
-    public static float speed = 170f;
+    [SerializeField] float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
@@ -17,9 +17,7 @@ public class Agarra : MonoBehaviour
 
     void FixedUpdate()
     {
-        //print(speed);
         rb.velocity = new Vector2(0, -speed * Time.deltaTime);
-        //speed += 0.001f;
         if (transform.position.y < -screenBounds.y * 3)
         {
             Destroy(this.gameObject);
