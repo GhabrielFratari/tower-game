@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float jumpForce = 10;
+    [SerializeField] private float jumpForce = 10;
+    [SerializeField] private float xForce = 2;
 
     [SerializeField] CapsuleCollider2D handsCollider;
     Rigidbody2D myRigidBody;
@@ -43,16 +44,35 @@ public class Player : MonoBehaviour
         {
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                JumpUp();
-
+                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+                myRigidBody.velocity += new Vector2(0f, jumpForce);
             }
         }
     }
 
-    void JumpUp()
+    void OnJumpLeft(InputValue value)
     {
-        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
-        myRigidBody.velocity += new Vector2(0f, jumpForce);
+        if (value.isPressed)
+        {
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            {
+                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+                myRigidBody.velocity += new Vector2((xForce * -1), jumpForce);
+            }
+        }
     }
+
+    void OnJumpRight(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            {
+                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+                myRigidBody.velocity += new Vector2(xForce, jumpForce);
+            }
+        }
+    }
+
 
 }

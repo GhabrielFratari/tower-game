@@ -7,8 +7,24 @@
             "actions": [
                 {
                     "name": "JumpUp",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "458279f8-1eed-4e11-aaf2-0ea6557a7206",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "JumpLeft",
+                    "type": "PassThrough",
+                    "id": "a40428bb-e3ea-4702-b83b-fdfb39487f6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "JumpRight",
+                    "type": "PassThrough",
+                    "id": "25675ec8-8fd8-4dc4-831c-4b1fcb311753",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -18,11 +34,33 @@
                 {
                     "name": "",
                     "id": "25d0b818-3e90-42b1-ba71-450c136a4d4b",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "JumpUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd14f63e-8584-41e3-bb47-9a642429f954",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81d58c05-6a36-4a27-a36b-5ad6c7968bfe",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
