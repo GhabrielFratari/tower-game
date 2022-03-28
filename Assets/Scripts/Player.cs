@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         PlayerUpOnAir();
         PlayerFalling();
+        Debug.Log(myRigidBody.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour
         if (verticalSpeedNegative && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
             myAnimator.SetBool("isJumping", false);
-            myAnimator.SetBool("isUpOnAir", true);
+            myAnimator.SetBool("isFalling", true);
         }
     }
 }
