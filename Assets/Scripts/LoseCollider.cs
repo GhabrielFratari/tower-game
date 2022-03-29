@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LoseCollider : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // "pause" the game after player's death and load the game over panel (better solution than load a whole new scene)
+        if(other.tag == "Player")
+        {
+            SceneManager.LoadScene("Playing");
+        }
     }
 
 }

@@ -2,25 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agarra2 : MonoBehaviour
+public class Rock : MonoBehaviour
 {
-    public static float speed = 500;
+    [SerializeField] int points = 10;
+    [SerializeField] float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    // Start is called before the first frame update
+    bool canAddPoints = true;
+    
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.velocity = new Vector2(0, -speed * Time.deltaTime);
-        if (transform.position.y < -screenBounds.y * 4)
+        if (transform.position.y < -screenBounds.y * 3)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player" && canAddPoints)
+        {
+            FindObjectOfType<ScoreSystem>().AddToScore(points);
+            canAddPoints = false;
         }
     }
 }
