@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
+    [SerializeField] int points = 10;
     [SerializeField] float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-
-
+    bool canAddPoints = true;
+    
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -21,6 +22,15 @@ public class Rock : MonoBehaviour
         if (transform.position.y < -screenBounds.y * 3)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player" && canAddPoints)
+        {
+            FindObjectOfType<ScoreSystem>().AddToScore(points);
+            canAddPoints = false;
         }
     }
 }
