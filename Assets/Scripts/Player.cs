@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     {
         PlayerUpOnAir();
         PlayerFalling();
-        Debug.Log(myRigidBody.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
