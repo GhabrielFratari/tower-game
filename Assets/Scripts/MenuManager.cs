@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject gameOverMenuUI;
 
     public static bool gameIsPaused = false;
     void Start()
@@ -42,6 +43,12 @@ public class MenuManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+    }
+
+    public void GameOver()
+    {
+        gameOverMenuUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
 }
