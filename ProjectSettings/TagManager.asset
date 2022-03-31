@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Stone
+  - Dragon
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - stones
   - player
   - hands
-  - 
+  - dragon
   - 
   - 
   - 
@@ -56,4 +57,7 @@ TagManager:
     locked: 0
   - name: jogador
     uniqueID: 4001297599
+    locked: 0
+  - name: dragon
+    uniqueID: 1957938821
     locked: 0

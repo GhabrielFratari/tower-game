@@ -33,42 +33,15 @@ public class Player : MonoBehaviour
         {
             if (playerPosition == other.gameObject.transform.position.x && up)
             {
-                myAnimator.SetBool("isFalling", false);
-                myAnimator.SetBool("isUpOnAir", false);
-                myAnimator.SetBool("isLanding", true);
-                Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
-                myRigidBody.bodyType = RigidbodyType2D.Kinematic;
-                transform.position = new Vector2(other.gameObject.transform.position.x,
-                    other.gameObject.transform.position.y);
-                myRigidBody.velocity = otherRB.velocity;
-                up = false;
-                playerPosition = transform.position.x;
+                PlayerLanding(other);
             }
             else if (playerPosition != other.gameObject.transform.position.x)
             {
-                myAnimator.SetBool("isFalling", false);
-                myAnimator.SetBool("isUpOnAir", false);
-                myAnimator.SetBool("isLanding", true);
-                Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
-                myRigidBody.bodyType = RigidbodyType2D.Kinematic;
-                transform.position = new Vector2(other.gameObject.transform.position.x,
-                    other.gameObject.transform.position.y);
-                myRigidBody.velocity = otherRB.velocity;
-                up = false;
-                playerPosition = transform.position.x;
+                PlayerLanding(other);
             }
             else if (myRigidBody.velocity.y < Mathf.Epsilon)
             {
-                myAnimator.SetBool("isFalling", false);
-                myAnimator.SetBool("isUpOnAir", false);
-                myAnimator.SetBool("isLanding", true);
-                Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
-                myRigidBody.bodyType = RigidbodyType2D.Kinematic;
-                transform.position = new Vector2(other.gameObject.transform.position.x,
-                    other.gameObject.transform.position.y);
-                myRigidBody.velocity = otherRB.velocity;
-                up = false;
-                playerPosition = transform.position.x;
+                PlayerLanding(other);
             }
         }
 
@@ -118,6 +91,20 @@ public class Player : MonoBehaviour
                 myRigidBody.velocity += new Vector2(xForce, jumpForce);
             }
         }
+    }
+
+    void PlayerLanding(Collider2D other)
+    {
+        myAnimator.SetBool("isFalling", false);
+        myAnimator.SetBool("isUpOnAir", false);
+        myAnimator.SetBool("isLanding", true);
+        Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
+        myRigidBody.bodyType = RigidbodyType2D.Kinematic;
+        transform.position = new Vector2(other.gameObject.transform.position.x,
+            other.gameObject.transform.position.y);
+        myRigidBody.velocity = otherRB.velocity;
+        up = false;
+        playerPosition = transform.position.x;
     }
 
     void PlayerUpOnAir()
