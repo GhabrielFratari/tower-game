@@ -12,15 +12,13 @@ public class Player : MonoBehaviour
     Rigidbody2D myRigidBody;
     Animator myAnimator;
 
+    float playerPosition;
+    bool up = false;
+
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
-        
     }
 
     private void Update()
@@ -33,14 +31,18 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Stone")
         {
-            myAnimator.SetBool("isFalling", false);
-            myAnimator.SetBool("isUpOnAir", false);
-            myAnimator.SetBool("isLanding", true);
-            Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
-            myRigidBody.bodyType = RigidbodyType2D.Kinematic;
-            transform.position = new Vector2(other.gameObject.transform.position.x,
-                other.gameObject.transform.position.y);
-            myRigidBody.velocity = otherRB.velocity;
+            if (playerPosition == other.gameObject.transform.position.x && up)
+            {
+                PlayerLanding(other);
+            }
+            else if (playerPosition != other.gameObject.transform.position.x)
+            {
+                PlayerLanding(other);
+            }
+            else if (myRigidBody.velocity.y < Mathf.Epsilon)
+            {
+                PlayerLanding(other);
+            }
         }
 
     }
@@ -51,6 +53,8 @@ public class Player : MonoBehaviour
         {
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
+                playerPosition = transform.position.x;
+                up = true;
                 myAnimator.SetBool("isLanding", false);
                 myAnimator.SetBool("isJumping", true);
                 myRigidBody.bodyType = RigidbodyType2D.Dynamic;
@@ -65,6 +69,7 @@ public class Player : MonoBehaviour
         {
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
+                playerPosition = transform.position.x;
                 myAnimator.SetBool("isLanding", false);
                 myAnimator.SetBool("isJumping", true);
                 myRigidBody.bodyType = RigidbodyType2D.Dynamic;
@@ -79,12 +84,27 @@ public class Player : MonoBehaviour
         {
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
+                playerPosition = transform.position.x;
                 myAnimator.SetBool("isLanding", false);
                 myAnimator.SetBool("isJumping", true);
                 myRigidBody.bodyType = RigidbodyType2D.Dynamic;
                 myRigidBody.velocity += new Vector2(xForce, jumpForce);
             }
         }
+    }
+
+    void PlayerLanding(Collider2D other)
+    {
+        myAnimator.SetBool("isFalling", false);
+        myAnimator.SetBool("isUpOnAir", false);
+        myAnimator.SetBool("isLanding", true);
+        Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
+        myRigidBody.bodyType = RigidbodyType2D.Kinematic;
+        transform.position = new Vector2(other.gameObject.transform.position.x,
+            other.gameObject.transform.position.y);
+        myRigidBody.velocity = otherRB.velocity;
+        up = false;
+        playerPosition = transform.position.x;
     }
 
     void PlayerUpOnAir()

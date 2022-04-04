@@ -9,7 +9,7 @@ public class LoseCollider : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            SceneManager.LoadScene("Playing");
+            FindObjectOfType<MenuManager>().GameOver();
         }
     }
 
