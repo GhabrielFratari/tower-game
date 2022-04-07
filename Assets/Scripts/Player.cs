@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     float playerPosition;
     bool up = false;
+    bool isDead = false;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Stone")
+        if (other.tag == "Stone" && !isDead)
         {
             if (playerPosition == other.gameObject.transform.position.x && up)
             {
@@ -43,6 +44,12 @@ public class Player : MonoBehaviour
             {
                 PlayerLanding(other);
             }
+        }
+
+        if(other.tag == "FireBall" || other.tag == "Dragon")
+        {
+            isDead = true;
+            myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         }
 
     }
