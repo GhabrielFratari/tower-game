@@ -6,13 +6,12 @@ public class RockSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] rocksPrefabs;
     [SerializeField] float respawnTime = 1.0f;
-    private Vector2 screenBounds;
+    [SerializeField] GameObject spawningPoint;
     [SerializeField] float[] positions;
     float lastPosition = 0;
 
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(coroutineAgarras());
     }
 
@@ -26,12 +25,12 @@ public class RockSpawner : MonoBehaviour
         {
             float[] newPositions = { 0, lastPosition };
             int newRandomPos = Random.Range(0, newPositions.Length);
-            a.transform.position = new Vector2(newPositions[newRandomPos], screenBounds.y * 2);
+            a.transform.position = new Vector2(newPositions[newRandomPos], spawningPoint.transform.position.y);
             lastPosition = newPositions[newRandomPos];
         }
         else
         {
-            a.transform.position = new Vector2(positions[randomPos], screenBounds.y * 2);
+            a.transform.position = new Vector2(positions[randomPos], spawningPoint.transform.position.y);
             lastPosition = positions[randomPos];
         }
     }

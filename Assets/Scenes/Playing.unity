@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56917066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 5, z: -1.050988}
+  m_LocalPosition: {x: 1.5, y: 9.96, z: -1.050988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -238,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156253421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -1.050988}
+  m_LocalPosition: {x: 0, y: 9.96, z: -1.050988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -380,6 +380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2105451417}
   gameOverMenuUI: {fileID: 1241881178}
+  finalScoreText: {fileID: 1736022199}
+  delay: 1
 --- !u!1 &289973315
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472713645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 5, z: -1.050988}
+  m_LocalPosition: {x: -1.5, y: 9.96, z: -1.050988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2755,6 +2757,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56145000713317739, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
+      propertyPath: speed
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 56145000713317739, guid: a9426121241b02e4da2d713b4bcd7503,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -4104,7 +4111,7 @@ PrefabInstance:
     - target: {fileID: 4304519839137193591, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.02
+      value: -6.52
       objectReference: {fileID: 0}
     - target: {fileID: 4304519839137193591, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
@@ -4249,6 +4256,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5489739820160983040, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5489739820160983041, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}
       propertyPath: m_Enabled
@@ -4259,6 +4271,11 @@ PrefabInstance:
       propertyPath: respawnTime
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 5489739820160983041, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: spawningPoint
+      value: 
+      objectReference: {fileID: 156253421}
     - target: {fileID: 5489739820160983041, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}
       propertyPath: rocksPrefabs.Array.size
@@ -4528,7 +4545,7 @@ PrefabInstance:
     - target: {fileID: 5489739820160983295, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 5489739820160983295, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
         type: 3}

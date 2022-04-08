@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using CodeMonkey.Utils;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject gameOverMenuUI;
+    [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] float delay = 3f;
 
     public static bool gameIsPaused = false;
     void Start()
@@ -45,10 +49,15 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void GameOver()
+    private void GameOver()
     {
+        finalScoreText.text = "Score: " + FindObjectOfType<ScoreSystem>().GetScore().ToString();
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
+    public void GameOverDelay()
+    {
+        FunctionTimer.Create(GameOver, delay);
+    }
 }
