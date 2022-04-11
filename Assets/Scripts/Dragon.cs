@@ -9,6 +9,8 @@ public class Dragon : MonoBehaviour
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private float fireBallSpeed = 5f;
+    [SerializeField] private float dragonMoveDelay = 5f;
+
     private bool canMove = false;
     private int randomIndex;
 
@@ -33,7 +35,7 @@ public class Dragon : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
         if (transform.position == targetPosition)
         {
-            FunctionTimer.Create(CanMove, 3f);
+            FunctionTimer.Create(CanMove, dragonMoveDelay);
             canMove = false;
             Shoot();
         }
