@@ -6,13 +6,13 @@ public class RockSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] rocksPrefabs;
     [SerializeField] float respawnTime = 1.0f;
-    private Vector2 screenBounds;
+    [SerializeField] GameObject spawningPoint;
     [SerializeField] float[] positions;
     float lastPosition = 0;
-
+    int lastPositionCounter1 = 0;
+    int lastPositionCounter2 = 0;
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(coroutineAgarras());
     }
 
@@ -26,13 +26,52 @@ public class RockSpawner : MonoBehaviour
         {
             float[] newPositions = { 0, lastPosition };
             int newRandomPos = Random.Range(0, newPositions.Length);
-            a.transform.position = new Vector2(newPositions[newRandomPos], screenBounds.y * 2);
-            lastPosition = newPositions[newRandomPos];
+            Vector2 currentPosition = new Vector2(newPositions[newRandomPos], spawningPoint.transform.position.y);
+            a.transform.position = currentPosition;
+            if (lastPosition == currentPosition.x && lastPositionCounter2 < 1)
+            {
+                lastPositionCounter2++;
+                lastPosition = currentPosition.x;
+            }
+            else if(lastPosition == currentPosition.x)
+            {
+                lastPositionCounter2 = 0;
+                currentPosition = new Vector2(0, spawningPoint.transform.position.y);
+                a.transform.position = currentPosition;
+                lastPosition = 0;
+            }
+            else
+            {
+                lastPositionCounter2 = 0;
+                lastPosition = currentPosition.x;
+            }
+
+
         }
         else
         {
-            a.transform.position = new Vector2(positions[randomPos], screenBounds.y * 2);
-            lastPosition = positions[randomPos];
+            Vector2 currentPosition = new Vector2(positions[randomPos], spawningPoint.transform.position.y);
+            a.transform.position = currentPosition;
+            if (lastPosition == currentPosition.x  && lastPositionCounter1 < 1)
+            {
+                lastPositionCounter1++;
+                lastPosition = currentPosition.x;
+            }
+            else if(lastPosition == currentPosition.x)
+            {
+                lastPositionCounter1 = 0;
+                float[] newPositions = { -1.5f, 1.5f };
+                int newRandomPos = Random.Range(0, newPositions.Length);
+                currentPosition = new Vector2(newPositions[newRandomPos], spawningPoint.transform.position.y);
+                a.transform.position = currentPosition;
+                lastPosition = currentPosition.x;
+            }
+            else
+            {
+                lastPositionCounter1 = 0;
+                lastPosition = currentPosition.x;
+            }
+            
         }
     }
     IEnumerator coroutineAgarras()

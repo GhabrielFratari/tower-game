@@ -9,7 +9,7 @@ public class LoseCollider : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<MenuManager>().GameOver();
+            FindObjectOfType<MenuManager>().GameOverDelay();
         }
     }
 

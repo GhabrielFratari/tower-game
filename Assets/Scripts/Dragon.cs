@@ -6,7 +6,11 @@ using CodeMonkey.Utils;
 public class Dragon : MonoBehaviour
 {
     [SerializeField] private float[] positions;
-    [SerializeField] float moveSpeed = 1;
+    [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private GameObject fireBallPrefab;
+    [SerializeField] private float fireBallSpeed = 5f;
+    [SerializeField] private float dragonMoveDelay = 5f;
+
     private bool canMove = false;
     private int randomIndex;
 
@@ -21,6 +25,7 @@ public class Dragon : MonoBehaviour
         {
             Move();
         }
+
     }
 
     private void Move()
@@ -30,7 +35,7 @@ public class Dragon : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
         if (transform.position == targetPosition)
         {
-            FunctionTimer.Create(CanMove, 3f);
+            FunctionTimer.Create(CanMove, dragonMoveDelay);
             canMove = false;
             Shoot();
         }
@@ -45,6 +50,13 @@ public class Dragon : MonoBehaviour
 
     private void Shoot()
     {
+        GameObject instance = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
+        if(rb != null)
+        {
+            rb.velocity = transform.up * fireBallSpeed;
+        }
+   
         Debug.Log("Shooting");
     }
 

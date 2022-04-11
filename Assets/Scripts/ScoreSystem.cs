@@ -8,7 +8,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI coinsText;
 
-    int points = 0;
+    private int points = 0;
 
     private void Awake()
     {
@@ -28,5 +28,10 @@ public class ScoreSystem : MonoBehaviour
     {
         points += amount;
         DisplayScore();
+    }
+
+    public int GetScore()
+    {
+        return points;
     }
 }

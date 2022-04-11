@@ -120,8 +120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0033212304, y: -1.5102543}
-  m_Size: {x: 0.83876765, y: 2.0217688}
+  m_Offset: {x: 0.0033212304, y: -1.1858269}
+  m_Size: {x: 0.83876765, y: 1.3729141}
   m_Direction: 0
 --- !u!50 &2112215679371347585
 Rigidbody2D:
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 2112215679386889682}
   m_Layer: 12
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
