@@ -28,7 +28,7 @@ public class RockSpawner : MonoBehaviour
             int newRandomPos = Random.Range(0, newPositions.Length);
             Vector2 currentPosition = new Vector2(newPositions[newRandomPos], spawningPoint.transform.position.y);
             a.transform.position = currentPosition;
-            if (lastPosition == currentPosition.x && lastPositionCounter2 < 2)
+            if (lastPosition == currentPosition.x && lastPositionCounter2 < 1)
             {
                 lastPositionCounter2++;
                 lastPosition = currentPosition.x;
@@ -36,7 +36,6 @@ public class RockSpawner : MonoBehaviour
             else if(lastPosition == currentPosition.x)
             {
                 lastPositionCounter2 = 0;
-                lastPositionCounter2++;
                 currentPosition = new Vector2(0, spawningPoint.transform.position.y);
                 a.transform.position = currentPosition;
                 lastPosition = 0;
@@ -53,7 +52,7 @@ public class RockSpawner : MonoBehaviour
         {
             Vector2 currentPosition = new Vector2(positions[randomPos], spawningPoint.transform.position.y);
             a.transform.position = currentPosition;
-            if (lastPosition == currentPosition.x  && lastPositionCounter1 < 2)
+            if (lastPosition == currentPosition.x  && lastPositionCounter1 < 1)
             {
                 lastPositionCounter1++;
                 lastPosition = currentPosition.x;
@@ -61,7 +60,6 @@ public class RockSpawner : MonoBehaviour
             else if(lastPosition == currentPosition.x)
             {
                 lastPositionCounter1 = 0;
-                lastPositionCounter1++;
                 float[] newPositions = { -1.5f, 1.5f };
                 int newRandomPos = Random.Range(0, newPositions.Length);
                 currentPosition = new Vector2(newPositions[newRandomPos], spawningPoint.transform.position.y);
