@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
-using System;
+
 
 public class DragonSpawner : MonoBehaviour
 {
-    [SerializeField] float outOfScreenTimer = 5f;
-    [SerializeField] float onScreenTimer = 8f;
+    [SerializeField] float outOfScreenMinTime = 5f;
+    [SerializeField] float outOfScreenMaxTime = 5f;
+    [SerializeField] float onScreenMinTime = 8f;
+    [SerializeField] float onScreenMaxTime = 8f;
     [SerializeField] GameObject childObject;
     Vector2 outOfScreenPos;
     private bool dragonCanAppear = false;
@@ -15,7 +17,7 @@ public class DragonSpawner : MonoBehaviour
     void Start()
     {
         outOfScreenPos = childObject.GetComponent<Dragon>().GetOutOfScreenPos().transform.position;
-        FunctionTimer.Create(DragonCanAppear, outOfScreenTimer);
+        FunctionTimer.Create(DragonCanAppear, outOfScreenMinTime);
     }
 
     void Update()
@@ -41,7 +43,7 @@ public class DragonSpawner : MonoBehaviour
         childObject.gameObject.SetActive(true);
         childObject.GetComponent<Dragon>().CanMove();
         dragonCanAppear = false;
-        FunctionTimer.Create(DragonCanDisappear, onScreenTimer);
+        FunctionTimer.Create(DragonCanDisappear, RandomizeTimer(onScreenMinTime, onScreenMaxTime));
     }
 
     void DragonCanDisappear()
@@ -57,7 +59,14 @@ public class DragonSpawner : MonoBehaviour
         {
             childObject.gameObject.SetActive(false);
             dragonCanDisappear = false;
-            FunctionTimer.Create(DragonCanAppear, outOfScreenTimer);
+            FunctionTimer.Create(DragonCanAppear, RandomizeTimer(outOfScreenMinTime, outOfScreenMaxTime));
         }
+    }
+
+    float RandomizeTimer(float minTime, float maxTime)
+    {
+        float randomTime = Random.Range(minTime, maxTime);
+
+        return randomTime;
     }
 }

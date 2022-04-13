@@ -57,14 +57,13 @@ public class Dragon : MonoBehaviour
         {
             rb.velocity = transform.up * fireBallSpeed;
         }
-   
-        Debug.Log("Shooting");
     }
 
     public void GoOutOfScreen()
     {
+        canMove = false;
         float delta = moveSpeed * Time.deltaTime;
-        Vector2 targetPosition = new Vector2(outOfScreenPos.transform.position.x, outOfScreenPos.transform.position.y);
+        Vector3 targetPosition = new Vector3(outOfScreenPos.transform.position.x, outOfScreenPos.transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
     }
 
