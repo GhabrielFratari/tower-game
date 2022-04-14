@@ -8,7 +8,8 @@ public class Rock : MonoBehaviour
     [SerializeField] float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    bool canAddPoints = true;
+    bool canAddPoints = false;
+    bool pointsAdded = false;
     
     void Start()
     {
@@ -25,12 +26,22 @@ public class Rock : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player" && canAddPoints)
+        if(other.tag == "Player" && canAddPoints && !pointsAdded)
         {
             FindObjectOfType<ScoreSystem>().AddToScore(points);
-            canAddPoints = false;
+            pointsAdded = true;
         }
+    }
+
+    public void AddPoints()
+    {
+        canAddPoints = true;
+    }
+
+    public void MissPoints()
+    {
+        canAddPoints = false;
     }
 }

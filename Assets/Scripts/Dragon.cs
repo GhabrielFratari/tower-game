@@ -10,13 +10,14 @@ public class Dragon : MonoBehaviour
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private float fireBallSpeed = 5f;
     [SerializeField] private float dragonMoveDelay = 5f;
+    [SerializeField] GameObject outOfScreenPos; 
 
     private bool canMove = false;
     private int randomIndex;
 
     void Start()
     {
-        FunctionTimer.Create(CanMove, 2f);
+        //FunctionTimer.Create(CanMove, 2f);
     }
 
     void Update()
@@ -30,7 +31,7 @@ public class Dragon : MonoBehaviour
 
     private void Move()
     {
-        Vector3 targetPosition = new Vector3(positions[randomIndex], transform.position.y);
+        Vector3 targetPosition = new Vector3(positions[randomIndex], -6.52f);
         float delta = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
         if (transform.position == targetPosition)
@@ -42,7 +43,7 @@ public class Dragon : MonoBehaviour
 
     }
 
-    private void CanMove()
+    public void CanMove()
     {
         randomIndex = Random.Range(0, positions.Length);
         canMove = true;
@@ -56,8 +57,18 @@ public class Dragon : MonoBehaviour
         {
             rb.velocity = transform.up * fireBallSpeed;
         }
-   
-        Debug.Log("Shooting");
     }
 
+    public void GoOutOfScreen()
+    {
+        canMove = false;
+        float delta = moveSpeed * Time.deltaTime;
+        Vector3 targetPosition = new Vector3(outOfScreenPos.transform.position.x, outOfScreenPos.transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+    }
+
+    public GameObject GetOutOfScreenPos()
+    {
+        return outOfScreenPos;
+    }
 }
