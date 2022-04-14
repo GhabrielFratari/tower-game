@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     float playerPosition;
     bool up = false;
     bool isDead = false;
+    bool isOtherButtonPressed = false;
 
     private void Awake()
     {
@@ -44,6 +45,10 @@ public class Player : MonoBehaviour
             {
                 PlayerLanding(other);
             }
+            else
+            {
+                other.GetComponent<Rock>().MissPoints();
+            }
         }
 
         if(other.tag == "FireBall" || other.tag == "Dragon")
@@ -56,8 +61,9 @@ public class Player : MonoBehaviour
 
     void OnJumpUp(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !isOtherButtonPressed)
         {
+            isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 playerPosition = transform.position.x;
@@ -72,8 +78,9 @@ public class Player : MonoBehaviour
 
     void OnJumpLeft(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !isOtherButtonPressed)
         {
+            isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 playerPosition = transform.position.x;
@@ -87,8 +94,9 @@ public class Player : MonoBehaviour
 
     void OnJumpRight(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !isOtherButtonPressed)
         {
+            isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 playerPosition = transform.position.x;
@@ -102,6 +110,8 @@ public class Player : MonoBehaviour
 
     void PlayerLanding(Collider2D other)
     {
+        isOtherButtonPressed = false;
+        other.GetComponent<Rock>().AddPoints();
         myAnimator.SetBool("isFalling", false);
         myAnimator.SetBool("isUpOnAir", false);
         myAnimator.SetBool("isLanding", true);

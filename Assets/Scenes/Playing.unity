@@ -153,6 +153,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &69540807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5489739820160983043, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+    type: 3}
+  m_PrefabInstance: {fileID: 5489739820076275839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &69540808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69540807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf06138b7d41414cb13943e8606a8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 2
+  speedMultiplier: 0.0001
+  gameSpeed: 0
 --- !u!850595691 &142055665
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2804,7 +2825,7 @@ PrefabInstance:
     - target: {fileID: 56145000713317742, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
       propertyPath: m_Name
-      value: 1
+      value: Initial Rock
       objectReference: {fileID: 0}
     - target: {fileID: 56145000713317742, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
@@ -4159,6 +4180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112215679371347599, guid: b091990de6e7e2b42a217f9495223122,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}

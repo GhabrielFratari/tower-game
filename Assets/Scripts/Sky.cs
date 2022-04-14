@@ -19,8 +19,8 @@ public class Sky : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        material.mainTextureOffset += deslocamento * Time.deltaTime;
+        material.mainTextureOffset += deslocamento * Time.unscaledDeltaTime;
     }
 }
