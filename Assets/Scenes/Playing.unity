@@ -2737,26 +2737,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7199468555710913467, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317736, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.2731439
-      objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317736, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.002150178
-      objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317736, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 56145000713317738, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
       propertyPath: m_RootOrder
@@ -2812,28 +2792,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317739, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: speed
-      value: 170
-      objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317739, guid: a9426121241b02e4da2d713b4bcd7503,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 56145000713317742, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
       propertyPath: m_Name
       value: Initial Rock
       objectReference: {fileID: 0}
-    - target: {fileID: 56145000713317742, guid: a9426121241b02e4da2d713b4bcd7503,
+    - target: {fileID: 7218092177070270525, guid: a9426121241b02e4da2d713b4bcd7503,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Size
+      value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -7199468555710913467, guid: a9426121241b02e4da2d713b4bcd7503, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9426121241b02e4da2d713b4bcd7503, type: 3}
 --- !u!1 &1447127634
 GameObject:
@@ -4046,7 +4015,7 @@ PrefabInstance:
     - target: {fileID: 628086756280769199, guid: dd756b09c041a014cb1f6556a0a42429,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.79
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 628086756280769199, guid: dd756b09c041a014cb1f6556a0a42429,
         type: 3}
@@ -4097,16 +4066,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2112215679371347584, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: xForce
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347584, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: jumpForce
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347586, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
       propertyPath: m_RootOrder
@@ -4120,7 +4079,7 @@ PrefabInstance:
     - target: {fileID: 2112215679371347586, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.84
+      value: 13.38
       objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347586, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
@@ -4162,50 +4121,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347599, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347599, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b091990de6e7e2b42a217f9495223122, type: 3}
@@ -4228,24 +4147,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
-      propertyPath: fireBallSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
-        type: 3}
-      propertyPath: shootingDelay
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
-        type: 3}
       propertyPath: outOfScreenPos
       value: 
       objectReference: {fileID: 1007984103}
-    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
-        type: 3}
-      propertyPath: dragonMoveDelay
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4304519839137193591, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
       propertyPath: m_RootOrder
