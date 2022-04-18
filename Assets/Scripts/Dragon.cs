@@ -10,6 +10,7 @@ public class Dragon : MonoBehaviour
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private float fireBallSpeed = 5f;
     [SerializeField] private float dragonMoveDelay = 5f;
+    [SerializeField] private float shootingDelay = 1f;
     [SerializeField] GameObject outOfScreenPos; 
 
     private bool canMove = false;
@@ -38,7 +39,8 @@ public class Dragon : MonoBehaviour
         {
             FunctionTimer.Create(CanMove, dragonMoveDelay);
             canMove = false;
-            Shoot();
+            FunctionTimer.Create(Shoot, shootingDelay);
+            //Shoot();
         }
 
     }

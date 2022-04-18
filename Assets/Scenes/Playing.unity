@@ -3585,6 +3585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08a871b1b1840447b1d70ab2284bb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outOfScreenTime: 10
   outOfScreenMinTime: 2
   outOfScreenMaxTime: 4
   onScreenMinTime: 3
@@ -4045,7 +4046,7 @@ PrefabInstance:
     - target: {fileID: 628086756280769199, guid: dd756b09c041a014cb1f6556a0a42429,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.05
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 628086756280769199, guid: dd756b09c041a014cb1f6556a0a42429,
         type: 3}
@@ -4229,6 +4230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireBallSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
+        type: 3}
+      propertyPath: shootingDelay
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
