@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float xForce = 2;
 
     [SerializeField] CapsuleCollider2D handsCollider;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip landingSound;
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     AnimationClip jumpClip;
@@ -101,6 +103,7 @@ public class Player : MonoBehaviour
 
     void PlayerLanding(Collider2D other)
     {
+        AudioSource.PlayClipAtPoint(landingSound, Camera.main.transform.position, 0.2f);
         isOtherButtonPressed = false;
         other.GetComponent<Rock>().AddPoints();
         myAnimator.SetBool("isFalling", false);
@@ -137,6 +140,7 @@ public class Player : MonoBehaviour
 
     void PlayerJumping(float xValue)
     {
+        AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, 0.35f);
         playerPosition = transform.position.x;
         myAnimator.SetBool("isLanding", false);
         myAnimator.SetBool("isJumping", true);
