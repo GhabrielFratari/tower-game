@@ -10,14 +10,15 @@ public class Dragon : MonoBehaviour
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private float fireBallSpeed = 5f;
     [SerializeField] private float dragonMoveDelay = 5f;
-    [SerializeField] GameObject outOfScreenPos; 
+    [SerializeField] private float shootingDelay = 1f;
+    [SerializeField] private GameObject outOfScreenPos;
 
     private bool canMove = false;
     private int randomIndex;
 
     void Start()
     {
-        //FunctionTimer.Create(CanMove, 2f);
+
     }
 
     void Update()
@@ -38,7 +39,8 @@ public class Dragon : MonoBehaviour
         {
             FunctionTimer.Create(CanMove, dragonMoveDelay);
             canMove = false;
-            Shoot();
+            FunctionTimer.Create(Shoot, shootingDelay);
+            //Shoot();
         }
 
     }
@@ -51,11 +53,14 @@ public class Dragon : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject instance = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
-        Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
-        if(rb != null)
+        if (transform.position.x == 0f || transform.position.x == 1.5f || transform.position.x == -1.5f)
         {
-            rb.velocity = transform.up * fireBallSpeed;
+            GameObject instance = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = transform.up * fireBallSpeed;
+            }
         }
     }
 

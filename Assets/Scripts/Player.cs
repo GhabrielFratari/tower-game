@@ -5,22 +5,32 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [Header("Values")]
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float xForce = 2;
+    [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
 
+    [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip landingSound;
+
     Rigidbody2D myRigidBody;
     Animator myAnimator;
+    AnimationClip jumpClip;
+    AnimationEvent jumpEvent;
 
     float playerPosition;
     bool up = false;
     bool isDead = false;
     bool isOtherButtonPressed = false;
+    bool hit = false;
 
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        
     }
 
     private void Update()
@@ -53,8 +63,7 @@ public class Player : MonoBehaviour
 
         if(other.tag == "FireBall" || other.tag == "Dragon")
         {
-            isDead = true;
-            myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+            PlayerDeath();
         }
 
     }
@@ -66,12 +75,8 @@ public class Player : MonoBehaviour
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                playerPosition = transform.position.x;
                 up = true;
-                myAnimator.SetBool("isLanding", false);
-                myAnimator.SetBool("isJumping", true);
-                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
-                myRigidBody.velocity += new Vector2(0f, jumpForce);
+                PlayerJumping(0f);
             }
         }
     }
@@ -83,11 +88,7 @@ public class Player : MonoBehaviour
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                playerPosition = transform.position.x;
-                myAnimator.SetBool("isLanding", false);
-                myAnimator.SetBool("isJumping", true);
-                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
-                myRigidBody.velocity += new Vector2((xForce * -1), jumpForce);
+                PlayerJumping(-xForce);
             }
         }
     }
@@ -99,17 +100,14 @@ public class Player : MonoBehaviour
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                playerPosition = transform.position.x;
-                myAnimator.SetBool("isLanding", false);
-                myAnimator.SetBool("isJumping", true);
-                myRigidBody.bodyType = RigidbodyType2D.Dynamic;
-                myRigidBody.velocity += new Vector2(xForce, jumpForce);
+                PlayerJumping(xForce);
             }
         }
     }
 
     void PlayerLanding(Collider2D other)
     {
+        AudioSource.PlayClipAtPoint(landingSound, Camera.main.transform.position, 0.15f);
         isOtherButtonPressed = false;
         other.GetComponent<Rock>().AddPoints();
         myAnimator.SetBool("isFalling", false);
@@ -143,4 +141,39 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("isFalling", true);
         }
     }
+
+    void PlayerJumping(float xValue)
+    {
+        AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, 0.25f);
+        playerPosition = transform.position.x;
+        myAnimator.SetBool("isLanding", false);
+        myAnimator.SetBool("isJumping", true);
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.velocity += new Vector2(xValue, jumpForce);
+    }
+
+    void PlayerDeath()
+    {
+        isDead = true;
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myAnimator.SetTrigger("Dying");
+        if (myRigidBody.velocity.x > 0 && !hit)
+        {
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+        else if(myRigidBody.velocity.x < 0 && !hit)
+        {
+            deathKick.x = -deathKick.x;
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+        else if(!hit)
+        {
+            deathKick.x = 0;
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+    }
+    
 }

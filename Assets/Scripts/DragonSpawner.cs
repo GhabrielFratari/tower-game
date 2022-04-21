@@ -6,6 +6,7 @@ using CodeMonkey.Utils;
 
 public class DragonSpawner : MonoBehaviour
 {
+    [SerializeField] float outOfScreenTime = 5f;
     [SerializeField] float outOfScreenMinTime = 5f;
     [SerializeField] float outOfScreenMaxTime = 5f;
     [SerializeField] float onScreenMinTime = 8f;
@@ -17,7 +18,7 @@ public class DragonSpawner : MonoBehaviour
     void Start()
     {
         outOfScreenPos = childObject.GetComponent<Dragon>().GetOutOfScreenPos().transform.position;
-        FunctionTimer.Create(DragonCanAppear, outOfScreenMinTime);
+        FunctionTimer.Create(DragonCanAppear, outOfScreenTime);
     }
 
     void Update()
