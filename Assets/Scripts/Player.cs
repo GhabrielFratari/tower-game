@@ -5,12 +5,16 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [Header("Values")]
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float xForce = 2;
+    [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
 
+    [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
+
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     AnimationClip jumpClip;
@@ -20,6 +24,7 @@ public class Player : MonoBehaviour
     bool up = false;
     bool isDead = false;
     bool isOtherButtonPressed = false;
+    bool hit = false;
 
     private void Awake()
     {
@@ -58,8 +63,7 @@ public class Player : MonoBehaviour
 
         if(other.tag == "FireBall" || other.tag == "Dragon")
         {
-            isDead = true;
-            myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+            PlayerDeath();
         }
 
     }
@@ -103,7 +107,7 @@ public class Player : MonoBehaviour
 
     void PlayerLanding(Collider2D other)
     {
-        AudioSource.PlayClipAtPoint(landingSound, Camera.main.transform.position, 0.2f);
+        AudioSource.PlayClipAtPoint(landingSound, Camera.main.transform.position, 0.15f);
         isOtherButtonPressed = false;
         other.GetComponent<Rock>().AddPoints();
         myAnimator.SetBool("isFalling", false);
@@ -140,7 +144,7 @@ public class Player : MonoBehaviour
 
     void PlayerJumping(float xValue)
     {
-        AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, 0.35f);
+        AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, 0.25f);
         playerPosition = transform.position.x;
         myAnimator.SetBool("isLanding", false);
         myAnimator.SetBool("isJumping", true);
@@ -148,5 +152,28 @@ public class Player : MonoBehaviour
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
     }
 
+    void PlayerDeath()
+    {
+        isDead = true;
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myAnimator.SetTrigger("Dying");
+        if (myRigidBody.velocity.x > 0 && !hit)
+        {
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+        else if(myRigidBody.velocity.x < 0 && !hit)
+        {
+            deathKick.x = -deathKick.x;
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+        else if(!hit)
+        {
+            deathKick.x = 0;
+            myRigidBody.velocity = deathKick;
+            hit = true;
+        }
+    }
     
 }
