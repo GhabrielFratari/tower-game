@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] CapsuleCollider2D handsCollider;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
+    [SerializeField] ParticleSystem dustParticles;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -144,6 +145,7 @@ public class Player : MonoBehaviour
 
     void PlayerJumping(float xValue)
     {
+        PlayDustEffect();
         AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, 0.25f);
         playerPosition = transform.position.x;
         myAnimator.SetBool("isLanding", false);
@@ -175,5 +177,13 @@ public class Player : MonoBehaviour
             hit = true;
         }
     }
-    
+    void PlayDustEffect()
+    {
+        if (dustParticles != null)
+        {
+            ParticleSystem instance = Instantiate(dustParticles, transform.position, dustParticles.transform.rotation);
+            Destroy(instance.gameObject, instance.main.duration);
+        }
+    }
+
 }
