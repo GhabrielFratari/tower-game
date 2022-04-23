@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     AnimationClip jumpClip;
     AnimationEvent jumpEvent;
+    ScoreSystem scoreSystem;
 
     float playerPosition;
     bool up = false;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        
+        scoreSystem = GetComponent<ScoreSystem>();
     }
 
     private void Update()
