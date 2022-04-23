@@ -52,6 +52,7 @@ public class MenuManager : MonoBehaviour
     private void GameOver()
     {
         finalScoreText.text = "Score: " + FindObjectOfType<ScoreSystem>().GetScore().ToString();
+        GameManager.SetBestScore(FindObjectOfType<ScoreSystem>().GetScore());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
