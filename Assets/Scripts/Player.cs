@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
     [SerializeField] ParticleSystem dustParticles;
-    //[SerializeField] Shield shieldRef;
+    [SerializeField] GameObject shieldObject;
+    [SerializeField] GameObject body;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -68,6 +69,11 @@ public class Player : MonoBehaviour
         if(other.tag == "FireBall" && !shield)
         {
             PlayerDeath();
+        }
+
+        if(other.tag == "ShieldCollectable")
+        {
+            Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
         }
 
     }

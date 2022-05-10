@@ -8,6 +8,7 @@ TagManager:
   - Dragon
   - FireBall
   - Shield
+  - ShieldCollectable
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - fireball
   - shield
   - dragon
-  - 
+  - collectables
   - 
   - 
   - 
