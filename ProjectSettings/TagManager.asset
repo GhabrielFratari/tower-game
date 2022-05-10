@@ -7,6 +7,7 @@ TagManager:
   - Stone
   - Dragon
   - FireBall
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - stones
   - player
   - hands
+  - fireball
+  - shield
   - dragon
-  - 
-  - 
   - 
   - 
   - 
@@ -58,6 +59,9 @@ TagManager:
     locked: 0
   - name: jogador
     uniqueID: 4001297599
+    locked: 0
+  - name: shield
+    uniqueID: 2598347689
     locked: 0
   - name: fire ball
     uniqueID: 961431857

@@ -6,6 +6,7 @@ public class FireBall : MonoBehaviour
 {
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private ParticleSystem explosionVFX;
+    [SerializeField] private ParticleSystem shieldExplosionVFX;
 
     private Vector2 screenBounds;
     GameSpeed cameraShake;
@@ -34,6 +35,12 @@ public class FireBall : MonoBehaviour
             ShakeCamera();
             Destroy(this.gameObject);
         }
+        else if(other.tag == "Shield")
+        {
+            PlayShieldExplosionEffect();
+            ShakeCamera();
+            Destroy(this.gameObject);
+        }
     }
 
     void PlayExplosionEffect()
@@ -41,6 +48,14 @@ public class FireBall : MonoBehaviour
         if(explosionVFX != null)
         {
             ParticleSystem instance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            Destroy(instance.gameObject, instance.main.duration);
+        }
+    }
+    void PlayShieldExplosionEffect()
+    {
+        if (shieldExplosionVFX != null)
+        {
+            ParticleSystem instance = Instantiate(shieldExplosionVFX, transform.position, Quaternion.identity);
             Destroy(instance.gameObject, instance.main.duration);
         }
     }

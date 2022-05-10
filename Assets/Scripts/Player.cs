@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
     [SerializeField] ParticleSystem dustParticles;
+    //[SerializeField] Shield shieldRef;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -22,11 +23,12 @@ public class Player : MonoBehaviour
     AnimationEvent jumpEvent;
     ScoreSystem scoreSystem;
 
-    float playerPosition;
-    bool up = false;
-    bool isDead = false;
-    bool isOtherButtonPressed = false;
-    bool hit = false;
+    private float playerPosition;
+    private bool up = false;
+    private bool isDead = false;
+    private bool isOtherButtonPressed = false;
+    private bool hit = false;
+    private bool shield = false;
 
     private void Awake()
     {
@@ -63,7 +65,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(other.tag == "FireBall" || other.tag == "Dragon")
+        if(other.tag == "FireBall" && !shield)
         {
             PlayerDeath();
         }
@@ -187,4 +189,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ShieldOn()
+    {
+            shield = true;
+    }
+    public void ShieldOff()
+    {
+        shield = false;
+    }
 }
