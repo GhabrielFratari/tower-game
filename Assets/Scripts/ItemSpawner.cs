@@ -5,16 +5,68 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] powerUps;
+    [SerializeField] Transform[] positions;
 
+    [Header("Respawn Time")]
+    [SerializeField] private int minTime;
+    [SerializeField] private int maxTime;
+
+    [Header("Items Chance")]
+    [SerializeField] private float shieldChance;
+    [SerializeField] private float wingsChance;
+    [SerializeField] private float superJumpChance;
+    [SerializeField] private float magnetChance;
+    [SerializeField] private float nothingChance;
 
     void Start()
     {
-        Instantiate(powerUps[0], transform.position, Quaternion.identity);
-       
+        wingsChance = wingsChance + shieldChance;
+        superJumpChance = superJumpChance + wingsChance + shieldChance;
+        magnetChance = magnetChance + superJumpChance + wingsChance + shieldChance;
+        StartCoroutine(CoroutinePowerUps());
     }
 
-    void Update()
+    private void SpawnPowerUp()
     {
-        
+        int randomPos = Random.Range(0, positions.Length);
+        float randomNumber = Random.Range(0, 101);
+        if (randomNumber <= shieldChance)
+        {
+            //spawn shield
+            GameObject a = Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
+        }
+        else if (randomNumber <= wingsChance && randomNumber > shieldChance)
+        {
+            //spawn wings
+            GameObject a = Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity); 
+        }
+        else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
+        {
+            //spawn super jump
+            GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity); 
+        }
+        else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
+        {
+            //spawn magnet
+            GameObject a = Instantiate(powerUps[3], positions[randomPos].transform.position, Quaternion.identity);
+        }
+        else
+        {
+            //nothing happens :)
+        }
+    }
+
+
+
+    IEnumerator CoroutinePowerUps()
+    {
+        while (true)
+        {
+            int respawnTime = Random.Range(minTime, maxTime);
+            yield return new WaitForSeconds(respawnTime);
+            Debug.Log(respawnTime);
+            SpawnPowerUp();
+        }
+
     }
 }

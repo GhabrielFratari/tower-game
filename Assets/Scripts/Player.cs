@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
             PlayerDeath();
         }
 
-        if(other.tag == "ShieldCollectable")
+        if(other.tag == "ShieldCollectable" && !shield)
         {
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
         }

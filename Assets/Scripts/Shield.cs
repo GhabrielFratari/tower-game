@@ -12,7 +12,6 @@ public class Shield : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        durability = 1;
         player.ShieldOn();
     }
 

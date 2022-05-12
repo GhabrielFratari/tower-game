@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     [SerializeField] int points = 10;
-    [SerializeField] float speed = 170f;
+    [SerializeField] private float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     bool canAddPoints = false;
