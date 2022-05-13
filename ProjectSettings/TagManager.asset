@@ -9,6 +9,7 @@ TagManager:
   - FireBall
   - Shield
   - ShieldCollectable
+  - WingsCollectable
   layers:
   - Default
   - TransparentFX
@@ -60,6 +61,9 @@ TagManager:
     locked: 0
   - name: jogador
     uniqueID: 4001297599
+    locked: 0
+  - name: collectables
+    uniqueID: 1514280945
     locked: 0
   - name: shield
     uniqueID: 2598347689
