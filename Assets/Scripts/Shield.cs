@@ -8,9 +8,12 @@ public class Shield : MonoBehaviour
     [SerializeField] private AudioClip shieldSound;
     private int durability = 1;
     Player player;
+    MenuManager menuManager;
 
     void Start()
     {
+        menuManager = FindObjectOfType<MenuManager>();
+        menuManager.SpawnShieldIcon();
         player = FindObjectOfType<Player>();
         player.ShieldOn();
     }
@@ -29,6 +32,7 @@ public class Shield : MonoBehaviour
             if (durability < 1)
             {
                 FunctionTimer.Create(player.ShieldOff, 0.1f * Time.unscaledDeltaTime);
+                menuManager.DestroyShieldIcon();
                 Destroy(gameObject);
             }
         }

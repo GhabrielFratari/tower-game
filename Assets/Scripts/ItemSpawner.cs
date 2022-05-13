@@ -21,8 +21,8 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         wingsChance = wingsChance + shieldChance;
-        superJumpChance = superJumpChance + wingsChance + shieldChance;
-        magnetChance = magnetChance + superJumpChance + wingsChance + shieldChance;
+        superJumpChance = superJumpChance + wingsChance;
+        magnetChance = magnetChance + superJumpChance;
         StartCoroutine(CoroutinePowerUps());
     }
 
@@ -30,29 +30,35 @@ public class ItemSpawner : MonoBehaviour
     {
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
+        Debug.Log("Random Number is: " + randomNumber);
         if (randomNumber <= shieldChance)
         {
             //spawn shield
             GameObject a = Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
+            Debug.Log("shield");
         }
         else if (randomNumber <= wingsChance && randomNumber > shieldChance)
         {
             //spawn wings
-            GameObject a = Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity); 
+            GameObject a = Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
+            Debug.Log("wings");
         }
         else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
         {
             //spawn super jump
-            GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity); 
+            GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
+            Debug.Log("super jump");
         }
         else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
         {
             //spawn magnet
             GameObject a = Instantiate(powerUps[3], positions[randomPos].transform.position, Quaternion.identity);
+            Debug.Log("magnet");
         }
         else
         {
             //nothing happens :)
+            Debug.Log("nothing");
         }
     }
 

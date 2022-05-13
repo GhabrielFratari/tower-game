@@ -11,6 +11,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject gameOverMenuUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] float delay = 3f;
+    [SerializeField] GameObject shieldIcon;
+    [SerializeField] GameObject iconSpawner;
+
+    private GameObject icon;
 
     public static bool gameIsPaused = false;
     void Start()
@@ -61,4 +65,15 @@ public class MenuManager : MonoBehaviour
     {
         FunctionTimer.Create(GameOver, delay);
     }
+
+    public void SpawnShieldIcon()
+    {
+        icon = Instantiate(shieldIcon, iconSpawner.gameObject.transform, false);
+        //-260 Y
+    }
+    public void DestroyShieldIcon()
+    {
+        Destroy(icon);
+    }
+
 }
