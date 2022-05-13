@@ -7,6 +7,9 @@ TagManager:
   - Stone
   - Dragon
   - FireBall
+  - Shield
+  - ShieldCollectable
+  - WingsCollectable
   layers:
   - Default
   - TransparentFX
@@ -21,10 +24,10 @@ TagManager:
   - stones
   - player
   - hands
+  - fireball
+  - shield
   - dragon
-  - 
-  - 
-  - 
+  - collectables
   - 
   - 
   - 
@@ -58,6 +61,12 @@ TagManager:
     locked: 0
   - name: jogador
     uniqueID: 4001297599
+    locked: 0
+  - name: collectables
+    uniqueID: 1514280945
+    locked: 0
+  - name: shield
+    uniqueID: 2598347689
     locked: 0
   - name: fire ball
     uniqueID: 961431857

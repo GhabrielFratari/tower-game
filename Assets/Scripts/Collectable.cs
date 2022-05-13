@@ -1,16 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
-    [SerializeField] int points = 10;
     [SerializeField] private float speed = 170f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    bool canAddPoints = false;
-    bool pointsAdded = false;
-    
+
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -26,22 +24,11 @@ public class Rock : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" && canAddPoints && !pointsAdded)
+        if (other.tag == "Player")
         {
-            FindObjectOfType<ScoreSystem>().AddToScore(points);
-            pointsAdded = true;
+            Destroy(gameObject);
         }
-    }
-
-    public void AddPoints()
-    {
-        canAddPoints = true;
-    }
-
-    public void MissPoints()
-    {
-        canAddPoints = false;
     }
 }

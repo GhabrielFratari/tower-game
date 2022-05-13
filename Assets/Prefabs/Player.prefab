@@ -480,7 +480,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024546219, y: -1.4165827}
+  m_Offset: {x: 0.024546219, y: -1.48}
   m_Size: {x: 0.7886008, y: 0.5068818}
   m_Direction: 1
 --- !u!50 &2112215679371347585
@@ -524,6 +524,9 @@ MonoBehaviour:
   landingSound: {fileID: 8300000, guid: 91cf634b68672ce4fb9cf50aebef601f, type: 3}
   dustParticles: {fileID: 4288612632720660398, guid: 8b177d4b0e7090240bb26b11f4098e6b,
     type: 3}
+  shieldObject: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
+    type: 3}
+  body: {fileID: 2112215679386889695}
 --- !u!114 &2112215679371347590
 MonoBehaviour:
   m_ObjectHideFlags: 0
