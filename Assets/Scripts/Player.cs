@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float xForce = 2;
     [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] private float movingToPointSpeed = 5f;
 
     [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
@@ -16,7 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip landingSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] GameObject shieldObject;
+    [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
+    [SerializeField] Transform flyingPoint;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -30,6 +33,8 @@ public class Player : MonoBehaviour
     private bool isOtherButtonPressed = false;
     private bool hit = false;
     private bool shield = false;
+    private bool canFly = false;
+    private bool canMove = true;
 
     private void Awake()
     {
@@ -76,6 +81,12 @@ public class Player : MonoBehaviour
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
         }
 
+        if (other.tag == "WingsCollectable")
+        {
+            PlayerFlying();
+            Instantiate(wingsObject, body.gameObject.transform, false);
+        }
+
     }
 
     void OnJumpUp(InputValue value)
@@ -96,7 +107,7 @@ public class Player : MonoBehaviour
         if (value.isPressed && !isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
-            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")) || canFly)
             {
                 PlayerJumping(-xForce);
             }
@@ -108,7 +119,7 @@ public class Player : MonoBehaviour
         if (value.isPressed && !isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
-            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")) || canFly)
             {
                 PlayerJumping(xForce);
             }
@@ -162,6 +173,26 @@ public class Player : MonoBehaviour
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
     }
+    public void PlayerFlying()
+    {
+        canFly = true;
+        handsCollider.enabled = false;
+        myRigidBody.bodyType = RigidbodyType2D.Kinematic;
+        myRigidBody.velocity = new Vector2(0, 0);
+    }
+    public void MoveToFlyingPoint()
+    {
+        Vector3 targetPosition = new Vector3(flyingPoint.transform.position.x, flyingPoint.transform.position.y);
+        float delta = movingToPointSpeed * Time.deltaTime;
+        if (transform.position != targetPosition && canMove)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+        }
+        else
+        {
+            canMove = false;
+        }
+    }
 
     void PlayerDeath()
     {
@@ -197,7 +228,7 @@ public class Player : MonoBehaviour
 
     public void ShieldOn()
     {
-            shield = true;
+        shield = true;
     }
     public void ShieldOff()
     {
