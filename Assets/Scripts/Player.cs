@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
     [SerializeField] Transform flyingPoint;
+    [SerializeField] Transform flyingPointLeft;
+    [SerializeField] Transform flyingPointRight;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
     ScoreSystem scoreSystem;
 
     private float playerPosition;
+    private float gravity;
+    private Vector3 currentPosition;
     private bool up = false;
     private bool isDead = false;
     private bool isOtherButtonPressed = false;
@@ -35,18 +39,32 @@ public class Player : MonoBehaviour
     private bool shield = false;
     private bool canFly = false;
     private bool canMove = true;
+    private bool right, left = false;
 
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         scoreSystem = GetComponent<ScoreSystem>();
+        gravity = myRigidBody.gravityScale;
     }
 
     private void Update()
     {
         PlayerUpOnAir();
         PlayerFalling();
+        if (canFly)
+        {
+            if (left)
+            {
+                PlayerFlying(-1);
+            }
+            else if (right)
+            {
+                PlayerFlying(1);
+            }
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -83,10 +101,9 @@ public class Player : MonoBehaviour
 
         if (other.tag == "WingsCollectable")
         {
-            PlayerFlying();
+            PlayerCanFly();
             Instantiate(wingsObject, body.gameObject.transform, false);
         }
-
     }
 
     void OnJumpUp(InputValue value)
@@ -107,9 +124,17 @@ public class Player : MonoBehaviour
         if (value.isPressed && !isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
-            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")) || canFly)
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 PlayerJumping(-xForce);
+            }
+            else if (canFly)
+            {
+                if (transform.position.x == 0f || transform.position.x == -1.5f || transform.position.x == 1.5f)
+                {
+                    left = true;
+                }
+                isOtherButtonPressed = false;
             }
         }
     }
@@ -119,9 +144,17 @@ public class Player : MonoBehaviour
         if (value.isPressed && !isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
-            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")) || canFly)
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 PlayerJumping(xForce);
+            }
+            else if (canFly)
+            {
+                if(transform.position.x == 0f || transform.position.x == -1.5f || transform.position.x == 1.5f)
+                {
+                    right = true;
+                }
+                isOtherButtonPressed = false;
             }
         }
     }
@@ -173,11 +206,35 @@ public class Player : MonoBehaviour
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
     }
-    public void PlayerFlying()
+
+    public void PlayerFlying(int direction)
+    {
+        Vector3 targetPosition = new Vector3(flyingPointRight.position.x * direction, flyingPointRight.position.y);
+        float delta = movingToPointSpeed * Time.deltaTime;
+        if (transform.position != targetPosition)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+        }
+        else
+        {
+            if(direction == 1)
+            {
+                right = false;
+            }
+            else
+            {
+                left = false;
+            }
+        }
+    }
+
+    void PlayerCanFly()
     {
         canFly = true;
+        isOtherButtonPressed = false;
         handsCollider.enabled = false;
         myRigidBody.bodyType = RigidbodyType2D.Kinematic;
+        myRigidBody.gravityScale = 0f;
         myRigidBody.velocity = new Vector2(0, 0);
     }
     public void MoveToFlyingPoint()
@@ -198,6 +255,7 @@ public class Player : MonoBehaviour
     {
         isDead = true;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.gravityScale = gravity;
         myAnimator.SetTrigger("Dying");
         if (myRigidBody.velocity.x > 0 && !hit)
         {
@@ -233,5 +291,14 @@ public class Player : MonoBehaviour
     public void ShieldOff()
     {
         shield = false;
+    }
+
+    public void WingsOff()
+    {
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        handsCollider.enabled = true;
+        myRigidBody.gravityScale = gravity;
+        canFly = false;
+        canMove = true;
     }
 }
