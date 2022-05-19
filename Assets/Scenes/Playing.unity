@@ -4604,17 +4604,17 @@ PrefabInstance:
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: maxTime
-      value: 4
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: minTime
-      value: 3
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: wingsChance
-      value: 37
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}

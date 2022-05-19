@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float xForce = 2;
     [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] private float flyingSpeed = 5f;
     [SerializeField] private float movingToPointSpeed = 5f;
 
     [Header("References")]
@@ -37,9 +38,10 @@ public class Player : MonoBehaviour
     private bool isOtherButtonPressed = false;
     private bool hit = false;
     private bool shield = false;
+    private bool wings = false;
     private bool canFly = false;
     private bool canMove = true;
-    private bool right, left = false;
+    private bool right, left, mid = false;
 
     private void Awake()
     {
@@ -62,6 +64,10 @@ public class Player : MonoBehaviour
             else if (right)
             {
                 PlayerFlying(1);
+            }
+            else if(mid)
+            {
+                PlayerFlying(0);
             }
         }
         
@@ -99,7 +105,7 @@ public class Player : MonoBehaviour
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
         }
 
-        if (other.tag == "WingsCollectable")
+        if (other.tag == "WingsCollectable" && !isDead && !wings)
         {
             PlayerCanFly();
             Instantiate(wingsObject, body.gameObject.transform, false);
@@ -130,10 +136,15 @@ public class Player : MonoBehaviour
             }
             else if (canFly)
             {
-                if (transform.position.x == 0f || transform.position.x == -1.5f || transform.position.x == 1.5f)
+                if (transform.position.x == 0f)
                 {
                     left = true;
                 }
+                else if(transform.position.x == 1.5f)
+                {
+                    mid = true;
+                }
+
                 isOtherButtonPressed = false;
             }
         }
@@ -150,9 +161,13 @@ public class Player : MonoBehaviour
             }
             else if (canFly)
             {
-                if(transform.position.x == 0f || transform.position.x == -1.5f || transform.position.x == 1.5f)
+                if(transform.position.x == 0f)
                 {
                     right = true;
+                }
+                else if (transform.position.x == -1.5f)
+                {
+                    mid = true;
                 }
                 isOtherButtonPressed = false;
             }
@@ -210,7 +225,7 @@ public class Player : MonoBehaviour
     public void PlayerFlying(int direction)
     {
         Vector3 targetPosition = new Vector3(flyingPointRight.position.x * direction, flyingPointRight.position.y);
-        float delta = movingToPointSpeed * Time.deltaTime;
+        float delta = flyingSpeed * Time.deltaTime;
         if (transform.position != targetPosition)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
@@ -221,15 +236,21 @@ public class Player : MonoBehaviour
             {
                 right = false;
             }
-            else
+            else if(direction == -1)
             {
                 left = false;
+            }
+            else
+            {
+                mid = false;
             }
         }
     }
 
     void PlayerCanFly()
     {
+        canMove = true;
+        wings = true;
         canFly = true;
         isOtherButtonPressed = false;
         handsCollider.enabled = false;
@@ -295,10 +316,11 @@ public class Player : MonoBehaviour
 
     public void WingsOff()
     {
+        isOtherButtonPressed = false;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         handsCollider.enabled = true;
         myRigidBody.gravityScale = gravity;
         canFly = false;
-        canMove = true;
+        wings = false;
     }
 }
