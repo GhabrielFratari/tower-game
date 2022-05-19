@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float xForce = 2;
     [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] private float flyingSpeed = 5f;
+    [SerializeField] private float movingToPointSpeed = 5f;
 
     [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
@@ -16,7 +18,11 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip landingSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] GameObject shieldObject;
+    [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
+    [SerializeField] Transform flyingPoint;
+    [SerializeField] Transform flyingPointLeft;
+    [SerializeField] Transform flyingPointRight;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -25,23 +31,46 @@ public class Player : MonoBehaviour
     ScoreSystem scoreSystem;
 
     private float playerPosition;
+    private float gravity;
+    private Vector3 currentPosition;
     private bool up = false;
     private bool isDead = false;
     private bool isOtherButtonPressed = false;
     private bool hit = false;
     private bool shield = false;
+    private bool wings = false;
+    private bool canFly = false;
+    private bool canMove = true;
+    private bool right, left, mid = false;
 
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         scoreSystem = GetComponent<ScoreSystem>();
+        gravity = myRigidBody.gravityScale;
     }
 
     private void Update()
     {
         PlayerUpOnAir();
         PlayerFalling();
+        if (canFly)
+        {
+            if (left)
+            {
+                PlayerFlying(-1);
+            }
+            else if (right)
+            {
+                PlayerFlying(1);
+            }
+            else if(mid)
+            {
+                PlayerFlying(0);
+            }
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -76,6 +105,11 @@ public class Player : MonoBehaviour
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
         }
 
+        if (other.tag == "WingsCollectable" && !isDead && !wings)
+        {
+            PlayerCanFly();
+            Instantiate(wingsObject, body.gameObject.transform, false);
+        }
     }
 
     void OnJumpUp(InputValue value)
@@ -100,6 +134,19 @@ public class Player : MonoBehaviour
             {
                 PlayerJumping(-xForce);
             }
+            else if (canFly)
+            {
+                if (transform.position.x == 0f)
+                {
+                    left = true;
+                }
+                else if(transform.position.x == 1.5f)
+                {
+                    mid = true;
+                }
+
+                isOtherButtonPressed = false;
+            }
         }
     }
 
@@ -111,6 +158,18 @@ public class Player : MonoBehaviour
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 PlayerJumping(xForce);
+            }
+            else if (canFly)
+            {
+                if(transform.position.x == 0f)
+                {
+                    right = true;
+                }
+                else if (transform.position.x == -1.5f)
+                {
+                    mid = true;
+                }
+                isOtherButtonPressed = false;
             }
         }
     }
@@ -163,10 +222,61 @@ public class Player : MonoBehaviour
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
     }
 
+    public void PlayerFlying(int direction)
+    {
+        Vector3 targetPosition = new Vector3(flyingPointRight.position.x * direction, flyingPointRight.position.y);
+        float delta = flyingSpeed * Time.deltaTime;
+        if (transform.position != targetPosition)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+        }
+        else
+        {
+            if(direction == 1)
+            {
+                right = false;
+            }
+            else if(direction == -1)
+            {
+                left = false;
+            }
+            else
+            {
+                mid = false;
+            }
+        }
+    }
+
+    void PlayerCanFly()
+    {
+        canMove = true;
+        wings = true;
+        canFly = true;
+        isOtherButtonPressed = false;
+        handsCollider.enabled = false;
+        myRigidBody.bodyType = RigidbodyType2D.Kinematic;
+        myRigidBody.gravityScale = 0f;
+        myRigidBody.velocity = new Vector2(0, 0);
+    }
+    public void MoveToFlyingPoint()
+    {
+        Vector3 targetPosition = new Vector3(flyingPoint.transform.position.x, flyingPoint.transform.position.y);
+        float delta = movingToPointSpeed * Time.deltaTime;
+        if (transform.position != targetPosition && canMove)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+        }
+        else
+        {
+            canMove = false;
+        }
+    }
+
     void PlayerDeath()
     {
         isDead = true;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.gravityScale = gravity;
         myAnimator.SetTrigger("Dying");
         if (myRigidBody.velocity.x > 0 && !hit)
         {
@@ -197,10 +307,20 @@ public class Player : MonoBehaviour
 
     public void ShieldOn()
     {
-            shield = true;
+        shield = true;
     }
     public void ShieldOff()
     {
         shield = false;
+    }
+
+    public void WingsOff()
+    {
+        isOtherButtonPressed = false;
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        handsCollider.enabled = true;
+        myRigidBody.gravityScale = gravity;
+        canFly = false;
+        wings = false;
     }
 }

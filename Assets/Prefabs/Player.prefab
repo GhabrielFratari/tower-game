@@ -526,6 +526,7 @@ MonoBehaviour:
     type: 3}
   shieldObject: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
     type: 3}
+  wingsObject: {fileID: 0}
   body: {fileID: 2112215679386889695}
 --- !u!114 &2112215679371347590
 MonoBehaviour:
