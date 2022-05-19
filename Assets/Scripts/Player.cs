@@ -199,6 +199,10 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("isJumping", false);
             myAnimator.SetBool("isUpOnAir", true);
         }
+        else if (canFly)
+        {
+            myAnimator.SetTrigger("Flying");
+        }
     }
 
     void PlayerFalling()
@@ -206,7 +210,7 @@ public class Player : MonoBehaviour
         bool verticalSpeedNegative = myRigidBody.velocity.y < Mathf.Epsilon;
         if (verticalSpeedNegative && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
-            myAnimator.SetBool("isJumping", false);
+            myAnimator.SetBool("isUpOnAir", false);
             myAnimator.SetBool("isFalling", true);
         }
     }
@@ -280,17 +284,20 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Dying");
         if (myRigidBody.velocity.x > 0 && !hit)
         {
+            myRigidBody.velocity = new Vector2(0,0);
             myRigidBody.velocity = deathKick;
             hit = true;
         }
         else if(myRigidBody.velocity.x < 0 && !hit)
         {
+            myRigidBody.velocity = new Vector2(0, 0);
             deathKick.x = -deathKick.x;
             myRigidBody.velocity = deathKick;
             hit = true;
         }
         else if(!hit)
         {
+            myRigidBody.velocity = new Vector2(0, 0);
             deathKick.x = 0;
             myRigidBody.velocity = deathKick;
             hit = true;
