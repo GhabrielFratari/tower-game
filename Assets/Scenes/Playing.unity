@@ -396,6 +396,8 @@ MonoBehaviour:
   delay: 1
   shieldIcon: {fileID: 5721014486338833076, guid: 0fed95b945c6d8049a34155a701da14a,
     type: 3}
+  wingsIcon: {fileID: 5721014486338833076, guid: 66225fc24a366ed4280754e6beb9ac06,
+    type: 3}
   iconSpawner: {fileID: 2056058185}
 --- !u!82 &245645860
 AudioSource:

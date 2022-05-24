@@ -8,10 +8,12 @@ public class Wings : MonoBehaviour
     [SerializeField] private float duration;
 
     Player player;
-
+    MenuManager menuManager;
     void Start()
     {
         player = FindObjectOfType<Player>();
+        menuManager = FindObjectOfType<MenuManager>();
+        menuManager.SpawnWingsIcon();
         FunctionTimer.Create(DestroyWings, duration);
     }
 
@@ -26,4 +28,9 @@ public class Wings : MonoBehaviour
         Destroy(gameObject, 0.1f);
     }
 
+    public void SetDuration(float duration)
+    {
+        this.duration = duration;
+    }
+   
 }
