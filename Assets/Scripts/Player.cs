@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] CapsuleCollider2D handsCollider;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
+    [SerializeField] AudioClip wingsSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] GameObject shieldObject;
@@ -149,10 +150,12 @@ public class Player : MonoBehaviour
                 if (transform.position.x == 0f)
                 {
                     left = true;
+                    AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
                 }
                 else if(transform.position.x == 1.5f)
                 {
                     mid = true;
+                    AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
                 }
 
                 isOtherButtonPressed = false;
@@ -171,13 +174,15 @@ public class Player : MonoBehaviour
             }
             else if (canFly)
             {
-                if(transform.position.x == 0f)
+                if (transform.position.x == 0f)
                 {
                     right = true;
+                    AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
                 }
                 else if (transform.position.x == -1.5f)
                 {
                     mid = true;
+                    AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
                 }
                 isOtherButtonPressed = false;
             }

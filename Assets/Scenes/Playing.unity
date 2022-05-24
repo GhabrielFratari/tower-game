@@ -4042,7 +4042,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986548739}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e7e817a72c195084bb38f38939384ee1, type: 3}
@@ -4342,6 +4342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347584, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
+      propertyPath: wingsSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a8a25525fae4564e8c422fd634a2fc0, type: 3}
+    - target: {fileID: 2112215679371347584, guid: b091990de6e7e2b42a217f9495223122,
+        type: 3}
       propertyPath: flyingPoint
       value: 
       objectReference: {fileID: 1654326119}
@@ -4578,12 +4583,12 @@ PrefabInstance:
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: maxTime
-      value: 5
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: minTime
-      value: 3
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}

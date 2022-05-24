@@ -8,10 +8,12 @@ public class CollectableIcon : MonoBehaviour
     [SerializeField] private float duration;
     Slider mySlider;
     MenuManager menu;
+    Wings wings;
  
     // Start is called before the first frame update
     void Start()
     {
+        wings = FindObjectOfType<Wings>();
         menu = FindObjectOfType<MenuManager>();
         mySlider = GetComponentInChildren<Slider>();
         mySlider.maxValue = duration;
@@ -30,6 +32,7 @@ public class CollectableIcon : MonoBehaviour
 
         if(mySlider.value == 0)
         {
+            wings.DestroyWings();
             menu.DestroyWingsIcon();
         }
     }
