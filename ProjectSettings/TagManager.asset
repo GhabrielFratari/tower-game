@@ -11,6 +11,7 @@ TagManager:
   - ShieldCollectable
   - WingsCollectable
   - Columns
+  - UpCollectable
   layers:
   - Default
   - TransparentFX

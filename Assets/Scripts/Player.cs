@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 deathKick = new Vector2(10f, 10f);
     [SerializeField] private float flyingSpeed = 5f;
     [SerializeField] private float movingToPointSpeed = 5f;
+    [SerializeField] private float upForce = 10f;
 
     [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip wingsSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] ParticleSystem wingsExplosion;
+    [SerializeField] ParticleSystem superJumpFlash;
     [SerializeField] GameObject shieldObject;
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform flyingPointRight;
 
     Rigidbody2D myRigidBody;
+    CapsuleCollider2D playerCollider;
     Animator myAnimator;
     AnimationClip jumpClip;
     AnimationEvent jumpEvent;
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         scoreSystem = GetComponent<ScoreSystem>();
         gravity = myRigidBody.gravityScale;
+        playerCollider = GetComponent <CapsuleCollider2D>();
     }
 
     private void Update()
@@ -82,7 +86,7 @@ public class Player : MonoBehaviour
         
         
     }
-
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Stone" && !isDead)
@@ -120,6 +124,10 @@ public class Player : MonoBehaviour
         {
             PlayerCanFly();
             Instantiate(wingsObject, body.gameObject.transform);
+        }
+        if (other.tag == "UpCollectable" && !wings)
+        {
+            SuperJump();
         }
     }
 
@@ -219,9 +227,10 @@ public class Player : MonoBehaviour
 
     void PlayerFalling()
     {
-        bool verticalSpeedNegative = myRigidBody.velocity.y < Mathf.Epsilon;
+        bool verticalSpeedNegative = myRigidBody.velocity.y < -1f;
         if (verticalSpeedNegative && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
+            handsCollider.enabled = true;
             myAnimator.SetBool("isUpOnAir", false);
             myAnimator.SetBool("isFlying", false);
             myAnimator.SetBool("isFalling", true);
@@ -289,6 +298,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    void SuperJump()
+    {
+        PlaySuperJumpFlash();
+        handsCollider.enabled = false;
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.velocity = new Vector2(0, 0);
+        myRigidBody.AddForce(new Vector2(0, upForce), ForceMode2D.Impulse);
+    }
+
     void PlayerDeath()
     {
         isDead = true;
@@ -332,14 +350,25 @@ public class Player : MonoBehaviour
             Destroy(instance.gameObject, instance.main.duration);
         }
     }
+    void PlaySuperJumpFlash()
+    {
+        if (superJumpFlash != null)
+        {
+            ParticleSystem instance = Instantiate(superJumpFlash, transform.position, transform.rotation, body.transform);
+            Destroy(instance.gameObject, instance.main.duration);
+        }
+    }
 
     public void ShieldOn()
     {
         shield = true;
+        playerCollider.enabled = false;
     }
     public void ShieldOff()
     {
         shield = false;
+        playerCollider.enabled = true;
+
     }
 
     public void WingsOff()
