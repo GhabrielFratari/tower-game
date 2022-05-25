@@ -12,11 +12,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] float delay = 3f;
     [SerializeField] GameObject shieldIcon;
+    [SerializeField] GameObject wingsIcon;
     [SerializeField] GameObject iconSpawner;
 
-    private GameObject icon;
+    private GameObject shieldInstance;
+    private GameObject wingsInstance;
 
     public static bool gameIsPaused = false;
+    float currentTimeScale;
     void Start()
     {
         
@@ -24,12 +27,13 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        currentTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
@@ -37,7 +41,7 @@ public class MenuManager : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = currentTimeScale;
         gameIsPaused = false;
     }
 
@@ -55,6 +59,8 @@ public class MenuManager : MonoBehaviour
 
     private void GameOver()
     {
+        DestroyShieldIcon();
+        DestroyWingsIcon();
         finalScoreText.text = "Score: " + FindObjectOfType<ScoreSystem>().GetScore().ToString();
         GameManager.SetBestScore(FindObjectOfType<ScoreSystem>().GetScore());
         gameOverMenuUI.SetActive(true);
@@ -68,12 +74,20 @@ public class MenuManager : MonoBehaviour
 
     public void SpawnShieldIcon()
     {
-        icon = Instantiate(shieldIcon, iconSpawner.gameObject.transform, false);
+        shieldInstance = Instantiate(shieldIcon, iconSpawner.gameObject.transform, false);
         //-260 Y
     }
     public void DestroyShieldIcon()
     {
-        Destroy(icon);
+        if (shieldInstance != null) Destroy(shieldInstance);
     }
-
+    public void SpawnWingsIcon()
+    {
+        wingsInstance = Instantiate(wingsIcon, iconSpawner.gameObject.transform, false);
+        //-260 Y
+    }
+    public void DestroyWingsIcon()
+    {
+        if(wingsInstance != null) Destroy(wingsInstance);
+    }
 }

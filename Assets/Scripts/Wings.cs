@@ -5,14 +5,13 @@ using CodeMonkey.Utils;
 
 public class Wings : MonoBehaviour
 {
-    [SerializeField] private float duration;
-
     Player player;
-
+    MenuManager menuManager;
     void Start()
     {
         player = FindObjectOfType<Player>();
-        FunctionTimer.Create(DestroyWings, duration);
+        menuManager = FindObjectOfType<MenuManager>();
+        menuManager.SpawnWingsIcon();
     }
 
     void Update()
@@ -20,9 +19,9 @@ public class Wings : MonoBehaviour
         player.MoveToFlyingPoint();
     }
 
-    void DestroyWings()
+    public void DestroyWings()
     {
         player.WingsOff();
-        Destroy(this.gameObject, 0.1f);
+        Destroy(gameObject, 0.1f);
     }
 }

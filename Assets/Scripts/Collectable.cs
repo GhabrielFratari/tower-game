@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     [SerializeField] private float speed = 170f;
+    [SerializeField] ParticleSystem collectableVFX;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
@@ -28,7 +29,17 @@ public class Collectable : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PlayCollectableVFX();
             Destroy(gameObject);
+        }
+    }
+
+    void PlayCollectableVFX()
+    {
+        if (collectableVFX != null)
+        {
+            ParticleSystem instance = Instantiate(collectableVFX, transform.position, collectableVFX.transform.rotation);
+            Destroy(instance.gameObject, instance.main.duration);
         }
     }
 }
