@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using CodeMonkey.Utils;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
     [SerializeField] AudioClip wingsSound;
+    [SerializeField] AudioClip wingsPoofSound;
+    [SerializeField] AudioClip boingSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] ParticleSystem superJumpFlash;
@@ -47,6 +50,7 @@ public class Player : MonoBehaviour
     private bool canFly = false;
     private bool canMove = true;
     private bool right, left, mid = false;
+    private bool superJump = false;
 
     private void Awake()
     {
@@ -196,6 +200,17 @@ public class Player : MonoBehaviour
             }
         }
     }
+    void OnDrop(InputValue value)
+    {
+        if (value.isPressed && !isOtherButtonPressed)
+        {
+            isOtherButtonPressed = true;
+            if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
+            {
+                PlayerDropping();
+            }
+        }
+    }
 
     void PlayerLanding(Collider2D other)
     {
@@ -230,7 +245,8 @@ public class Player : MonoBehaviour
         bool verticalSpeedNegative = myRigidBody.velocity.y < -1f;
         if (verticalSpeedNegative && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
-            handsCollider.enabled = true;
+            //handsCollider.enabled = true;
+            //FunctionTimer.Create(EnableCollider, 0.1f);
             myAnimator.SetBool("isUpOnAir", false);
             myAnimator.SetBool("isFlying", false);
             myAnimator.SetBool("isFalling", true);
@@ -246,6 +262,14 @@ public class Player : MonoBehaviour
         myAnimator.SetBool("isJumping", true);
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
+    }
+
+    void PlayerDropping()
+    {
+        Debug.Log("Dropping!");
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        myRigidBody.velocity = new Vector2(0, -jumpForce);
+        handsCollider.enabled = false;
     }
 
     public void PlayerFlying(int direction)
@@ -300,6 +324,8 @@ public class Player : MonoBehaviour
 
     void SuperJump()
     {
+        superJump = true;
+        AudioSource.PlayClipAtPoint(boingSound, Camera.main.transform.position, 0.5f);
         PlaySuperJumpFlash();
         handsCollider.enabled = false;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
@@ -371,9 +397,14 @@ public class Player : MonoBehaviour
 
     }
 
+    void EnableCollider()
+    {
+        handsCollider.enabled = true;
+    }
     public void WingsOff()
     {
         myAnimator.SetBool("isFlying", false);
+        AudioSource.PlayClipAtPoint(wingsPoofSound, Camera.main.transform.position, 0.15f);
         PlayWingsExplosion();
         isOtherButtonPressed = false;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;

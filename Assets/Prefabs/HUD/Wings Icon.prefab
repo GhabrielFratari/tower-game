@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 9
+  wings: 1
+  shield: 0
 --- !u!1 &5721014486408107324
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 5721014486898950946}
   m_FillRect: {fileID: 5721014486828178109}
   m_HandleRect: {fileID: 5721014486898950947}

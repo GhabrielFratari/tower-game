@@ -223,7 +223,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &2083614755
 GameObject:
@@ -363,7 +363,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &2112215679371347599
 GameObject:
@@ -489,9 +489,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024546219, y: -1.48}
-  m_Size: {x: 0.7886008, y: 0.5068818}
-  m_Direction: 1
+  m_Offset: {x: 0.02914977, y: -1.1143553}
+  m_Size: {x: 0.8815917, y: 1.2381711}
+  m_Direction: 0
 --- !u!50 &2112215679371347585
 Rigidbody2D:
   serializedVersion: 4
@@ -530,10 +530,18 @@ MonoBehaviour:
   deathKick: {x: 2, y: 15}
   flyingSpeed: 5
   movingToPointSpeed: 10
+  upForce: 35
   handsCollider: {fileID: 2112215679386889682}
   jumpSound: {fileID: 8300000, guid: 95b90acf85587fc45910be027bb17100, type: 3}
   landingSound: {fileID: 8300000, guid: 91cf634b68672ce4fb9cf50aebef601f, type: 3}
+  wingsSound: {fileID: 8300000, guid: 8a8a25525fae4564e8c422fd634a2fc0, type: 3}
+  wingsPoofSound: {fileID: 8300000, guid: 71939b919754c9044b5a6162b810abaf, type: 3}
+  boingSound: {fileID: 8300000, guid: 1615eea14bedbac46a9ad2097077ac5f, type: 3}
   dustParticles: {fileID: 4288612632720660398, guid: 8b177d4b0e7090240bb26b11f4098e6b,
+    type: 3}
+  wingsExplosion: {fileID: 110233479475539863, guid: 562f7114a22cd654499bdb5444e8da04,
+    type: 3}
+  superJumpFlash: {fileID: 1007167763684377937, guid: f7548b0382f49bb409039365fa1807fc,
     type: 3}
   shieldObject: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
     type: 3}
