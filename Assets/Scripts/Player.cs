@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
     private bool canFly = false;
     private bool canMove = true;
     private bool right, left, mid = false;
-    private bool superJump = false;
+    private bool dropping = false;
+    private bool hasPowerUp = false;
 
     private void Awake()
     {
@@ -90,10 +91,17 @@ public class Player : MonoBehaviour
         
         
     }
-   
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (dropping)
+        {
+            dropping = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Stone" && !isDead)
+        if (other.tag == "Stone" && !isDead && !dropping)
         {
             if (playerPosition == other.gameObject.transform.position.x && up)
             {
@@ -119,15 +127,17 @@ public class Player : MonoBehaviour
             PlayerDeath();
         }
 
-        if(other.tag == "ShieldCollectable" && !shield)
+        if(other.tag == "ShieldCollectable" && !shield && !wings)
         {
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
+            hasPowerUp = true;
         }
 
         if (other.tag == "WingsCollectable" && !isDead && !wings)
         {
             PlayerCanFly();
             Instantiate(wingsObject, body.gameObject.transform);
+            hasPowerUp = true;
         }
         if (other.tag == "UpCollectable" && !wings)
         {
@@ -144,6 +154,10 @@ public class Player : MonoBehaviour
             {
                 up = true;
                 PlayerJumping(0f);
+            }
+            else
+            {
+                isOtherButtonPressed = false;
             }
         }
     }
@@ -163,14 +177,18 @@ public class Player : MonoBehaviour
                 {
                     left = true;
                     AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
+                    isOtherButtonPressed = false;
                 }
                 else if(transform.position.x == 1.5f)
                 {
                     mid = true;
                     AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
+                    isOtherButtonPressed = false;
                 }
-
-                isOtherButtonPressed = false;
+                else
+                {
+                    isOtherButtonPressed = false;
+                }
             }
         }
     }
@@ -190,13 +208,18 @@ public class Player : MonoBehaviour
                 {
                     right = true;
                     AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
+                    isOtherButtonPressed = false;
                 }
                 else if (transform.position.x == -1.5f)
                 {
                     mid = true;
                     AudioSource.PlayClipAtPoint(wingsSound, Camera.main.transform.position, 0.8f);
+                    isOtherButtonPressed = false;
                 }
-                isOtherButtonPressed = false;
+                else
+                {
+                    isOtherButtonPressed = false;
+                }
             }
         }
     }
@@ -208,6 +231,10 @@ public class Player : MonoBehaviour
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 PlayerDropping();
+            }
+            else
+            {
+                isOtherButtonPressed = false;
             }
         }
     }
@@ -245,8 +272,7 @@ public class Player : MonoBehaviour
         bool verticalSpeedNegative = myRigidBody.velocity.y < -1f;
         if (verticalSpeedNegative && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
-            //handsCollider.enabled = true;
-            //FunctionTimer.Create(EnableCollider, 0.1f);
+            handsCollider.enabled = true;
             myAnimator.SetBool("isUpOnAir", false);
             myAnimator.SetBool("isFlying", false);
             myAnimator.SetBool("isFalling", true);
@@ -266,10 +292,11 @@ public class Player : MonoBehaviour
 
     void PlayerDropping()
     {
+        dropping = true;
         Debug.Log("Dropping!");
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity = new Vector2(0, -jumpForce);
-        handsCollider.enabled = false;
+        isOtherButtonPressed = false;
     }
 
     public void PlayerFlying(int direction)
@@ -324,7 +351,6 @@ public class Player : MonoBehaviour
 
     void SuperJump()
     {
-        superJump = true;
         AudioSource.PlayClipAtPoint(boingSound, Camera.main.transform.position, 0.5f);
         PlaySuperJumpFlash();
         handsCollider.enabled = false;
@@ -394,6 +420,7 @@ public class Player : MonoBehaviour
     {
         shield = false;
         playerCollider.enabled = true;
+        hasPowerUp = false;
 
     }
 
@@ -412,5 +439,10 @@ public class Player : MonoBehaviour
         myRigidBody.gravityScale = gravity;
         canFly = false;
         wings = false;
+        hasPowerUp = false;
+    }
+    public bool PlayerHasPowerUp()
+    {
+        return hasPowerUp;
     }
 }
