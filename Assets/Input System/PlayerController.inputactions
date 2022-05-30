@@ -11,7 +11,8 @@
                     "id": "458279f8-1eed-4e11-aaf2-0ea6557a7206",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "JumpLeft",
@@ -19,7 +20,8 @@
                     "id": "a40428bb-e3ea-4702-b83b-fdfb39487f6f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "JumpRight",
@@ -27,7 +29,17 @@
                     "id": "25675ec8-8fd8-4dc4-831c-4b1fcb311753",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Drop",
+                    "type": "PassThrough",
+                    "id": "b96b726b-f29f-48e4-b42e-290d7880679c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -63,6 +75,17 @@
                     "action": "JumpRight",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3b804c0-ec87-4b1e-b85d-f29387d05cd1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -76,7 +99,8 @@
                     "id": "7ba22c15-52fa-4b35-ac2c-4ca93f2186f5",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Submit",
@@ -84,7 +108,8 @@
                     "id": "b463e19b-693f-442f-8a3b-fd9999d42764",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Cancel",
@@ -92,7 +117,8 @@
                     "id": "b88ed905-d4a6-47dd-9739-89857152de43",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
@@ -100,7 +126,8 @@
                     "id": "1f02a9d9-0835-4c53-a0be-101c125f7b77",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Click",
@@ -108,7 +135,8 @@
                     "id": "0b0ff8c7-5b5f-4e7f-a4d4-2d3381fa9d5e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ScrollWheel",
@@ -116,7 +144,8 @@
                     "id": "344b70d0-7828-414d-8d96-4c40b6edc558",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MiddleClick",
@@ -124,7 +153,8 @@
                     "id": "d2870c07-d1b3-408f-9a8a-9542786619b4",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightClick",
@@ -132,7 +162,8 @@
                     "id": "72256aa5-51bd-4f44-a71c-7862df345fa1",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDevicePosition",
@@ -140,7 +171,8 @@
                     "id": "7504bf56-259e-4969-9fef-8f95708c719b",
                     "expectedControlType": "Vector3",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDeviceOrientation",
@@ -148,7 +180,8 @@
                     "id": "b1dd7555-42df-4859-a9ae-a41d8b2b9ba9",
                     "expectedControlType": "Quaternion",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

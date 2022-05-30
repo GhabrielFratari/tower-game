@@ -23,6 +23,13 @@ public class Shield : MonoBehaviour
         
     }
 
+    public void DestroyShield()
+    {
+        FunctionTimer.Create(player.ShieldOff, 0.1f * Time.unscaledDeltaTime);
+        menuManager.DestroyShieldIcon();
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "FireBall")
@@ -31,9 +38,7 @@ public class Shield : MonoBehaviour
             durability--;
             if (durability < 1)
             {
-                FunctionTimer.Create(player.ShieldOff, 0.1f * Time.unscaledDeltaTime);
-                menuManager.DestroyShieldIcon();
-                Destroy(gameObject);
+                DestroyShield();
             }
         }
     }

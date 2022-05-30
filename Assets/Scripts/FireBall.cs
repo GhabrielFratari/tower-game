@@ -20,7 +20,7 @@ public class FireBall : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y > screenBounds.y * 2)
+        if (transform.position.y > screenBounds.y + 1)
         {
             Destroy(this.gameObject);
         }

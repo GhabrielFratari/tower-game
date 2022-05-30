@@ -22,6 +22,7 @@ public class Wings : MonoBehaviour
     public void DestroyWings()
     {
         player.WingsOff();
+        menuManager.DestroyWingsIcon();
         Destroy(gameObject, 0.1f);
     }
 }

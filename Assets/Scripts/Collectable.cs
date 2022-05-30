@@ -8,10 +8,12 @@ public class Collectable : MonoBehaviour
     [SerializeField] ParticleSystem collectableVFX;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
+    Player player;
 
 
     void Start()
     {
+        player = FindObjectOfType<Player>();
         rb = this.GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
@@ -27,7 +29,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !player.PlayerHasPowerUp())
         {
             PlayCollectableVFX();
             Destroy(gameObject);
