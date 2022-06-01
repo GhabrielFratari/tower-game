@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4756956418619389072}
   - component: {fileID: 4756956418619389075}
+  - component: {fileID: 8909064335861734942}
   m_Layer: 0
   m_Name: Items Spawner
   m_TagString: Untagged
@@ -27,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: 14.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUps:
   - {fileID: 9215329532252957406, guid: 0b8da403ff1cb9d44b0a2cd267f17c3c, type: 3}
-  - {fileID: 5285683708170052526, guid: 1c0b60a783aef1a41b803733b52669e7, type: 3}
+  - {fileID: 3347284573714842850, guid: 85dd56ac5e0867f49aa9b94dd7496a22, type: 3}
   - {fileID: 3213579215485483066, guid: 8a900de27fa4a5c45ade13ae1d14c294, type: 3}
   - {fileID: 494857151212740556, guid: 6e5d93bba63c74c46b8f21fc13088951, type: 3}
   positions:
@@ -53,9 +55,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   minTime: 25
-  maxTime: 45
+  maxTime: 35
   shieldChance: 17
   wingsChance: 17
   superJumpChance: 17
-  magnetChance: 19
+  magnetChance: 17
   nothingChance: 30
+--- !u!114 &8909064335861734942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756956418619389073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6134abe08e8bca040b86dbb8b4f28ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

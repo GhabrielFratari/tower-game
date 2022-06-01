@@ -30,35 +30,35 @@ public class ItemSpawner : MonoBehaviour
     {
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
-        Debug.Log("Random Number is: " + randomNumber);
+        //Debug.Log("Random Number is: " + randomNumber);
         if (randomNumber <= shieldChance)
         {
             //spawn shield
             GameObject a = Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
-            Debug.Log("shield");
+            //Debug.Log("shield");
         }
         else if (randomNumber <= wingsChance && randomNumber > shieldChance)
         {
             //spawn wings
             GameObject a = Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
-            Debug.Log("wings");
+            //Debug.Log("wings");
         }
         else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
         {
             //spawn super jump
             GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
-            Debug.Log("super jump");
+            //Debug.Log("super jump");
         }
         else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
         {
             //spawn magnet
             GameObject a = Instantiate(powerUps[3], positions[randomPos].transform.position, Quaternion.identity);
-            Debug.Log("magnet");
+            //Debug.Log("magnet");
         }
         else
         {
             //nothing happens :)
-            Debug.Log("nothing");
+            //Debug.Log("nothing");
         }
     }
 
@@ -70,7 +70,7 @@ public class ItemSpawner : MonoBehaviour
         {
             int respawnTime = Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(respawnTime);
-            Debug.Log(respawnTime);
+            //Debug.Log(respawnTime);
             SpawnPowerUp();
         }
 

@@ -12,6 +12,7 @@ TagManager:
   - WingsCollectable
   - Columns
   - UpCollectable
+  - Coin
   layers:
   - Default
   - TransparentFX

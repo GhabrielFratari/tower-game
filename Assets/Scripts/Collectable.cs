@@ -29,10 +29,15 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && !player.PlayerHasPowerUp())
+        if (other.tag == "Player" && !player.PlayerHasPowerUp() && this.tag != "Coin")
         {
             PlayCollectableVFX();
             Destroy(gameObject);
+        }
+        else if(other.tag == "Player" && this.tag == "Coin")
+        {
+            PlayCollectableVFX();
+            Destroy(gameObject, 0.1f);
         }
     }
 
