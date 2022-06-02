@@ -36,8 +36,7 @@ Transform:
 --- !u!198 &8233991672358193885
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8818079857576451260, guid: 1dda3e0abbb2d2c4fa9e3382c2bdb1ac,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8233991672358193875}
@@ -224,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 0.9622642, g: 0.931474, b: 0.748932, a: 1}
-      maxColor: {r: 0.9137255, g: 0.80790126, b: 0.16862743, a: 1}
+      maxColor: {r: 1, g: 0.8578947, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

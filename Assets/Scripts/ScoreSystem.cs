@@ -15,6 +15,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] Color gray;
 
     private int points = 0;
+    private int coins = 0;
     private bool canChangeColorRed = true;
     private bool canChangeColorGold = true;
     private bool canChangeColorBlack = true;
@@ -27,6 +28,7 @@ public class ScoreSystem : MonoBehaviour
     void Start()
     {
         DisplayScore();
+        DisplayCoins();
     }
 
     private void DisplayScore()
@@ -40,6 +42,15 @@ public class ScoreSystem : MonoBehaviour
         points += amount;
         DisplayScore();
     }
+    public void AddCoins(int amount)
+    {
+        coins += amount;
+        DisplayCoins();
+    }
+    private void DisplayCoins()
+    {
+        coinsText.text = coins.ToString();
+    }
 
     public int GetScore()
     {
@@ -48,7 +59,11 @@ public class ScoreSystem : MonoBehaviour
 
     private void ScoreEffects()
     {
-        if(points >= 500 && points < 1000 && canChangeColorRed)
+        //500 pts - FF1600 red
+        //1000 pts - DE9A18 gold
+        //3000 pts - 000000 black
+        //10000 pts - DEDEDE gray
+        if (points >= 500 && points < 1000 && canChangeColorRed)
         {
             flash.SetActive(true);
             FunctionTimer.Create(DisableFlash, 2f);
@@ -85,11 +100,6 @@ public class ScoreSystem : MonoBehaviour
         {
             flash.SetActive(false);
         }
-
-        //500 pts - FF1600 red
-        //1000 pts - DE9A18 gold
-        //3000 pts - 000000 black
-        //10000 pts - DEDEDE gray
-
     }
+    
 }

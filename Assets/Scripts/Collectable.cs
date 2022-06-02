@@ -6,13 +6,15 @@ public class Collectable : MonoBehaviour
 {
     [SerializeField] private float speed = 170f;
     [SerializeField] ParticleSystem collectableVFX;
+    [SerializeField] private int coinValue = 1;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     Player player;
-
+    ScoreSystem scoreSystem;
 
     void Start()
     {
+        scoreSystem = FindObjectOfType<ScoreSystem>();
         player = FindObjectOfType<Player>();
         rb = this.GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -37,6 +39,7 @@ public class Collectable : MonoBehaviour
         else if(other.tag == "Player" && this.tag == "Coin")
         {
             PlayCollectableVFX();
+            scoreSystem.AddCoins(coinValue);
             Destroy(gameObject, 0.1f);
         }
     }
