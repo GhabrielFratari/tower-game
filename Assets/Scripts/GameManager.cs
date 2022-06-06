@@ -15,4 +15,12 @@ public class GameManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt("bestScore");
     }
+    public static void SetCoins(int amount)
+    {
+        PlayerPrefs.SetInt("coins", GetCoins() + amount);
+    }
+    public static int GetCoins()
+    {
+        return PlayerPrefs.GetInt("coins");
+    }
 }

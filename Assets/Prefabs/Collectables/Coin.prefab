@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7376924921109333888}
   - component: {fileID: 569199904920432957}
   - component: {fileID: 6674428453538350979}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   speed: 170
   collectableVFX: {fileID: 8233991672358193885, guid: 54d6a5b7b29900243b0298ba260648f7,
     type: 3}
+  coinValue: 1
 --- !u!50 &569199904920432957
 Rigidbody2D:
   serializedVersion: 4

@@ -63,6 +63,7 @@ public class MenuManager : MonoBehaviour
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + FindObjectOfType<ScoreSystem>().GetScore().ToString();
         GameManager.SetBestScore(FindObjectOfType<ScoreSystem>().GetScore());
+        GameManager.SetCoins(FindObjectOfType<ScoreSystem>().GetCoins());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }

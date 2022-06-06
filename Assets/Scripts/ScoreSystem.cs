@@ -52,6 +52,11 @@ public class ScoreSystem : MonoBehaviour
         coinsText.text = coins.ToString();
     }
 
+    public int GetCoins()
+    {
+        return coins;
+    }
+
     public int GetScore()
     {
         return points;

@@ -49,12 +49,12 @@ public class ItemSpawner : MonoBehaviour
             GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
             //Debug.Log("super jump");
         }
-        else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
+        /*else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
         {
             //spawn magnet
             GameObject a = Instantiate(powerUps[3], positions[randomPos].transform.position, Quaternion.identity);
             //Debug.Log("magnet");
-        }
+        }*/
         else
         {
             //nothing happens :)

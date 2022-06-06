@@ -36,7 +36,7 @@ public class Collectable : MonoBehaviour
             PlayCollectableVFX();
             Destroy(gameObject);
         }
-        else if(other.tag == "Player" && this.tag == "Coin")
+        else if((other.tag == "Player" || other.tag == "Shield") && this.tag == "Coin")
         {
             PlayCollectableVFX();
             scoreSystem.AddCoins(coinValue);
