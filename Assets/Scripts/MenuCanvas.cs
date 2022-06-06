@@ -6,6 +6,7 @@ using TMPro;
 public class MenuCanvas : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] TextMeshProUGUI coinsText;
     private void Awake()
     {
         
@@ -13,6 +14,7 @@ public class MenuCanvas : MonoBehaviour
     void Start()
     {
         bestScoreText.text = "Best Score: " + GameManager.GetBestScore();
+        coinsText.text = "Coins: " + GameManager.GetCoins();
 
     }
 

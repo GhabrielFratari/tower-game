@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip wingsSound;
     [SerializeField] AudioClip wingsPoofSound;
     [SerializeField] AudioClip boingSound;
+    [SerializeField] AudioClip coinSound;
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] ParticleSystem superJumpFlash;
@@ -141,7 +142,11 @@ public class Player : MonoBehaviour
         }
         if (other.tag == "UpCollectable" && !wings)
         {
-            SuperJump();
+            SuperJump(other);
+        }
+        if(other.tag == "Coin")
+        {
+            AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, 0.4f);
         }
     }
 
@@ -349,8 +354,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void SuperJump()
+    void SuperJump(Collider2D other)
     {
+        transform.position = new Vector2(other.transform.position.x, transform.position.y);
         AudioSource.PlayClipAtPoint(boingSound, Camera.main.transform.position, 0.5f);
         PlaySuperJumpFlash();
         handsCollider.enabled = false;

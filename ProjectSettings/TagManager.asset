@@ -12,6 +12,7 @@ TagManager:
   - WingsCollectable
   - Columns
   - UpCollectable
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - shield
   - dragon
   - collectables
-  - 
+  - coins
   - 
   - 
   - 
