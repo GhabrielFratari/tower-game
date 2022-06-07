@@ -150,9 +150,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnJumpUp(InputValue value)
+    public void JumpUp()
     {
-        if (value.isPressed && !isOtherButtonPressed)
+        if (!isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
@@ -167,9 +167,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnJumpLeft(InputValue value)
+    public void JumpLeft()
     {
-        if (value.isPressed && !isOtherButtonPressed)
+        if (!isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
@@ -198,9 +198,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnJumpRight(InputValue value)
+    public void JumpRight()
     {
-        if (value.isPressed && !isOtherButtonPressed)
+        if (!isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
@@ -228,9 +228,9 @@ public class Player : MonoBehaviour
             }
         }
     }
-    void OnDrop(InputValue value)
+    public void Drop()
     {
-        if (value.isPressed && !isOtherButtonPressed)
+        if (!isOtherButtonPressed)
         {
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))

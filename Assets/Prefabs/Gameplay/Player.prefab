@@ -535,8 +535,9 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 95b90acf85587fc45910be027bb17100, type: 3}
   landingSound: {fileID: 8300000, guid: 91cf634b68672ce4fb9cf50aebef601f, type: 3}
   wingsSound: {fileID: 8300000, guid: 8a8a25525fae4564e8c422fd634a2fc0, type: 3}
-  wingsPoofSound: {fileID: 8300000, guid: 71939b919754c9044b5a6162b810abaf, type: 3}
+  wingsPoofSound: {fileID: 8300000, guid: 6d47d774cebd8914bb9332b0ddf83472, type: 3}
   boingSound: {fileID: 8300000, guid: 1615eea14bedbac46a9ad2097077ac5f, type: 3}
+  coinSound: {fileID: 8300000, guid: 00a6c0eca4e339d4d9777182298b9a24, type: 3}
   dustParticles: {fileID: 4288612632720660398, guid: 8b177d4b0e7090240bb26b11f4098e6b,
     type: 3}
   wingsExplosion: {fileID: 110233479475539863, guid: 562f7114a22cd654499bdb5444e8da04,
@@ -754,7 +755,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -293669697
   m_SortingLayer: 4
-  m_SortingOrder: 13
+  m_SortingOrder: 0
   m_Sprite: {fileID: 8020143640844766479, guid: 1d1e4f08e596a274c8a0c880d4ed5f07,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -781,5 +782,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00364412, y: 1.4095093}
-  m_Size: {x: 0.73430735, y: 0.45077568}
+  m_Size: {x: 1.18, y: 0.45077568}
   m_Direction: 1
