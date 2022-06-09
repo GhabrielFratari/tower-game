@@ -15,10 +15,13 @@ public class Dragon : MonoBehaviour
 
     private bool canMove = false;
     private int randomIndex;
+    Vector3 moveTotargetPosition;
+    Vector3 outOfScreenTarget;
+    Transform myTransform;
 
-    void Start()
+    void Awake()
     {
-
+        myTransform = transform;
     }
 
     void Update()
@@ -32,10 +35,10 @@ public class Dragon : MonoBehaviour
 
     private void Move()
     {
-        Vector3 targetPosition = new Vector3(positions[randomIndex], -6.52f);
+        moveTotargetPosition = new Vector3(positions[randomIndex], -6.52f);
         float delta = moveSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
-        if (transform.position == targetPosition)
+        myTransform.position = Vector2.MoveTowards(myTransform.position, moveTotargetPosition, delta);
+        if (myTransform.position == moveTotargetPosition)
         {
             FunctionTimer.Create(CanMove, dragonMoveDelay);
             canMove = false;
@@ -53,9 +56,9 @@ public class Dragon : MonoBehaviour
 
     private void Shoot()
     {
-        if (transform.position.x == 0f || transform.position.x == 1.5f || transform.position.x == -1.5f)
+        if (myTransform.position.x == 0f || myTransform.position.x == 1.5f || myTransform.position.x == -1.5f)
         {
-            GameObject instance = Instantiate(fireBallPrefab, transform.position, Quaternion.identity);
+            GameObject instance = Instantiate(fireBallPrefab, myTransform.position, Quaternion.identity);
             Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -68,8 +71,8 @@ public class Dragon : MonoBehaviour
     {
         canMove = false;
         float delta = moveSpeed * Time.deltaTime;
-        Vector3 targetPosition = new Vector3(outOfScreenPos.transform.position.x, outOfScreenPos.transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
+        outOfScreenTarget = new Vector3(outOfScreenPos.transform.position.x, outOfScreenPos.transform.position.y);
+        myTransform.position = Vector2.MoveTowards(myTransform.position, outOfScreenTarget, delta);
     }
 
     public GameObject GetOutOfScreenPos()

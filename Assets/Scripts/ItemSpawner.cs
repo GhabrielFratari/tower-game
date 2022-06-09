@@ -34,19 +34,19 @@ public class ItemSpawner : MonoBehaviour
         if (randomNumber <= shieldChance)
         {
             //spawn shield
-            GameObject a = Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
+            Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
             //Debug.Log("shield");
         }
         else if (randomNumber <= wingsChance && randomNumber > shieldChance)
         {
             //spawn wings
-            GameObject a = Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
+            Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
             //Debug.Log("wings");
         }
         else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
         {
             //spawn super jump
-            GameObject a = Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
+            Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
             //Debug.Log("super jump");
         }
         /*else if (randomNumber <= magnetChance && randomNumber > superJumpChance)

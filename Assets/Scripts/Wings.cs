@@ -7,10 +7,13 @@ public class Wings : MonoBehaviour
 {
     Player player;
     MenuManager menuManager;
-    void Start()
+    private void Awake()
     {
         player = FindObjectOfType<Player>();
         menuManager = FindObjectOfType<MenuManager>();
+    }
+    void Start()
+    {
         menuManager.SpawnWingsIcon();
     }
 

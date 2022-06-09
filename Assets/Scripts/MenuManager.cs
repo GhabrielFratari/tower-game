@@ -17,17 +17,13 @@ public class MenuManager : MonoBehaviour
 
     private GameObject shieldInstance;
     private GameObject wingsInstance;
+    ScoreSystem scoreSystem;
 
     public static bool gameIsPaused = false;
     float currentTimeScale;
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    void Update()
-    {
-
+        scoreSystem = FindObjectOfType<ScoreSystem>();
     }
 
     public void Pause()
@@ -61,9 +57,9 @@ public class MenuManager : MonoBehaviour
     {
         DestroyShieldIcon();
         DestroyWingsIcon();
-        finalScoreText.text = "Score: " + FindObjectOfType<ScoreSystem>().GetScore().ToString();
-        GameManager.SetBestScore(FindObjectOfType<ScoreSystem>().GetScore());
-        GameManager.SetCoins(FindObjectOfType<ScoreSystem>().GetCoins());
+        finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
+        GameManager.SetBestScore(scoreSystem.GetScore());
+        GameManager.SetCoins(scoreSystem.GetCoins());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
