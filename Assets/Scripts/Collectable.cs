@@ -11,9 +11,11 @@ public class Collectable : MonoBehaviour
     private Vector2 screenBounds;
     Player player;
     ScoreSystem scoreSystem;
+    Transform myTransform;
 
-    void Start()
+    void Awake()
     {
+        myTransform = transform;
         scoreSystem = FindObjectOfType<ScoreSystem>();
         player = FindObjectOfType<Player>();
         rb = this.GetComponent<Rigidbody2D>();
@@ -23,7 +25,7 @@ public class Collectable : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(0, -speed * Time.deltaTime);
-        if (transform.position.y < -screenBounds.y * 3)
+        if (myTransform.position.y < -screenBounds.y * 3)
         {
             Destroy(this.gameObject);
         }
@@ -48,7 +50,7 @@ public class Collectable : MonoBehaviour
     {
         if (collectableVFX != null)
         {
-            ParticleSystem instance = Instantiate(collectableVFX, transform.position, collectableVFX.transform.rotation);
+            ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
             Destroy(instance.gameObject, instance.main.duration);
         }
     }

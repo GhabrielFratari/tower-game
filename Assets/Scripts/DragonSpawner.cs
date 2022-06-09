@@ -13,11 +13,16 @@ public class DragonSpawner : MonoBehaviour
     [SerializeField] float onScreenMaxTime = 8f;
     [SerializeField] GameObject childObject;
     Vector2 outOfScreenPos;
+    Dragon dragon;
     private bool dragonCanAppear = false;
     private bool dragonCanDisappear = false;
-    void Start()
+    private void Awake()
     {
         outOfScreenPos = childObject.GetComponent<Dragon>().GetOutOfScreenPos().transform.position;
+        dragon = childObject.GetComponent<Dragon>();
+    }
+    void Start()
+    {
         FunctionTimer.Create(DragonCanAppear, outOfScreenTime);
     }
 
@@ -42,7 +47,7 @@ public class DragonSpawner : MonoBehaviour
     void DragonAppear()
     {
         childObject.gameObject.SetActive(true);
-        childObject.GetComponent<Dragon>().CanMove();
+        dragon.CanMove();
         dragonCanAppear = false;
         FunctionTimer.Create(DragonCanDisappear, RandomizeTimer(onScreenMinTime, onScreenMaxTime));
     }
@@ -54,7 +59,7 @@ public class DragonSpawner : MonoBehaviour
 
     void DragonDisappear()
     {
-        childObject.GetComponent<Dragon>().GoOutOfScreen();
+        dragon.GoOutOfScreen();
 
         if (childObject.gameObject.transform.position.y == outOfScreenPos.y)
         {

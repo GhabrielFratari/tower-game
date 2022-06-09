@@ -14,12 +14,6 @@ public class CoinSpawner : MonoBehaviour
         StartCoroutine(CoroutineCoins());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SpawnCoins()
     {
         Debug.Log("Spawning coin... maybe not!");

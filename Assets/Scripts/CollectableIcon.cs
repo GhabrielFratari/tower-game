@@ -12,7 +12,7 @@ public class CollectableIcon : MonoBehaviour
     [SerializeField] bool wings, shield;
  
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (wings)
         {

@@ -9,18 +9,18 @@ public class Shield : MonoBehaviour
     private int durability = 1;
     Player player;
     MenuManager menuManager;
-
-    void Start()
+    Camera mainCam;
+    private void Awake()
     {
         menuManager = FindObjectOfType<MenuManager>();
-        menuManager.SpawnShieldIcon();
         player = FindObjectOfType<Player>();
-        player.ShieldOn();
+        mainCam = Camera.main;
     }
-
-    void Update()
+    void Start()
     {
         
+        menuManager.SpawnShieldIcon();
+        player.ShieldOn();
     }
 
     public void DestroyShield()
@@ -34,7 +34,7 @@ public class Shield : MonoBehaviour
     {
         if(other.gameObject.tag == "FireBall")
         {
-            AudioSource.PlayClipAtPoint(shieldSound, Camera.main.transform.position, 2f);
+            AudioSource.PlayClipAtPoint(shieldSound, mainCam.transform.position, 2f);
             durability--;
             if (durability < 1)
             {

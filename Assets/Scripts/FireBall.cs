@@ -9,18 +9,22 @@ public class FireBall : MonoBehaviour
     [SerializeField] private ParticleSystem shieldExplosionVFX;
 
     private Vector2 screenBounds;
+    private Camera mainCam;
     GameSpeed cameraShake;
+    Transform myTransform;
 
 
-    void Start()
+    void Awake()
     {
+        myTransform = transform;
+        mainCam = Camera.main;
         cameraShake = Camera.main.GetComponent<GameSpeed>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     void Update()
     {
-        if (transform.position.y > screenBounds.y + 1)
+        if (myTransform.position.y > screenBounds.y + 1)
         {
             Destroy(this.gameObject);
         }
@@ -31,7 +35,7 @@ public class FireBall : MonoBehaviour
         if(other.tag == "Player")
         {
             PlayExplosionEffect();
-            AudioSource.PlayClipAtPoint(explosionSound, Camera.main.transform.position, 0.2f);
+            AudioSource.PlayClipAtPoint(explosionSound, mainCam.transform.position, 0.2f);
             ShakeCamera();
             Destroy(this.gameObject);
         }
@@ -47,7 +51,7 @@ public class FireBall : MonoBehaviour
     {
         if(explosionVFX != null)
         {
-            ParticleSystem instance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            ParticleSystem instance = Instantiate(explosionVFX, myTransform.position, Quaternion.identity);
             Destroy(instance.gameObject, instance.main.duration);
         }
     }
@@ -55,7 +59,7 @@ public class FireBall : MonoBehaviour
     {
         if (shieldExplosionVFX != null)
         {
-            ParticleSystem instance = Instantiate(shieldExplosionVFX, transform.position, Quaternion.identity);
+            ParticleSystem instance = Instantiate(shieldExplosionVFX, myTransform.position, Quaternion.identity);
             Destroy(instance.gameObject, instance.main.duration);
         }
     }

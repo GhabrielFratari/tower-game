@@ -14,11 +14,12 @@ public class GameSpeed : MonoBehaviour
     [SerializeField] float shakeMagnitude = 0.5f;
 
     Vector3 initialPosition;
-    void Start()
+    Transform myTransform;
+    private void Awake()
     {
+        myTransform = transform;
         initialPosition = transform.position;
     }
-
     void FixedUpdate()
     {
         IncreaseSpeed();
@@ -43,10 +44,10 @@ public class GameSpeed : MonoBehaviour
         float elapsedTime = 0;
         while(elapsedTime < shakeDuration)
         {
-            transform.position = initialPosition + (Vector3)Random.insideUnitCircle * shakeMagnitude;
+            myTransform.position = initialPosition + (Vector3)Random.insideUnitCircle * shakeMagnitude;
             elapsedTime += Time.unscaledDeltaTime;
             yield return new WaitForEndOfFrame();
         }
-        transform.position = initialPosition;
+        myTransform.position = initialPosition;
     }
 }

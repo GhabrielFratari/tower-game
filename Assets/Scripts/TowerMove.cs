@@ -14,11 +14,6 @@ public class TowerMove : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
     }
-
-    void Start()
-    {
-
-    }
     
     void FixedUpdate()
     {

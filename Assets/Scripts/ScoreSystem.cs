@@ -20,16 +20,19 @@ public class ScoreSystem : MonoBehaviour
     private bool canChangeColorGold = true;
     private bool canChangeColorBlack = true;
     private bool canChangeColorGray = true;
+    Camera mainCamera;
 
     private void Awake()
     {
-        
+        mainCamera = Camera.main;
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
         DisplayScore();
         DisplayCoins();
     }
+    
 
     private void DisplayScore()
     {
@@ -73,7 +76,7 @@ public class ScoreSystem : MonoBehaviour
             flash.SetActive(true);
             FunctionTimer.Create(DisableFlash, 2f);
             scoreText.color = red;
-            AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(scoreSound, mainCamera.transform.position, 0.5f);
             canChangeColorRed = false;
         }
         else if (points >= 1000 && points < 3000 && canChangeColorGold)
@@ -81,7 +84,7 @@ public class ScoreSystem : MonoBehaviour
             flash.SetActive(true);
             FunctionTimer.Create(DisableFlash, 2f);
             scoreText.color = gold;
-            AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(scoreSound, mainCamera.transform.position, 0.5f);
             canChangeColorGold = false;
         }
         else if(points >= 3000 && points < 10000 && canChangeColorBlack)
@@ -89,7 +92,7 @@ public class ScoreSystem : MonoBehaviour
             flash.SetActive(true);
             FunctionTimer.Create(DisableFlash, 2f);
             scoreText.color = Color.black;
-            AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(scoreSound, mainCamera.transform.position, 0.5f);
             canChangeColorBlack = false;
         }
         else if (points >= 10000 && canChangeColorGray)
@@ -97,7 +100,7 @@ public class ScoreSystem : MonoBehaviour
             flash.SetActive(true);
             FunctionTimer.Create(DisableFlash, 2f);
             scoreText.color = gray;
-            AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(scoreSound, mainCamera.transform.position, 0.5f);
             canChangeColorGray = false;
         }
 

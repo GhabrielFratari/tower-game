@@ -6,13 +6,17 @@ public class Rock : MonoBehaviour
 {
     [SerializeField] int points = 10;
     [SerializeField] private float speed = 170f;
+    ScoreSystem scoreSystem;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     bool canAddPoints = false;
     bool pointsAdded = false;
+    Transform myTransform;
     
-    void Start()
+    void Awake()
     {
+        myTransform = transform;
+        scoreSystem = FindObjectOfType<ScoreSystem>();
         rb = this.GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
@@ -20,7 +24,7 @@ public class Rock : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(0, -speed * Time.deltaTime);
-        if (transform.position.y < -screenBounds.y * 3)
+        if (myTransform.position.y < -screenBounds.y - 3)
         {
             Destroy(this.gameObject);
         }
@@ -30,7 +34,7 @@ public class Rock : MonoBehaviour
     {
         if(other.tag == "Player" && canAddPoints && !pointsAdded)
         {
-            FindObjectOfType<ScoreSystem>().AddToScore(points);
+            scoreSystem.AddToScore(points);
             pointsAdded = true;
         }
     }
