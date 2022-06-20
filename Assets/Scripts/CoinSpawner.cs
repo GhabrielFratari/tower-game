@@ -8,7 +8,6 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] Transform[] positions;
     [SerializeField] private int respawnTime;
     [SerializeField] private float coinChance;
-
     void Start()
     {
         StartCoroutine(CoroutineCoins());
