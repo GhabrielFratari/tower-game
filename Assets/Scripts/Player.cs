@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        scoreSystem = GetComponent<ScoreSystem>();
+        scoreSystem = FindObjectOfType<ScoreSystem>();
         gravity = myRigidBody.gravityScale;
         playerCollider = GetComponent <CapsuleCollider2D>();
         mainCam = Camera.main;
@@ -148,6 +148,7 @@ public class Player : MonoBehaviour
         }
         if (other.tag == "UpCollectable" && !wings)
         {
+            scoreSystem.AddToScore(50);
             SuperJump(other);
         }
         if(other.tag == "Coin")
@@ -345,6 +346,7 @@ public class Player : MonoBehaviour
         myRigidBody.bodyType = RigidbodyType2D.Kinematic;
         myRigidBody.gravityScale = 0f;
         myRigidBody.velocity = new Vector2(0, 0);
+        StartCoroutine("WingsCoroutine");
     }
     public void MoveToFlyingPoint()
     {
@@ -452,9 +454,19 @@ public class Player : MonoBehaviour
         canFly = false;
         wings = false;
         hasPowerUp = false;
+        StopCoroutine("WingsCoroutine");
     }
     public bool PlayerHasPowerUp()
     {
         return hasPowerUp;
+    }
+
+    IEnumerator WingsCoroutine()
+    {
+        while (true)
+        {
+            scoreSystem.AddToScore(10);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
