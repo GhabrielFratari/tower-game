@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem dustParticles;
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] ParticleSystem superJumpFlash;
+    [SerializeField] ParticleSystem shieldExplosion;
     [SerializeField] GameObject shieldObject;
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
@@ -424,6 +425,14 @@ public class Player : MonoBehaviour
             Destroy(instance.gameObject, instance.main.duration);
         }
     }
+    void PlayShieldExplosion()
+    {
+        if (shieldExplosion != null)
+        {
+            ParticleSystem instance = Instantiate(shieldExplosion, myTransform.position, transform.rotation);
+            Destroy(instance.gameObject, instance.main.duration);
+        }
+    }
 
     public void ShieldOn()
     {
@@ -435,7 +444,8 @@ public class Player : MonoBehaviour
         shield = false;
         playerCollider.enabled = true;
         hasPowerUp = false;
-
+        AudioSource.PlayClipAtPoint(wingsPoofSound, mainCam.transform.position, 0.15f);
+        PlayShieldExplosion();
     }
 
     void EnableCollider()
