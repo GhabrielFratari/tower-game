@@ -429,7 +429,7 @@ public class Player : MonoBehaviour
     {
         if (shieldExplosion != null)
         {
-            ParticleSystem instance = Instantiate(shieldExplosion, myTransform.position, transform.rotation);
+            ParticleSystem instance = Instantiate(shieldExplosion, body.transform.position, transform.rotation);
             Destroy(instance.gameObject, instance.main.duration);
         }
     }
