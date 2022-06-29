@@ -57,25 +57,32 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && !player.PlayerHasPowerUp() && this.tag != "Coin")
+        /*if (other.tag == "Player" && !player.PlayerHasPowerUp() && this.tag != "Coin")
         {
             PlayCollectableVFX();
             Destroy(gameObject);
-        }
-        else if((other.tag == "Player" || other.tag == "Shield") && this.tag == "Coin")
+        }*/
+        if((other.tag == "Player" || other.tag == "Shield") && this.tag == "Coin")
         {
-            PlayCollectableVFX();
+            if (collectableVFX != null)
+            {
+                ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
+                Destroy(instance.gameObject, instance.main.duration);
+            }
+
             scoreSystem.AddCoins(coinValue);
             Destroy(gameObject, 0.1f);
         }
     }
 
-    void PlayCollectableVFX()
+    public void PlayCollectableVFX()
     {
         if (collectableVFX != null)
         {
             ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
             Destroy(instance.gameObject, instance.main.duration);
         }
+        Destroy(gameObject);
     }
+    
 }

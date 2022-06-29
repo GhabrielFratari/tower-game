@@ -137,20 +137,41 @@ public class Player : MonoBehaviour
 
         if(other.tag == "ShieldCollectable" && !shield && !wings)
         {
+            other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
             hasPowerUp = true;
         }
 
         if (other.tag == "WingsCollectable" && !isDead && !wings)
         {
-            PlayerCanFly();
-            Instantiate(wingsObject, body.gameObject.transform);
-            hasPowerUp = true;
+            if (playerPosition == other.gameObject.transform.position.x && up)
+            {
+                Fly(other);
+            }
+            else if (playerPosition != other.gameObject.transform.position.x)
+            {
+                Fly(other);
+            }
+            else if (myRigidBody.velocity.y < Mathf.Epsilon)
+            {
+                Fly(other);
+            }
         }
         if (other.tag == "UpCollectable" && !wings)
         {
-            scoreSystem.AddToScore(50);
-            SuperJump(other);
+            if (playerPosition == other.gameObject.transform.position.x && up)
+            {
+                Up(other);
+            }
+            else if (playerPosition != other.gameObject.transform.position.x)
+            {
+                Up(other);
+            }
+            else if (myRigidBody.velocity.y < Mathf.Epsilon)
+            {
+                Up(other);
+            }
+            
         }
         if(other.tag == "Coin")
         {
@@ -362,7 +383,19 @@ public class Player : MonoBehaviour
             canMove = false;
         }
     }
-
+    public void Fly(Collider2D other)
+    {
+        other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
+        PlayerCanFly();
+        Instantiate(wingsObject, body.gameObject.transform);
+        hasPowerUp = true;
+    }
+    void Up(Collider2D other)
+    {
+        other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
+        scoreSystem.AddToScore(50);
+        SuperJump(other);
+    }
     void SuperJump(Collider2D other)
     {
         myTransform.position = new Vector2(other.transform.position.x, myTransform.position.y);
@@ -443,7 +476,6 @@ public class Player : MonoBehaviour
     {
         shield = false;
         playerCollider.enabled = true;
-        hasPowerUp = false;
         AudioSource.PlayClipAtPoint(wingsPoofSound, mainCam.transform.position, 0.15f);
         PlayShieldExplosion();
     }
@@ -463,7 +495,6 @@ public class Player : MonoBehaviour
         myRigidBody.gravityScale = gravity;
         canFly = false;
         wings = false;
-        hasPowerUp = false;
         StopCoroutine("WingsCoroutine");
     }
     public bool PlayerHasPowerUp()
