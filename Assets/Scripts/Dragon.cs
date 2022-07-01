@@ -6,6 +6,7 @@ using CodeMonkey.Utils;
 public class Dragon : MonoBehaviour
 {
     [SerializeField] private float[] positions;
+    [SerializeField] private float yPos = 6.75f;
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private float fireBallSpeed = 5f;
@@ -35,7 +36,7 @@ public class Dragon : MonoBehaviour
 
     private void Move()
     {
-        moveTotargetPosition = new Vector3(positions[randomIndex], -6.52f);
+        moveTotargetPosition = new Vector3(positions[randomIndex], yPos);
         float delta = moveSpeed * Time.deltaTime;
         myTransform.position = Vector2.MoveTowards(myTransform.position, moveTotargetPosition, delta);
         if (myTransform.position == moveTotargetPosition)
