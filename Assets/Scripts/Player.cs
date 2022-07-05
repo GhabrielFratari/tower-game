@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float flyingSpeed = 5f;
     [SerializeField] private float movingToPointSpeed = 5f;
     [SerializeField] private float upForce = 10f;
+    [SerializeField] private float fallGravityMultiplier;
+    
 
     [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
@@ -95,6 +97,7 @@ public class Player : MonoBehaviour
         {
             PlayerUpOnAir();
             PlayerFalling();
+            JumpGravity();
         }
         
         
@@ -331,6 +334,17 @@ public class Player : MonoBehaviour
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity = new Vector2(0, -jumpForce);
         isOtherButtonPressed = false;
+    }
+    void JumpGravity()
+    {
+        if(myRigidBody.velocity.y < 0)
+        {
+            myRigidBody.gravityScale = gravity * fallGravityMultiplier;
+        }
+        else
+        {
+            myRigidBody.gravityScale = gravity;
+        }
     }
 
     public void PlayerFlying(int direction)
