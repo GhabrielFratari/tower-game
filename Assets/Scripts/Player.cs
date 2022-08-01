@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float movingToPointSpeed = 5f;
     [SerializeField] private float upForce = 10f;
     [SerializeField] private float fallGravityMultiplier;
-    
 
     [Header("References")]
     [SerializeField] CapsuleCollider2D handsCollider;
@@ -299,6 +298,8 @@ public class Player : MonoBehaviour
         bool verticalSpeedPositive = myRigidBody.velocity.y > Mathf.Epsilon;
         if(verticalSpeedPositive && !handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
         {
+            myAnimator.SetBool("isFalling", false);
+            myAnimator.SetBool("isLanding", false);
             myAnimator.SetBool("isJumping", false);
             myAnimator.SetBool("isUpOnAir", true);
         }
