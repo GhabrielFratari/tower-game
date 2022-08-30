@@ -7,7 +7,8 @@ public class MenuCanvas : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI coinsText;
-    
+    [SerializeField] GameObject optionsMenuUI;
+
     void Start()
     {
         bestScoreText.text = "Best Score: " + GameManager.GetBestScore();
@@ -15,5 +16,14 @@ public class MenuCanvas : MonoBehaviour
 
     }
 
+    public void Settings()
+    {
+        optionsMenuUI.SetActive(true);
+    }
+    
+    public void ExitSettings()
+    {
+        optionsMenuUI.SetActive(false);
+    }
     
 }

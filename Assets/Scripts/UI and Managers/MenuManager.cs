@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
     private GameObject shieldInstance;
     private GameObject wingsInstance;
     ScoreSystem scoreSystem;
-
+    AudioSource[] allSounds;
     public static bool gameIsPaused = false;
     float currentTimeScale;
     void Awake()
@@ -28,10 +28,15 @@ public class MenuManager : MonoBehaviour
 
     public void Pause()
     {
+        allSounds = FindObjectsOfType<AudioSource>();
         pauseMenuUI.SetActive(true);
         currentTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         gameIsPaused = true;
+        foreach (AudioSource a in allSounds)
+        {
+            a.Pause();
+        }
     }
 
     public void Resume()
@@ -39,22 +44,35 @@ public class MenuManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = currentTimeScale;
         gameIsPaused = false;
+        foreach (AudioSource a in allSounds)
+        {
+            a.Play();
+        }
     }
 
     public void Restart()
     {
+        foreach (AudioSource a in allSounds)
+        {
+            a.Play();
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene("Playing");
     }
 
     public void LoadMenu()
     {
+        foreach (AudioSource a in allSounds)
+        {
+            a.Play();
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
     private void GameOver()
     {
+        allSounds = FindObjectsOfType<AudioSource>();
         DestroyShieldIcon();
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
@@ -62,6 +80,10 @@ public class MenuManager : MonoBehaviour
         GameManager.SetCoins(scoreSystem.GetCoins());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        foreach (AudioSource a in allSounds)
+        {
+            a.Pause();
+        }
     }
 
     public void GameOverDelay()
