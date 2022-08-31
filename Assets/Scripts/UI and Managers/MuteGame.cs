@@ -6,7 +6,12 @@ public class MuteGame : MonoBehaviour
 {
     private void Awake()
     {
-        if(GameManager.GetSounds() == 0)
+        MuteSounds();
+    }
+
+    public void MuteSounds()
+    {
+        if (GameManager.GetSounds() == 0)
         {
             FindObjectOfType<AudioListener>().enabled = false;
         }

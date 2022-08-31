@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicToggle: {fileID: 27123653}
   modeToggle: {fileID: 2096820593}
-  soundsToggle: {fileID: 0}
+  soundsToggle: {fileID: 60058205}
 --- !u!1 &1975462193
 GameObject:
   m_ObjectHideFlags: 0

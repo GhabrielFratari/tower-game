@@ -51,7 +51,8 @@ public class OptionsManager : MonoBehaviour
     }
     public void SoundsToggle(bool tog)
     {
-
+        GameManager.SetSounds(tog);
+        FindObjectOfType<MuteGame>().MuteSounds();
     }
 
     public void ColorBlindToggle(bool tog)
