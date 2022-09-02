@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 56145000713317738, guid: a4dffe7e0b4fe95408bad24fba9024bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.55
+      value: 13.62
       objectReference: {fileID: 0}
     - target: {fileID: 56145000713317738, guid: a4dffe7e0b4fe95408bad24fba9024bf,
         type: 3}
@@ -1484,6 +1484,75 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -7.33, y: -11.95}
   m_UseGraphicAlpha: 1
+--- !u!1001 &699297338
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5537754518658365170, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Music Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 699.6666
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1480
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a590875d78adc443ae1d9b121468862, type: 3}
 --- !u!1 &710598163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1206485475
 MonoBehaviour:
   m_ObjectHideFlags: 0

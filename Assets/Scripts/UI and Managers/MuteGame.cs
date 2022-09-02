@@ -13,11 +13,12 @@ public class MuteGame : MonoBehaviour
     {
         if (GameManager.GetSounds() == 0)
         {
-            FindObjectOfType<AudioListener>().enabled = false;
+            AudioListener.volume = 0;
         }
         else
         {
-            FindObjectOfType<AudioListener>().enabled = true;
+            AudioListener.volume = 1;
+
         }
     }
 }
