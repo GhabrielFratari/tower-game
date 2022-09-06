@@ -30,6 +30,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void LoadMeScene()
+    {
+        SceneManager.LoadScene("Me");
+    }
     public void QuitGame()
     {
         Application.Quit();

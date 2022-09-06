@@ -31,7 +31,7 @@ public class SwipeMenu : MonoBehaviour
         {
             for(int i = 0; i < pos.Length; i++)
             {
-                if(scroll_pos < pos[i] + (distance/2) && scroll_pos > pos[i] - (distance / 2))
+                if(scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
                 {
                     scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[i], 0.1f);
                 }
