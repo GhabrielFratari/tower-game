@@ -381,6 +381,8 @@ GameObject:
   - component: {fileID: 2112215679371347584}
   - component: {fileID: 2112215679371347590}
   - component: {fileID: 894408153}
+  - component: {fileID: 2112215679923389244}
+  - component: {fileID: 2112215679923389245}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -526,11 +528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 18
-  xForce: 1.7
+  xForce: 2.5
   deathKick: {x: 2, y: 15}
   flyingSpeed: 5
   movingToPointSpeed: 10
   upForce: 35
+  fallGravityMultiplier: 3
   handsCollider: {fileID: 2112215679386889682}
   jumpSound: {fileID: 8300000, guid: 95b90acf85587fc45910be027bb17100, type: 3}
   landingSound: {fileID: 8300000, guid: 91cf634b68672ce4fb9cf50aebef601f, type: 3}
@@ -538,11 +541,13 @@ MonoBehaviour:
   wingsPoofSound: {fileID: 8300000, guid: 6d47d774cebd8914bb9332b0ddf83472, type: 3}
   boingSound: {fileID: 8300000, guid: 1615eea14bedbac46a9ad2097077ac5f, type: 3}
   coinSound: {fileID: 8300000, guid: 00a6c0eca4e339d4d9777182298b9a24, type: 3}
-  dustParticles: {fileID: 4288612632720660398, guid: 8b177d4b0e7090240bb26b11f4098e6b,
+  dustParticles: {fileID: 8116197138219960025, guid: 0a42ca82e00c6dc48a182c7835d1d42c,
     type: 3}
   wingsExplosion: {fileID: 110233479475539863, guid: 562f7114a22cd654499bdb5444e8da04,
     type: 3}
   superJumpFlash: {fileID: 1007167763684377937, guid: f7548b0382f49bb409039365fa1807fc,
+    type: 3}
+  shieldExplosion: {fileID: 4181061678998139188, guid: 33f00a60d2b296543bdb0ba4e9fac3ce,
     type: 3}
   shieldObject: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
     type: 3}
@@ -679,6 +684,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2112215679923389244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112215679371347599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5829f183e50063438009215085632ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeRange: 50
+  tapRange: 10
+--- !u!114 &2112215679923389245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112215679371347599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6e440af65e2bf469a9d447d20a3fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112215679386889695
 GameObject:
   m_ObjectHideFlags: 0
