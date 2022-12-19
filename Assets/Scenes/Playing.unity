@@ -4382,7 +4382,7 @@ PrefabInstance:
     - target: {fileID: 138694568522455168, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
       propertyPath: m_Name
-      value: 'Bouldering Tower '
+      value: 'Rock Tower '
       objectReference: {fileID: 0}
     - target: {fileID: 138694568522455168, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
@@ -4550,7 +4550,7 @@ PrefabInstance:
     - target: {fileID: 138694568522455168, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
       propertyPath: m_Name
-      value: Bouldering Tower  (1)
+      value: 'Bouldering Tower  '
       objectReference: {fileID: 0}
     - target: {fileID: 138694568522455168, guid: 16d75306f76c6df478d9114986456608,
         type: 3}
