@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     AudioSource[] allSounds;
+ 
+    
     public static void SetBestScore(int score)
     {
         if (score > PlayerPrefs.GetInt("bestScore"))
