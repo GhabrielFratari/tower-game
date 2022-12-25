@@ -23,7 +23,16 @@ public class OutfitTowerSelect : MonoBehaviour
         playerDataManager.SetTowerID(towerID);
 
 
-        jsonSaving.SaveData(playerDataManager.GetPlayerData());
+        //jsonSaving.SaveData(playerDataManager.GetPlayerData());
     }
-    
+    public void SelectOutfit()
+    {
+        outfitID = FindObjectOfType<SwipeMenu>().GetOutfitID();
+        //Debug.Log(outfitID);
+        playerDataManager.SetOutfitID(outfitID);
+
+
+        //jsonSaving.SaveData(playerDataManager.GetPlayerData());
+    }
+
 }

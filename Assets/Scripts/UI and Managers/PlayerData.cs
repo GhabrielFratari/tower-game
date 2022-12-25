@@ -19,7 +19,7 @@ public class PlayerData
     
     public override string ToString()
     {
-        return $"{towerID} is at {outfitID} HP with {score} Mana. They have reached level {coins}";
+        return $"At {towerID} with {outfitID}  with {score} score. They have reached {coins} coins";
     }
 
 }

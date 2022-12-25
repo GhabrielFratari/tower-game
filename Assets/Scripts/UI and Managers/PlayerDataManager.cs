@@ -5,34 +5,37 @@ using UnityEngine;
 public class PlayerDataManager : MonoBehaviour
 {
     PlayerData playerData;
-    string towerID;
-    string outfitID;
-    int scoreAmount;
-    int coinsAmount;
+    JSONsaving jSONsaving;
+   
     public void SetTowerID(string tower)
     {
-        towerID = tower;
-        CreatePlayerData();
+        jSONsaving = FindObjectOfType<JSONsaving>();
+        CreatePlayerData(tower, jSONsaving.LoadData().outfitID, jSONsaving.LoadData().score, jSONsaving.LoadData().coins);
     }
     public void SetOutfitID(string outfit)
     {
-        outfitID = outfit;
-        CreatePlayerData();
+        jSONsaving = FindObjectOfType<JSONsaving>();
+        CreatePlayerData(jSONsaving.LoadData().towerID, outfit, jSONsaving.LoadData().score, jSONsaving.LoadData().coins);
     }
     public void SetScore(int score)
     {
-        scoreAmount = score;
-        CreatePlayerData();
+        jSONsaving = FindObjectOfType<JSONsaving>();
+        if (score > jSONsaving.LoadData().score)
+        {
+            CreatePlayerData(jSONsaving.LoadData().towerID, jSONsaving.LoadData().outfitID, score, jSONsaving.LoadData().coins);
+        }
     }
     public void SetCoins(int coins)
     {
-        coinsAmount = coins;
-        CreatePlayerData();
+        jSONsaving = FindObjectOfType<JSONsaving>();
+        CreatePlayerData(jSONsaving.LoadData().towerID, jSONsaving.LoadData().outfitID, jSONsaving.LoadData().score, jSONsaving.LoadData().coins + coins);
     }
 
-    private void CreatePlayerData()
+    private void CreatePlayerData(string tower, string outfit, int score, int coins)
     {
-        playerData = new PlayerData(towerID, outfitID, scoreAmount, coinsAmount);
+        playerData = new PlayerData(tower, outfit, score, coins);
+        jSONsaving.SaveData(playerData);
+
     }
     public PlayerData GetPlayerData()
     {

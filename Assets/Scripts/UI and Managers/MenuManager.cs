@@ -18,12 +18,14 @@ public class MenuManager : MonoBehaviour
     private GameObject shieldInstance;
     private GameObject wingsInstance;
     ScoreSystem scoreSystem;
+    PlayerDataManager playerDataMan;
     AudioSource[] allSounds;
     public static bool gameIsPaused = false;
     float currentTimeScale;
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
+        playerDataMan = FindObjectOfType<PlayerDataManager>();
     }
 
     public void Pause()
@@ -76,8 +78,8 @@ public class MenuManager : MonoBehaviour
         DestroyShieldIcon();
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
-        GameManager.SetBestScore(scoreSystem.GetScore());
-        GameManager.SetCoins(scoreSystem.GetCoins());
+        playerDataMan.SetScore(scoreSystem.GetScore());
+        playerDataMan.SetCoins(scoreSystem.GetCoins());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
         foreach (AudioSource a in allSounds)

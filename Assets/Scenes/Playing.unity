@@ -2620,31 +2620,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Loader
       objectReference: {fileID: 0}
-    - target: {fileID: 3296665149711250326, guid: dc9051184a0da1043b9ae39906ca8ebf,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9051184a0da1043b9ae39906ca8ebf, type: 3}
---- !u!1 &1056766841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3296665149711250326, guid: dc9051184a0da1043b9ae39906ca8ebf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1056766840}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1056766842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056766841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c81672849d6d19498c52c66160f8f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1065600111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,90 +4588,6 @@ RectTransform:
   m_AnchoredPosition: {x: 139, y: -426}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2071866840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2071866842}
-  - component: {fileID: 2071866841}
-  - component: {fileID: 2071866843}
-  m_Layer: 0
-  m_Name: Outfit/Tower
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2071866841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071866840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957cf13f726612f489836393f7b92760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1476020408}
-  towers:
-  - towerName: MainTower
-    prefab: {fileID: 8332805501449194768, guid: 375d76e382555d04d9f30c0536b9dc9f,
-      type: 3}
-  - towerName: RockTower
-    prefab: {fileID: 4709885716805421311, guid: ecadb1e867607594683d20901355cc57,
-      type: 3}
-  - towerName: WoodTower
-    prefab: {fileID: 8120033690646014413, guid: 80cc546ec8663264780bee3a59c73566,
-      type: 3}
-  - towerName: BoulderingTower
-    prefab: {fileID: 3645046261385527783, guid: 97b84e4013c395143806a51bac681870,
-      type: 3}
-  - towerName: PlantTower
-    prefab: {fileID: 865207740226188508, guid: 20dac8147402bad48bc1e55307fbb8c6, type: 3}
-  outfits:
-  - outfitName: MainOutfit
-    outfit: {fileID: 9100000, guid: 58c99a26addb6754f9b07d4dfc53f558, type: 2}
-  - outfitName: Chocolate
-    outfit: {fileID: 9100000, guid: a6501c20aa8e2504e97ddbb261e9137e, type: 2}
-  - outfitName: Golden
-    outfit: {fileID: 9100000, guid: ac40833ea5b262647bfe97f20e909ff2, type: 2}
-  - outfitName: RedKnight
-    outfit: {fileID: 9100000, guid: 3d6f24f503613804981213493e5e3691, type: 2}
-  - outfitName: Space
-    outfit: {fileID: 9100000, guid: 8357db5f0ef50a448b4a652ea687fbb5, type: 2}
---- !u!4 &2071866842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071866840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 873.02124, y: 799.7649, z: -6.960578}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071866843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071866840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8595f8919bb03dd489a3f2ba666d69bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2105451417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,6 +5374,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 472f06b2e5c5e474e8e4a836d50f8c09, type: 3}
+--- !u!1001 &6595079152330512453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1476020408}
+    - target: {fileID: 6595079150367716765, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_Name
+      value: Outfit/Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 873.02124
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 799.7649
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.960578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716767, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6a3a02be76e4f94db68f2b98e4b4de2, type: 3}
 --- !u!1001 &9027682957188970974
 PrefabInstance:
   m_ObjectHideFlags: 0

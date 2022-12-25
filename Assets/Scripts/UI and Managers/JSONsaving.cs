@@ -46,17 +46,18 @@ public class JSONsaving : MonoBehaviour
         Debug.Log("Saving Data at " + savePath);
         string json = JsonUtility.ToJson(playerData);
         Debug.Log(json);
-        string encrypted = Utils.EncryptAES(json);
-        Debug.Log(encrypted);
+        //string encrypted = Utils.EncryptAES(json);
+        //Debug.Log(encrypted);
 
         using StreamWriter writer = new StreamWriter(savePath);
-        writer.Write(encrypted);
+        writer.Write(json);
     }
     public PlayerData LoadData()
     {
         using StreamReader reader = new StreamReader(persistentPath);
-        string encrypted = reader.ReadToEnd();
-        string json = Utils.DecryptAES(encrypted);
+        //string encrypted = reader.ReadToEnd();
+        //string json = Utils.DecryptAES(encrypted);
+        string json = reader.ReadToEnd();
 
         PlayerData data = JsonUtility.FromJson<PlayerData>(json);
         Debug.Log(data.ToString());

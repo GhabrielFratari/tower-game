@@ -26,17 +26,17 @@ public class ChangeOutfitTower : MonoBehaviour
     {
         jsonSaving = FindObjectOfType<JSONsaving>();
        
-        ChangeOutfit();
     }
     private void Start()
     {
         ChangeTower();
+        ChangeOutfit();
     }
     private void ChangeTower()
     {
         //string name = Get tower name from file
-        string name = FindObjectOfType<JSONsaving>().LoadData().towerID;
-        if (name == null) name = "MainTower";
+        string name = jsonSaving.LoadData().towerID;
+        if (name == null || name == "") name = "MainTower";
 
         for(int i = 0; i < towers.Length; i++)
         {
@@ -50,7 +50,9 @@ public class ChangeOutfitTower : MonoBehaviour
     private void ChangeOutfit()
     {
         //string name = Get outfit name from file
-        string name = "RedKnight";
+        string name = jsonSaving.LoadData().outfitID;
+        if(name == null || name == "") name = "MainOutfit";
+
         for (int i = 0; i < outfits.Length; i++)
         {
             if (outfits[i].outfitName == name)
