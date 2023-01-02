@@ -11,54 +11,40 @@ public class JSONsaving : MonoBehaviour
     private string path = "";
     private string persistentPath = "";
 
-    // Start is called before the first frame update
     void Awake()
     {
-        //CreatePlayerData();
         SetPaths();
     }
-    private void CreatePlayerData()
-    {
-        playerData = new PlayerData("MainTower", "MainOutfit", 5, 10);
-        //playerData = new PlayerData(5, 10);
-    }
     
-
+    
     private void SetPaths()
     {
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+        //path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
 
         persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-            SaveData(playerData);
-
-        if (Input.GetKeyDown(KeyCode.L))
-            LoadData();
-        
-    }
+    
     public void SaveData(PlayerData playerData)
     {
-        string savePath = persistentPath;
-        Debug.Log("Saving Data at " + savePath);
+
+        Debug.Log("Saving Data at " + persistentPath);
         string json = JsonUtility.ToJson(playerData);
         Debug.Log(json);
+
         //string encrypted = Utils.EncryptAES(json);
         //Debug.Log(encrypted);
 
-        using StreamWriter writer = new StreamWriter(savePath);
-        writer.Write(json);
+        File.WriteAllText(persistentPath, json);
+        //using StreamWriter writer = new StreamWriter(savePath);
+        //writer.Write(json);
     }
     public PlayerData LoadData()
     {
-        using StreamReader reader = new StreamReader(persistentPath);
+        //using StreamReader reader = new StreamReader(persistentPath);
         //string encrypted = reader.ReadToEnd();
         //string json = Utils.DecryptAES(encrypted);
-        string json = reader.ReadToEnd();
-
+        //string json = reader.ReadToEnd();
+        string json = File.ReadAllText(persistentPath);
         PlayerData data = JsonUtility.FromJson<PlayerData>(json);
         Debug.Log(data.ToString());
         return data;

@@ -78,8 +78,8 @@ public class MenuManager : MonoBehaviour
         DestroyShieldIcon();
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
-        playerDataMan.SetScore(scoreSystem.GetScore());
-        playerDataMan.SetCoins(scoreSystem.GetCoins());
+        SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        SaveManager.Instance.SetBestScore(scoreSystem.GetScore());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
         foreach (AudioSource a in allSounds)

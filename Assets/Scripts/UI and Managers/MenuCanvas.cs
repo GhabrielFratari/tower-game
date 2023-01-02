@@ -16,8 +16,8 @@ public class MenuCanvas : MonoBehaviour
 
     void Start()
     {
-        bestScoreText.text = "Best Score: " + jsonSaving.LoadData().score;
-        coinsText.text = "Coins: " + jsonSaving.LoadData().coins;
+        bestScoreText.text = "Best Score: " + SaveManager.Instance.Load().score;
+        coinsText.text = "Coins: " + SaveManager.Instance.Load().coins;
 
     }
 

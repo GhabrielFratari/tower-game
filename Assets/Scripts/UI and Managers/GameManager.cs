@@ -5,7 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     AudioSource[] allSounds;
- 
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
     public static void SetMusic(bool toggle)
     {
         if (!toggle) 
