@@ -13,6 +13,8 @@ TagManager:
   - Columns
   - UpCollectable
   - Coin
+  - Outfit
+  - Tower
   layers:
   - Default
   - TransparentFX

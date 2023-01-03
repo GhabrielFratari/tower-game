@@ -5,24 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     AudioSource[] allSounds;
-    public static void SetBestScore(int score)
+
+    private void Awake()
     {
-        if (score > PlayerPrefs.GetInt("bestScore"))
-        {
-            PlayerPrefs.SetInt("bestScore", score);
-        }
-    }
-    public static int GetBestScore()
-    {
-        return PlayerPrefs.GetInt("bestScore");
-    }
-    public static void SetCoins(int amount)
-    {
-        PlayerPrefs.SetInt("coins", GetCoins() + amount);
-    }
-    public static int GetCoins()
-    {
-        return PlayerPrefs.GetInt("coins");
+        Application.targetFrameRate = 60;
     }
     public static void SetMusic(bool toggle)
     {

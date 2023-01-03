@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MeCanvas : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class MeCanvas : MonoBehaviour
     [SerializeField] Color buttonCollor;
     [SerializeField] Button towersButton;
     [SerializeField] Button outfitsButton;
+    [SerializeField] TextMeshProUGUI coinsText;
 
+
+    private void Awake()
+    {
+        coinsText.text = SaveManager.Instance.Load().coins.ToString();
+    }
     private void Update()
     {
         if (outfitsScroll.activeInHierarchy)

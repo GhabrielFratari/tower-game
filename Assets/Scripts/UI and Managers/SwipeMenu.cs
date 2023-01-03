@@ -8,6 +8,8 @@ public class SwipeMenu : MonoBehaviour
     public GameObject scrollbar;
     float scroll_pos = 0;
     float[] pos;
+    string towerID;
+    string outfitID;
     void Start()
     {
         
@@ -44,6 +46,17 @@ public class SwipeMenu : MonoBehaviour
                 GameObject instance = transform.GetChild(i).gameObject;
                 instance.transform.localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
                 instance.gameObject.GetComponent<Button>().interactable = true;
+                if (gameObject.tag == "Outfit")
+                {
+                    outfitID = instance.gameObject.GetComponent<OutfitTowerID>().GetName();
+                    //Debug.Log(outfitID);
+                }
+                else if (gameObject.tag == "Tower")
+                {
+                    towerID = instance.gameObject.GetComponent<OutfitTowerID>().GetName();
+                    //Debug.Log(towerID);
+
+                }
 
                 for (int a = 0; a < pos.Length; a++)
                 {
@@ -55,5 +68,14 @@ public class SwipeMenu : MonoBehaviour
                 }
             }
         }
+    }
+
+    public string GetTowerID()
+    {
+        return towerID;
+    }
+    public string GetOutfitID()
+    {
+        return outfitID;
     }
 }

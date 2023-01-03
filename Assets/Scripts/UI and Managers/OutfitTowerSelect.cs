@@ -4,16 +4,35 @@ using UnityEngine;
 
 public class OutfitTowerSelect : MonoBehaviour
 {
-    SwipeMenu swipeMenu;
-    [SerializeField] private Animator animatorOutfit;
+    string towerID;
+    string outfitID;
+    JSONsaving jsonSaving;
+    PlayerDataManager playerDataManager;
+    
     private void Awake()
     {
-        swipeMenu = FindObjectOfType<SwipeMenu>();
+        jsonSaving = FindObjectOfType<JSONsaving>();
+        playerDataManager = FindObjectOfType<PlayerDataManager>();
     }
 
 
+    public void SelectTower()
+    {
+        towerID = FindObjectOfType<SwipeMenu>().GetTowerID();
+        //Debug.Log(towerID);
+        playerDataManager.SetTowerID(towerID);
+
+
+        //jsonSaving.SaveData(playerDataManager.GetPlayerData());
+    }
     public void SelectOutfit()
     {
-        
+        outfitID = FindObjectOfType<SwipeMenu>().GetOutfitID();
+        //Debug.Log(outfitID);
+        playerDataManager.SetOutfitID(outfitID);
+
+
+        //jsonSaving.SaveData(playerDataManager.GetPlayerData());
     }
+
 }
