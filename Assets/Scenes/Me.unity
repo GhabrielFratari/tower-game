@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 194890347}
   - component: {fileID: 194890350}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: WoodTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: WoodTower
+  index: 2
 --- !u!1 &216993519
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +413,7 @@ GameObject:
   - component: {fileID: 216993521}
   - component: {fileID: 216993524}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: PlantTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,6 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: PlantTower
+  index: 4
 --- !u!1 &217030493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,9 +1342,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1427475198}
-        m_TargetAssemblyTypeName: OutfitTowerSelect, Assembly-CSharp
-        m_MethodName: SelectOutfit
+      - m_Target: {fileID: 502134005}
+        m_TargetAssemblyTypeName: SelectButton, Assembly-CSharp
+        m_MethodName: OutfitBuySelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1403,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blue: {r: 0.49803922, g: 0.7921569, b: 1, a: 1}
+  yellow: {r: 1, g: 0.89133024, b: 0, a: 1}
 --- !u!1 &509017478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1758,7 @@ GameObject:
   - component: {fileID: 575788690}
   - component: {fileID: 575788693}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: RedKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,7 +1778,7 @@ RectTransform:
   m_Children:
   - {fileID: 1436064820}
   m_Father: {fileID: 603157837}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1889,6 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: RedKnight
+  index: 1
 --- !u!1 &576984429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,10 +2001,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 679630907}
-  - {fileID: 1546051456}
-  - {fileID: 1636238260}
   - {fileID: 575788689}
+  - {fileID: 1546051456}
   - {fileID: 1539003792}
+  - {fileID: 1636238260}
   m_Father: {fileID: 1229233003}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2163,9 +2167,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1427475198}
-        m_TargetAssemblyTypeName: OutfitTowerSelect, Assembly-CSharp
-        m_MethodName: SelectTower
+      - m_Target: {fileID: 651407858}
+        m_TargetAssemblyTypeName: SelectButton, Assembly-CSharp
+        m_MethodName: TowerBuySelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2226,6 +2230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blue: {r: 0.49803922, g: 0.7921569, b: 1, a: 1}
+  yellow: {r: 1, g: 0.8901961, b: 0, a: 1}
 --- !u!1 &666164772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,7 +2395,7 @@ GameObject:
   - component: {fileID: 679630908}
   - component: {fileID: 679630911}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MainKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2524,6 +2529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: MainOutfit
+  index: 0
 --- !u!1 &731257793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,7 +4368,7 @@ GameObject:
   - component: {fileID: 1313156664}
   - component: {fileID: 1313156667}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: RockTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4496,6 +4502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: RockTower
+  index: 1
 --- !u!1 &1427475191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,7 +4804,7 @@ GameObject:
   - component: {fileID: 1527455469}
   - component: {fileID: 1527455472}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MainTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4931,6 +4938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: MainTower
+  index: 0
 --- !u!1 &1539003791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,7 +4953,7 @@ GameObject:
   - component: {fileID: 1539003793}
   - component: {fileID: 1539003796}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4965,7 +4973,7 @@ RectTransform:
   m_Children:
   - {fileID: 937834557}
   m_Father: {fileID: 603157837}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5079,6 +5087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Space
+  index: 3
 --- !u!1 &1546051455
 GameObject:
   m_ObjectHideFlags: 0
@@ -5093,7 +5102,7 @@ GameObject:
   - component: {fileID: 1546051457}
   - component: {fileID: 1546051460}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Chocolate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5113,7 +5122,7 @@ RectTransform:
   m_Children:
   - {fileID: 1886352053}
   m_Father: {fileID: 603157837}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5227,6 +5236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Chocolate
+  index: 2
 --- !u!1 &1565536499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,7 +5387,7 @@ GameObject:
   - component: {fileID: 1636238261}
   - component: {fileID: 1636238264}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Golden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5397,7 +5407,7 @@ RectTransform:
   m_Children:
   - {fileID: 956467465}
   m_Father: {fileID: 603157837}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5511,6 +5521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Golden
+  index: 4
 --- !u!1 &1698064463
 GameObject:
   m_ObjectHideFlags: 0
@@ -5525,7 +5536,7 @@ GameObject:
   - component: {fileID: 1698064465}
   - component: {fileID: 1698064468}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: BoulderingTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5659,6 +5670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: BoulderingTower
+  index: 3
 --- !u!1 &1886352052
 GameObject:
   m_ObjectHideFlags: 0

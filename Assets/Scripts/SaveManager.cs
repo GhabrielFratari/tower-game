@@ -9,15 +9,25 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        SetUpSingleton();
         Instance = this;
         Load();
 
         Debug.Log(Helper.Serialize<SaveState>(state));
-        Debug.Log(isTowerOwned(4));
-        UnlockTower(4);
-        Debug.Log(isTowerOwned(4));
+        //ResetSave();
+        state.coins += 100;
 
+    }
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void Save()
@@ -86,6 +96,17 @@ public class SaveManager : MonoBehaviour
     public void UnlockOutfit(int index)
     {
         state.outfitOwned |= 1 << index;
+    }
+
+    public void ChangeTower(string tower)
+    {
+        state.currentTower = tower;
+        Save();
+    }
+    public void ChangeOutfit(string outfit)
+    {
+        state.currentOutfit = outfit;
+        Save();
     }
 
     public void AddCoins(int coins)

@@ -5386,6 +5386,86 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1476020408}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: towers.Array.data[1].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: towers.Array.data[2].index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: towers.Array.data[3].index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: towers.Array.data[4].index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[1].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[2].index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[3].index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[4].index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[1].outfit
+      value: 
+      objectReference: {fileID: 9100000, guid: 3d6f24f503613804981213493e5e3691, type: 2}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[2].outfit
+      value: 
+      objectReference: {fileID: 9100000, guid: a6501c20aa8e2504e97ddbb261e9137e, type: 2}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[3].outfit
+      value: 
+      objectReference: {fileID: 9100000, guid: 8357db5f0ef50a448b4a652ea687fbb5, type: 2}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[4].outfit
+      value: 
+      objectReference: {fileID: 9100000, guid: ac40833ea5b262647bfe97f20e909ff2, type: 2}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[1].outfitName
+      value: RedKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[2].outfitName
+      value: Chocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[3].outfitName
+      value: Space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
+        type: 3}
+      propertyPath: outfits.Array.data[4].outfitName
+      value: Golden
+      objectReference: {fileID: 0}
     - target: {fileID: 6595079150367716765, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: m_Name
