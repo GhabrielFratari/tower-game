@@ -18,14 +18,12 @@ public class MenuManager : MonoBehaviour
     private GameObject shieldInstance;
     private GameObject wingsInstance;
     ScoreSystem scoreSystem;
-    PlayerDataManager playerDataMan;
     AudioSource[] allSounds;
     public static bool gameIsPaused = false;
     float currentTimeScale;
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
-        playerDataMan = FindObjectOfType<PlayerDataManager>();
     }
 
     public void Pause()

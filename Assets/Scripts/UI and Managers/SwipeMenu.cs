@@ -10,7 +10,8 @@ public class SwipeMenu : MonoBehaviour
     float[] pos;
     string towerID;
     string outfitID;
-    SelectButton selectButton;
+    SelectButton selectButton;  
+
     void Start()
     {
         selectButton = FindObjectOfType<SelectButton>();

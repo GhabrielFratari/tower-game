@@ -8,22 +8,19 @@ public class SelectButton : MonoBehaviour
 {
     [SerializeField] Color blue;
     [SerializeField] Color yellow;
-    TextMeshProUGUI text;
+    [SerializeField] Color mainColor;
+    [SerializeField] GameObject coinImage;
+    [SerializeField] RectTransform textPos;
+    [SerializeField] TextMeshProUGUI selectedText;
+    [SerializeField] TextMeshProUGUI costText;
 
     string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
     string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden"};
-    private int[] outfitCost = new int[] {0, 1, 1, 1, 1};
+    private int[] outfitCost = new int[] {0, 25, 50, 50, 100};
     private int[] towerCost = new int[] { 0, 1, 1, 1, 1 };
     private int selectedOutfitIndex;
     private int selectedTowerIndex;
 
-
-
-    private void Awake()
-    {
-        text = GetComponentInChildren<TextMeshProUGUI>();
-    }
-    
     private void SelectOutfit(int index)
     {
         SaveManager.Instance.ChangeOutfit(outfits[index]);
@@ -39,20 +36,25 @@ public class SelectButton : MonoBehaviour
 
         if (SaveManager.Instance.isOutfitOwned(currentIndex))
         {
-            if(SaveManager.Instance.Load().currentOutfit == outfits[currentIndex])
+            selectedText.gameObject.SetActive(true);
+            costText.gameObject.SetActive(false);
+
+            if (SaveManager.Instance.Load().currentOutfit == outfits[currentIndex])
             {
-                text.text = "Selected";
+                selectedText.text = "Selected";
                 gameObject.GetComponent<Image>().color = blue;
             }
             else
             {
-                text.text = "Select";
+                selectedText.text = "Select";
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
         else
         {
-            text.text = outfitCost[currentIndex].ToString();
+            selectedText.gameObject.SetActive(false);
+            costText.gameObject.SetActive(true);
+            costText.text = outfitCost[currentIndex].ToString();
             gameObject.GetComponent<Image>().color = yellow;
         }
     }
@@ -62,20 +64,25 @@ public class SelectButton : MonoBehaviour
 
         if (SaveManager.Instance.isTowerOwned(currentIndex))
         {
+            selectedText.gameObject.SetActive(true);
+            costText.gameObject.SetActive(false);
+
             if (SaveManager.Instance.Load().currentTower == towers[currentIndex])
             {
-                text.text = "Selected";
+                selectedText.text = "Selected";
                 gameObject.GetComponent<Image>().color = blue;
             }
             else
             {
-                text.text = "Select";
+                selectedText.text = "Select";
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
         else
         {
-            text.text = towerCost[currentIndex].ToString();
+            selectedText.gameObject.SetActive(false);
+            costText.gameObject.SetActive(true);
+            costText.text = towerCost[currentIndex].ToString();
             gameObject.GetComponent<Image>().color = yellow;
         }
     }

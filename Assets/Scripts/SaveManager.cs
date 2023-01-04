@@ -9,14 +9,13 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
+        //ResetSave();
+
         SetUpSingleton();
         Instance = this;
         Load();
 
-        Debug.Log(Helper.Serialize<SaveState>(state));
-        //ResetSave();
-        state.coins += 100;
-
+        
     }
     private void SetUpSingleton()
     {
@@ -32,14 +31,14 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
-        PlayerPrefs.SetString("save", Helper.Serialize<SaveState>(state));
+        PlayerPrefs.SetString("save", Helper.Encrypt(Helper.Serialize<SaveState>(state)));
     }
 
     public SaveState Load()
     {
         if (PlayerPrefs.HasKey("save"))
         {
-            state = Helper.Deserialize<SaveState>(PlayerPrefs.GetString("save"));
+            state = Helper.Deserialize<SaveState>(Helper.Decrypt(PlayerPrefs.GetString("save")));
             return state;
         }
         else
@@ -117,8 +116,12 @@ public class SaveManager : MonoBehaviour
 
     public void SetBestScore(int bestScore)
     {
-        state.score = bestScore;
-        Save();
+        if(state.score < bestScore)
+        {
+            state.score = bestScore;
+            Save();
+        }
+        
     }
 
     public void ResetSave()

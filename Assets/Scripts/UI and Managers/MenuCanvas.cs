@@ -8,11 +8,7 @@ public class MenuCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject optionsMenuUI;
-    JSONsaving jsonSaving;
-    private void Awake()
-    {
-        jsonSaving = FindObjectOfType<JSONsaving>();
-    }
+   
 
     void Start()
     {
