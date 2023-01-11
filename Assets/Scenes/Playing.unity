@@ -4824,12 +4824,12 @@ PrefabInstance:
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: minTime
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: wingsChance
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
@@ -4839,12 +4839,12 @@ PrefabInstance:
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: shieldChance
-      value: 23
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: superJumpChance
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
