@@ -34,6 +34,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Me");
     }
+    public void LoadShopScene()
+    {
+        SceneManager.LoadScene("Shop");
+    }
     public void QuitGame()
     {
         Application.Quit();
