@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 118
+  controlID: 75
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 107
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,23 +404,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1621feff7623feff3425feff5827feff1c2dfeff503cfeff32c4feff00c6feff88edfeffc6eefeff8451ffffb452ffff8c72ffffc873ffff90f6ffffc2f9ffff28fbffff
+      m_SelectedIDs: 90d20000
+      m_LastClickedID: 53904
+      m_ExpandedIDs: 4c77feff8096feff36d2feff36d4feff88d6feff2c2dffff642dffff7268ffff5e69ffff906affff62ecffff20f0ffff6ef1ffff90f3ffff66f6ffff70f9fffff8f9ffff28fbffff027400001e7400003a740000427400004e740000bcbf000058d00000bad10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: PlayerFlyingPoint
+        m_OriginalName: PlayerFlyingPoint
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 53600
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -484,10 +484,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: cc670000
-    m_LastClickedID: 26572
-    m_ExpandedIDs: 00000000aa670000ce67000000ca9a3b
+    scrollPos: {x: 0, y: 65}
+    m_SelectedIDs: c2670000
+    m_LastClickedID: 26562
+    m_ExpandedIDs: 00000000aa670000be670000c467000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,22 +542,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300006464000062650000806500002c660000a26e000020660000c26e00009c890000a2890000866b000076650000000000004a720000ec810000da870000847b00002e860000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: CoinDouble
+      m_OriginalName: CoinDouble
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 29412
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -848,9 +848,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.1491545, y: 6.9340906, z: -0.1802556}
+    m_Target: {x: 0.22329795, y: 4.063178, z: 0.0019897935}
     speed: 2
-    m_Value: {x: -1.1491545, y: 6.9340906, z: -0.1802556}
+    m_Value: {x: 0.22071922, y: 3.9634666, z: 0.006210347}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -901,9 +901,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 11.171329
+    m_Target: 9.801011
     speed: 2
-    m_Value: 11.171329
+    m_Value: 9.378958
   m_Ortho:
     m_Target: 1
     speed: 2

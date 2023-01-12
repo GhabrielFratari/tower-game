@@ -5,12 +5,27 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] GameObject coin;
+    [SerializeField] GameObject coinDouble;
     [SerializeField] Transform[] positions;
     [SerializeField] private int respawnTime;
     [SerializeField] private float coinChance;
+    [SerializeField] private float doubleCoinChance;
+    bool hasDoubleCoin = false;
+    private float doubleCoinRealChance = 0;
     void Start()
     {
+        CheckDoubleCoinOwned();
         StartCoroutine(CoroutineCoins());
+    }
+
+    void CheckDoubleCoinOwned()
+    {
+        hasDoubleCoin = SaveManager.Instance.Load().doubleCoin;
+        if (hasDoubleCoin)
+        {
+            doubleCoinRealChance = coinChance + doubleCoinChance;
+        }
+
     }
 
     void SpawnCoins()
@@ -22,7 +37,11 @@ public class CoinSpawner : MonoBehaviour
         {
             Instantiate(coin, positions[randomPos].position, Quaternion.identity);
         }
-        Debug.Log(randomNumber);
+        else if (randomNumber <= doubleCoinRealChance && randomNumber > coinChance)
+        {
+            Instantiate(coinDouble, positions[randomPos].position, Quaternion.identity);
+        }
+        Debug.Log("coin chance " + randomNumber);
     }
 
     IEnumerator CoroutineCoins()
