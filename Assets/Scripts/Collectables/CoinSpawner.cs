@@ -30,7 +30,7 @@ public class CoinSpawner : MonoBehaviour
 
     void SpawnCoins()
     {
-        Debug.Log("Spawning coin... maybe not!");
+        //Debug.Log("Spawning coin... maybe not!");
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
         if(randomNumber <= coinChance)
@@ -41,7 +41,7 @@ public class CoinSpawner : MonoBehaviour
         {
             Instantiate(coinDouble, positions[randomPos].position, Quaternion.identity);
         }
-        Debug.Log("coin chance " + randomNumber);
+        //Debug.Log("coin chance " + randomNumber);
     }
 
     IEnumerator CoroutineCoins()

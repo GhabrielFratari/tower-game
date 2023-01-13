@@ -40,7 +40,7 @@ public class ItemSpawner : MonoBehaviour
     {
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
-        Debug.Log("Change %" + randomNumber);
+        //Debug.Log("Change %" + randomNumber);
         if (randomNumber <= shieldChance)
         {
             //spawn shield
@@ -79,9 +79,9 @@ public class ItemSpawner : MonoBehaviour
         wingsChance = powerUpChances[1] + shieldChance;
         superJumpChance = powerUpChances[2] + wingsChance;
 
-        Debug.Log(shieldChance);
-        Debug.Log(wingsChance);
-        Debug.Log(superJumpChance);
+        //Debug.Log(shieldChance);
+        //Debug.Log(wingsChance);
+        //Debug.Log(superJumpChance);
     }
 
 

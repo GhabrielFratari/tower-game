@@ -510,6 +510,9 @@ public class Player : MonoBehaviour
         myRigidBody.gravityScale = gravity;
         canFly = false;
         wings = false;
+        right = false;
+        left = false;
+        mid = false;
         StopCoroutine("WingsCoroutine");
     }
     public bool PlayerHasPowerUp()
