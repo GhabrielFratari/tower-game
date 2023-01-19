@@ -37,17 +37,15 @@ public class Player : MonoBehaviour
     Rigidbody2D myRigidBody;
     CapsuleCollider2D playerCollider;
     Animator myAnimator;
-    AnimationClip jumpClip;
-    AnimationEvent jumpEvent;
     ScoreSystem scoreSystem;
     Vector3 flyTotargetPosition;
     Vector3 targetPosition;
     Camera mainCam;
     Transform myTransform;
+    MissionChecker missionChecker;
 
     private float playerPosition;
     private float gravity;
-    private Vector3 currentPosition;
     private bool up = false;
     private bool isDead = false;
     private bool isOtherButtonPressed = false;
@@ -60,6 +58,10 @@ public class Player : MonoBehaviour
     private bool dropping = false;
     private bool hasPowerUp = false;
 
+    private int wingsCounter = 0;
+    private int shieldCounter = 0;
+    private int superJumpCounter = 0;
+
     private void Awake()
     {
         myTransform = transform;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         gravity = myRigidBody.gravityScale;
         playerCollider = GetComponent <CapsuleCollider2D>();
         mainCam = Camera.main;
+        missionChecker = FindObjectOfType<MissionChecker>();
     }
 
     private void Update()
@@ -142,6 +145,15 @@ public class Player : MonoBehaviour
             other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
             Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
             hasPowerUp = true;
+            shieldCounter++;
+            if (shieldCounter == 3 && !SaveManager.Instance.Load().missions[1])
+            {
+                missionChecker.Mission1();
+            }
+            else if(shieldCounter == 5 && !SaveManager.Instance.Load().missions[4])
+            {
+                missionChecker.Mission4();
+            }
         }
 
         if (other.tag == "WingsCollectable" && !isDead && !wings)
@@ -392,6 +404,9 @@ public class Player : MonoBehaviour
         if (myTransform.position != targetPosition && canMove)
         {
             myTransform.position = Vector2.MoveTowards(myTransform.position, targetPosition, delta);
+            right = false;
+            left = false;
+            mid = false;
         }
         else
         {
@@ -404,12 +419,30 @@ public class Player : MonoBehaviour
         PlayerCanFly();
         Instantiate(wingsObject, body.gameObject.transform);
         hasPowerUp = true;
+        wingsCounter++;
+        if (wingsCounter == 3 && !SaveManager.Instance.Load().missions[0])
+        {
+            missionChecker.Mission0();
+        }
+        else if (wingsCounter == 5 && !SaveManager.Instance.Load().missions[3])
+        {
+            missionChecker.Mission3();
+        }
     }
     void Up(Collider2D other)
     {
         other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
         scoreSystem.AddToScore(50);
         SuperJump(other);
+        superJumpCounter++;
+        if (superJumpCounter == 3 && !SaveManager.Instance.Load().missions[2])
+        {
+            missionChecker.Mission2();
+        }
+        else if (superJumpCounter == 5 && !SaveManager.Instance.Load().missions[5])
+        {
+            missionChecker.Mission5();
+        }
     }
     void SuperJump(Collider2D other)
     {
@@ -495,10 +528,6 @@ public class Player : MonoBehaviour
         PlayShieldExplosion();
     }
 
-    void EnableCollider()
-    {
-        handsCollider.enabled = true;
-    }
     public void WingsOff()
     {
         myAnimator.SetBool("isFlying", false);

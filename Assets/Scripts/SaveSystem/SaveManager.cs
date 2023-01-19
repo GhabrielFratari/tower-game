@@ -16,6 +16,10 @@ public class SaveManager : MonoBehaviour
         Load();
         //state.coins += 1000;
         //Save();
+        for(int i = 0; i < state.missions.Length; i++)
+        {
+            Debug.Log(state.missions[i]);
+        }
 
     }
     private void SetUpSingleton()
@@ -204,6 +208,12 @@ public class SaveManager : MonoBehaviour
             Save();
         }
         
+    }
+
+    public void MissionCompleted(int index)
+    {
+        state.missions[index] = true;
+        Save();
     }
 
     public void ResetSave()

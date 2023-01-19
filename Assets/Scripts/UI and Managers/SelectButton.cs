@@ -16,8 +16,8 @@ public class SelectButton : MonoBehaviour
 
     string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
     string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden"};
-    private int[] outfitCost = new int[] {0, 25, 50, 50, 100};
-    private int[] towerCost = new int[] { 0, 1, 1, 1, 1 };
+    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000};
+    private int[] towerCost = new int[] { 0, 1000, 1000, 1000, 1000 };
     private int selectedOutfitIndex;
     private int selectedTowerIndex;
 

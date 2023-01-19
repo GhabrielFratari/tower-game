@@ -41,17 +41,17 @@ public class ItemSpawner : MonoBehaviour
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
         //Debug.Log("Change %" + randomNumber);
-        if (randomNumber <= shieldChance)
+        if (randomNumber <= shieldChance && hasPowerUps[0])
         {
             //spawn shield
             Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
         }
-        else if (randomNumber <= wingsChance && randomNumber > shieldChance)
+        else if (randomNumber <= wingsChance && randomNumber > shieldChance && hasPowerUps[1])
         {
             //spawn wings
             Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
         }
-        else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
+        else if (randomNumber <= superJumpChance && randomNumber > wingsChance && hasPowerUps[2])
         {
             //spawn super jump
             Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);

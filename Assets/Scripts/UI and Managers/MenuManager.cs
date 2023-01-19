@@ -28,15 +28,11 @@ public class MenuManager : MonoBehaviour
 
     public void Pause()
     {
-        allSounds = FindObjectsOfType<AudioSource>();
         pauseMenuUI.SetActive(true);
         currentTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         gameIsPaused = true;
-        foreach (AudioSource a in allSounds)
-        {
-            a.Pause();
-        }
+        PauseAllSounds();
     }
 
     public void Resume()
@@ -44,48 +40,66 @@ public class MenuManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = currentTimeScale;
         gameIsPaused = false;
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
     }
 
     public void Restart()
     {
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Playing");
     }
 
     public void LoadMenu()
     {
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
     private void GameOver()
     {
-        allSounds = FindObjectsOfType<AudioSource>();
         DestroyShieldIcon();
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
-        SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        //SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
         SaveManager.Instance.SetBestScore(scoreSystem.GetScore());
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        PauseAllSounds();
+    }
+    public void PauseAllSounds()
+    {
+        allSounds = FindObjectsOfType<AudioSource>();
+       
         foreach (AudioSource a in allSounds)
         {
-            a.Pause();
+            if (a != null)
+            {
+                a.Pause();
+            }
+            else
+            {
+                Debug.Log("Audio Source null!");
+            }
         }
     }
 
+    public void PlayAllSounds()
+    {
+        
+        foreach (AudioSource a in allSounds)
+        {
+            if(a != null)
+            {
+                a.Play();
+            }
+            else
+            {
+                Debug.Log("Audio Source null!");
+            }
+        }
+    }
     public void GameOverDelay()
     {
         FunctionTimer.Create(GameOver, delay);

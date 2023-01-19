@@ -11,7 +11,7 @@ public class ShopCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI doubleCoinCostText;
     [SerializeField] private TextMeshProUGUI coinsText;
 
-    private int[] upgradeCost = new int[] { 15, 30, 50, 100 };
+    private int[] upgradeCost = new int[] { 100, 300, 600, 1500 };
 
     private void Update()
     {
@@ -74,14 +74,14 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isSuperJumpOwned())
         {
-            SaveManager.Instance.buySuperJump(15);
+            SaveManager.Instance.buySuperJump(100);
         }
     }
     void UpdateSuperJumpText()
     {
         if (!SaveManager.Instance.isSuperJumpOwned())
         {
-            superJumpCostText.text = "15";
+            superJumpCostText.text = "100";
         }
         else { superJumpCostText.text = "Full"; }
     }
@@ -89,14 +89,14 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isDoubleCoinOwned())
         {
-            SaveManager.Instance.buyDoubleCoin(50);
+            SaveManager.Instance.buyDoubleCoin(500);
         }
     }
     void UpdateDoubleCoinText()
     {
         if (!SaveManager.Instance.isDoubleCoinOwned())
         {
-            doubleCoinCostText.text = "50";
+            doubleCoinCostText.text = "500";
         }
         else { doubleCoinCostText.text = "Full"; }
     }

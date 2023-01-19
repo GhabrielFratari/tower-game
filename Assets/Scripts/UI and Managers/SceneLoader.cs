@@ -38,6 +38,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Shop");
     }
+    public void LoadMissionScene()
+    {
+        SceneManager.LoadScene("Mission");
+    }
     public void QuitGame()
     {
         Application.Quit();

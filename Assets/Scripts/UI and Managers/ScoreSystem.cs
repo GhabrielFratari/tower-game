@@ -21,10 +21,12 @@ public class ScoreSystem : MonoBehaviour
     private bool canChangeColorBlack = true;
     private bool canChangeColorGray = true;
     Camera mainCamera;
+    MissionChecker missionChecker;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+        missionChecker = FindObjectOfType<MissionChecker>();
     }
     void Start()
     {
@@ -44,6 +46,7 @@ public class ScoreSystem : MonoBehaviour
     {
         points += amount;
         DisplayScore();
+        CheckMission();
     }
     public void AddCoins(int amount)
     {
@@ -107,6 +110,34 @@ public class ScoreSystem : MonoBehaviour
         void DisableFlash()
         {
             flash.SetActive(false);
+        }
+    }
+
+    void CheckMission()
+    {
+        if(points >= 100 && !SaveManager.Instance.Load().missions[6])
+        {
+            missionChecker.Mission6();
+        }
+        else if(points >= 500 && !SaveManager.Instance.Load().missions[7])
+        {
+            missionChecker.Mission7();
+        }
+        else if (points >= 1000 && !SaveManager.Instance.Load().missions[8])
+        {
+            missionChecker.Mission8();
+        }
+        else if (points >= 3000 && !SaveManager.Instance.Load().missions[9])
+        {
+            missionChecker.Mission9();
+        }
+        else if (points >= 5000 && !SaveManager.Instance.Load().missions[10])
+        {
+            missionChecker.Mission10();
+        }
+        else if (points >= 10000 && !SaveManager.Instance.Load().missions[11])
+        {
+            missionChecker.Mission11();
         }
     }
     
