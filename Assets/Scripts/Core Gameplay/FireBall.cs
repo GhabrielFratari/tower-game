@@ -41,7 +41,10 @@ public class FireBall : MonoBehaviour
         }
         else if(other.tag == "Shield")
         {
-            PlayShieldExplosionEffect();
+            if(other.gameObject.GetComponent<Shield>().GetDurability() < 1)
+            {
+                PlayShieldExplosionEffect();
+            }
             ShakeCamera();
             Destroy(this.gameObject);
         }

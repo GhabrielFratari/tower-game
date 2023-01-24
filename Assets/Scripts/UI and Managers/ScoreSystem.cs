@@ -9,10 +9,13 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject flash;
+    [SerializeField] GameObject notification;
     [SerializeField] AudioClip scoreSound;
     [SerializeField] Color red;
     [SerializeField] Color gold;
     [SerializeField] Color gray;
+    [SerializeField] Transform targetPos;
+    [SerializeField] Transform inicialPos;
 
     private int points = 0;
     private int coins = 0;
@@ -22,7 +25,8 @@ public class ScoreSystem : MonoBehaviour
     private bool canChangeColorGray = true;
     Camera mainCamera;
     MissionChecker missionChecker;
-
+    
+    
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -34,7 +38,10 @@ public class ScoreSystem : MonoBehaviour
         DisplayScore();
         DisplayCoins();
     }
-    
+    private void Update()
+    {
+        MovePopUp();
+    }
 
     private void DisplayScore()
     {
@@ -139,6 +146,27 @@ public class ScoreSystem : MonoBehaviour
         {
             missionChecker.Mission11();
         }
+    }
+
+    public void MissionPopUp(string missionText)
+    {
+        notification.SetActive(true);
+        notification.GetComponentInChildren<TextMeshProUGUI>().text = missionText;
+        FunctionTimer.Create(DisablePopUp, 2f);
+    }
+    void MovePopUp()
+    {
+        if (notification.activeInHierarchy)
+        {
+            float delta = 3f * Time.unscaledDeltaTime;
+            notification.transform.position = Vector2.Lerp(notification.transform.position, targetPos.position, delta);
+        }
+    }
+    void DisablePopUp()
+    {
+        notification.transform.position = inicialPos.position;
+        notification.SetActive(false);
+        
     }
     
 }

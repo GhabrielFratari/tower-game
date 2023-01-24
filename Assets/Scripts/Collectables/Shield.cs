@@ -65,4 +65,8 @@ public class Shield : MonoBehaviour
     {
         return duration;
     }
+    public int GetDurability()
+    {
+        return durability;
+    }
 }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MissionChecker : MonoBehaviour
 {
+    ScoreSystem myScoreSystem;
+    private void Awake()
+    {
+        myScoreSystem = FindObjectOfType<ScoreSystem>();
+    }
+
     public void Mission0()
     {
         //Take 3 wings
@@ -12,6 +18,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
+            myScoreSystem.MissionPopUp("Take 3 wings!");
         }
     }
     public void Mission1()
@@ -22,6 +29,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
+            myScoreSystem.MissionPopUp("Take 3 shields!");
         }
     }
     public void Mission2()
@@ -32,6 +40,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
+            myScoreSystem.MissionPopUp("Take 3 Super Jumps!");
         }
     }
     public void Mission3()
@@ -42,6 +51,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
+            myScoreSystem.MissionPopUp("Take 5 wings!");
         }
     }
     public void Mission4()
@@ -52,6 +62,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
+            myScoreSystem.MissionPopUp("Take 5 shields!");
         }
     }
     public void Mission5()
@@ -62,6 +73,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
+            myScoreSystem.MissionPopUp("Take 5 Super Jumps!");
         }
     }
     public void Mission6()
@@ -72,6 +84,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(10);
+            myScoreSystem.MissionPopUp("Hit 100 points!");
         }
     }
     public void Mission7()
@@ -82,6 +95,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(50);
+            myScoreSystem.MissionPopUp("Hit 500 points!");
         }
     }
     public void Mission8()
@@ -92,6 +106,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
+            myScoreSystem.MissionPopUp("Hit 1000 points!");
         }
     }
     public void Mission9()
@@ -102,6 +117,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(300);
+            myScoreSystem.MissionPopUp("Hit 3000 points!");
             //Unlock GoldSkin
         }
     }
@@ -113,6 +129,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(500);
+            myScoreSystem.MissionPopUp("Hit 5000 points!");
         }
     }
     public void Mission11()
@@ -123,6 +140,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(1000);
+            myScoreSystem.MissionPopUp("Hit 10000 points!");
             //Unlock King Bilou Skin
         }
     }

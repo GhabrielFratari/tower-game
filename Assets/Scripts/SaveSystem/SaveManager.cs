@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
         SetUpSingleton();
         Instance = this;
         Load();
-        //state.coins += 1000;
+        //state.coins += 10000;
         //Save();
         for(int i = 0; i < state.missions.Length; i++)
         {
