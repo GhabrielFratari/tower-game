@@ -13,7 +13,7 @@ public class MenuCanvas : MonoBehaviour
     void Start()
     {
         bestScoreText.text = "Best Score: " + SaveManager.Instance.Load().score;
-        coinsText.text = "Coins: " + SaveManager.Instance.Load().coins;
+        coinsText.text = SaveManager.Instance.Load().coins.ToString();
 
     }
 
