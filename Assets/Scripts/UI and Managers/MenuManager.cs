@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
     private GameObject wingsInstance;
     ScoreSystem scoreSystem;
     AudioSource[] allSounds;
+    UISound uiSound;
     public static bool gameIsPaused = false;
     float currentTimeScale;
     void Awake()
@@ -99,6 +100,11 @@ public class MenuManager : MonoBehaviour
                 Debug.Log("Audio Source null!");
             }
         }
+    }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
     }
     public void GameOverDelay()
     {

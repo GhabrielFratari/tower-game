@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MissionCanvas : MonoBehaviour
 {
+    UISound uiSound;
     [SerializeField] Toggle[] myToggles;
     private void Awake()
     {
@@ -16,5 +17,10 @@ public class MissionCanvas : MonoBehaviour
             }
         }
 
+    }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
     }
 }

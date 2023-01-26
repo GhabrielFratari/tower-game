@@ -13,6 +13,9 @@ public class SelectButton : MonoBehaviour
     [SerializeField] RectTransform textPos;
     [SerializeField] TextMeshProUGUI selectedText;
     [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] AudioClip buySound;
+    [SerializeField] AudioClip failSound;
+    UISound selectSound;
 
     string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
     string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden"};
@@ -92,16 +95,19 @@ public class SelectButton : MonoBehaviour
         if (SaveManager.Instance.isOutfitOwned(selectedOutfitIndex))
         {
             SelectOutfit(selectedOutfitIndex);
+            PlaySelectSound();
         }
         else
         {
             if(SaveManager.Instance.buyOutfit(selectedOutfitIndex, outfitCost[selectedOutfitIndex]))
             {
                 SelectOutfit(selectedOutfitIndex);
+                PlayBuySound();
             }
             else
             {
                 Debug.Log("Not enough gold!");
+                PlayFailSound();
             }
         }
     }
@@ -110,19 +116,42 @@ public class SelectButton : MonoBehaviour
         if (SaveManager.Instance.isTowerOwned(selectedTowerIndex))
         {
             SelectTower(selectedTowerIndex);
+            PlaySelectSound();
         }
         else
         {
             if (SaveManager.Instance.buyTower(selectedTowerIndex, towerCost[selectedTowerIndex]))
             {
                 SelectTower(selectedTowerIndex);
+                PlayBuySound();
             }
             else
             {
                 Debug.Log("Not enough gold!");
+                PlayFailSound();
             }
         }
     }
 
+    public void PlaySelectSound()
+    {
+        selectSound = FindObjectOfType<UISound>();
+        selectSound.PlayButtonSound();
+    }
+    public void PlayBuySound()
+    {
+        if(buySound != null)
+        {
+            AudioSource.PlayClipAtPoint(buySound, Camera.main.transform.position, 0.7f);
 
+        }
+    }
+    public void PlayFailSound()
+    {
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, Camera.main.transform.position, 0.7f);
+
+        }
+    }
 }

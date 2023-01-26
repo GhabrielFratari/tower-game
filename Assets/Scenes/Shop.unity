@@ -2940,6 +2940,8 @@ MonoBehaviour:
   - {fileID: 1868193950}
   - {fileID: 1223816831}
   DoubleCoinFillUpgrade: {fileID: 203111101}
+  buySound: {fileID: 8300000, guid: 1f928cc8a41613544a234c829548a770, type: 3}
+  failSound: {fileID: 8300000, guid: 2fc53f91a86deea4f9bbf58bb9b688bd, type: 3}
 --- !u!1 &1223816829
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,6 +5266,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1789163648}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadStartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1120002872}
+        m_TargetAssemblyTypeName: ShopCanvas, Assembly-CSharp
+        m_MethodName: PlayUISound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

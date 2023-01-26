@@ -12,6 +12,7 @@ public class MeCanvas : MonoBehaviour
     [SerializeField] Button towersButton;
     [SerializeField] Button outfitsButton;
     [SerializeField] TextMeshProUGUI coinsText;
+    UISound uiSound;
 
     private void Update()
     {
@@ -47,5 +48,10 @@ public class MeCanvas : MonoBehaviour
             towersButton.image.color = Color.white;
             outfitsButton.image.color = buttonCollor;
         }
+    }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
     }
 }

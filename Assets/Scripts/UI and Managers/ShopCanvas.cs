@@ -16,6 +16,9 @@ public class ShopCanvas : MonoBehaviour
     [SerializeField] Image[] wingsFillUpgrade;
     [SerializeField] Image[] shieldFillUpgrade;
     [SerializeField] Image DoubleCoinFillUpgrade;
+    [SerializeField] AudioClip buySound;
+    [SerializeField] AudioClip failSound;
+    UISound uiSound;
 
     private int[] upgradeCost = new int[] { 100, 300, 600, 1500 };
 
@@ -27,16 +30,40 @@ public class ShopCanvas : MonoBehaviour
         UpdateSuperJumpText();
         UpdateDoubleCoinText();
     }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
+    }
+    public void PlayBuySound()
+    {
+        if (buySound != null)
+        {
+            AudioSource.PlayClipAtPoint(buySound, Camera.main.transform.position, 0.7f);
+
+        }
+    }
+    public void PlayFailSound()
+    {
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, Camera.main.transform.position, 0.7f);
+
+        }
+    }
     public void BuyWings()
     {
         if (!SaveManager.Instance.isWingsOwned())
         {
             SaveManager.Instance.buyWings(upgradeCost[0]);
+            PlayBuySound();
         }
         else if(SaveManager.Instance.Load().wings < 3)
         {
             SaveManager.Instance.buyWings(upgradeCost[SaveManager.Instance.Load().wings + 1]);
+            PlayBuySound();
         }
+        else { PlayFailSound(); }
     }
 
     void UpdateWingsText()
@@ -75,11 +102,14 @@ public class ShopCanvas : MonoBehaviour
         if (!SaveManager.Instance.isShieldOwned())
         {
             SaveManager.Instance.buyShield(upgradeCost[0]);
+            PlayBuySound();
         }
         else if (SaveManager.Instance.Load().shield < 3)
         {
             SaveManager.Instance.buyShield(upgradeCost[SaveManager.Instance.Load().shield + 1]);
+            PlayBuySound();
         }
+        else { PlayFailSound(); }
     }
     void UpdateShieldText()
     {
@@ -116,7 +146,9 @@ public class ShopCanvas : MonoBehaviour
         if (!SaveManager.Instance.isSuperJumpOwned())
         {
             SaveManager.Instance.buySuperJump(100);
+            PlayBuySound();
         }
+        else { PlayFailSound(); }
     }
     void UpdateSuperJumpText()
     {
@@ -135,7 +167,9 @@ public class ShopCanvas : MonoBehaviour
         if (!SaveManager.Instance.isDoubleCoinOwned())
         {
             SaveManager.Instance.buyDoubleCoin(500);
+            PlayBuySound();
         }
+        else { PlayFailSound(); }
     }
     void UpdateDoubleCoinText()
     {

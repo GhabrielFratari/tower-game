@@ -8,6 +8,8 @@ public class MenuCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject optionsMenuUI;
+
+    UISound uiSound;
    
 
     void Start()
@@ -27,4 +29,9 @@ public class MenuCanvas : MonoBehaviour
         optionsMenuUI.SetActive(false);
     }
     
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
+    }
 }
