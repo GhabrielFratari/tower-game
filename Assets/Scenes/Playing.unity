@@ -494,6 +494,7 @@ MonoBehaviour:
   gray: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
   targetPos: {fileID: 630459829}
   inicialPos: {fileID: 874711244}
+  missionSound: {fileID: 8300000, guid: bff6374772117254dbf599dcc12171cc, type: 3}
 --- !u!114 &245645859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176.5, y: 5.9}
+  m_AnchoredPosition: {x: 238, y: 5.9}
   m_SizeDelta: {x: 107.785, y: 107.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588205175
@@ -3576,7 +3577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Take 5 wings!
+  m_text: Take 5 Super Jumps!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

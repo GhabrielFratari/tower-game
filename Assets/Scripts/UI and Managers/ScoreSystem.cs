@@ -16,6 +16,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] Color gray;
     [SerializeField] Transform targetPos;
     [SerializeField] Transform inicialPos;
+    [SerializeField] AudioClip missionSound;
 
     private int points = 0;
     private int coins = 0;
@@ -152,6 +153,7 @@ public class ScoreSystem : MonoBehaviour
     {
         notification.SetActive(true);
         notification.GetComponentInChildren<TextMeshProUGUI>().text = missionText;
+        PlayMissionSound();
         FunctionTimer.Create(DisablePopUp, 2f);
     }
     void MovePopUp()
@@ -167,6 +169,14 @@ public class ScoreSystem : MonoBehaviour
         notification.transform.position = inicialPos.position;
         notification.SetActive(false);
         
+    }
+
+    void PlayMissionSound()
+    {
+        if(missionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(missionSound, mainCamera.transform.position, 0.3f);
+        }
     }
     
 }
