@@ -4,19 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using CodeMonkey.Utils;
 using TMPro;
+using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject gameOverMenuUI;
+    [SerializeField] GameObject newHighScoreMenuUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] TextMeshProUGUI newHighScoreText;
     [SerializeField] float delay = 3f;
     [SerializeField] GameObject shieldIcon;
     [SerializeField] GameObject wingsIcon;
     [SerializeField] GameObject iconSpawner;
+    [SerializeField] AudioClip scoreBeatenSFX;
 
+    AudioSource src;
     private GameObject shieldInstance;
     private GameObject wingsInstance;
+    Camera mainCam;
     ScoreSystem scoreSystem;
     AudioSource[] allSounds;
     UISound uiSound;
@@ -25,6 +31,8 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
+        mainCam = Camera.main;
+        src = GetComponent<AudioSource>();
     }
 
     public void Pause()
@@ -64,11 +72,25 @@ public class MenuManager : MonoBehaviour
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
         //SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        
+        if(SaveManager.Instance.Load().score >= scoreSystem.GetScore())
+        {
+            gameOverMenuUI.SetActive(true);
+            PauseAllSounds();
+        }
+        else
+        {
+            newHighScoreMenuUI.SetActive(true);
+            newHighScoreText.text = scoreSystem.GetScore().ToString();
+            PauseAllSounds();
+            AudioSource.PlayClipAtPoint(scoreBeatenSFX, mainCam.transform.position, 0.7f);
+        }
         SaveManager.Instance.SetBestScore(scoreSystem.GetScore());
-        gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        PauseAllSounds();
     }
+
+   
+
     public void PauseAllSounds()
     {
         allSounds = FindObjectsOfType<AudioSource>();

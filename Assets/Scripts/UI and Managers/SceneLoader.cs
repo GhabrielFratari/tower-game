@@ -42,6 +42,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Mission");
     }
+    public void LoadCreditsScene()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void QuitGame()
     {
         Application.Quit();

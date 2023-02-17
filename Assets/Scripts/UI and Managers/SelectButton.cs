@@ -18,8 +18,8 @@ public class SelectButton : MonoBehaviour
     UISound selectSound;
 
     string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
-    string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden"};
-    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000};
+    string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden", "Astronaut"};
+    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000, 10};
     private int[] towerCost = new int[] { 0, 1000, 1000, 1000, 1000 };
     private int selectedOutfitIndex;
     private int selectedTowerIndex;
