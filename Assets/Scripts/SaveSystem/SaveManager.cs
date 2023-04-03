@@ -14,8 +14,7 @@ public class SaveManager : MonoBehaviour
         SetUpSingleton();
         Instance = this;
         Load();
-        //state.coins += 10000;
-        //Save();
+        
         /*for(int i = 0; i < state.missions.Length; i++)
         {
             Debug.Log(state.missions[i]);
@@ -219,5 +218,10 @@ public class SaveManager : MonoBehaviour
     public void ResetSave()
     {
         PlayerPrefs.DeleteKey("save");
+    }
+    public void AddMoneyForTest()
+    {
+        state.coins += 10000;
+        Save();
     }
 }
