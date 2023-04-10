@@ -4112,7 +4112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mission
+  m_text: Missions
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a48c118038879f48bf559e680392351, type: 2}
   m_sharedMaterial: {fileID: -729604008163269181, guid: 3a48c118038879f48bf559e680392351,
@@ -4140,8 +4140,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 89.6
+  m_fontSizeBase: 89.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
