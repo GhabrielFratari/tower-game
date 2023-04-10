@@ -9,10 +9,14 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject flash;
+    [SerializeField] GameObject notification;
     [SerializeField] AudioClip scoreSound;
     [SerializeField] Color red;
     [SerializeField] Color gold;
     [SerializeField] Color gray;
+    [SerializeField] Transform targetPos;
+    [SerializeField] Transform inicialPos;
+    [SerializeField] AudioClip missionSound;
 
     private int points = 0;
     private int coins = 0;
@@ -21,10 +25,13 @@ public class ScoreSystem : MonoBehaviour
     private bool canChangeColorBlack = true;
     private bool canChangeColorGray = true;
     Camera mainCamera;
-
+    MissionChecker missionChecker;
+    
+    
     private void Awake()
     {
         mainCamera = Camera.main;
+        missionChecker = FindObjectOfType<MissionChecker>();
     }
     void Start()
     {
@@ -32,7 +39,10 @@ public class ScoreSystem : MonoBehaviour
         DisplayScore();
         DisplayCoins();
     }
-    
+    private void Update()
+    {
+        MovePopUp();
+    }
 
     private void DisplayScore()
     {
@@ -44,6 +54,7 @@ public class ScoreSystem : MonoBehaviour
     {
         points += amount;
         DisplayScore();
+        CheckMission();
     }
     public void AddCoins(int amount)
     {
@@ -107,6 +118,64 @@ public class ScoreSystem : MonoBehaviour
         void DisableFlash()
         {
             flash.SetActive(false);
+        }
+    }
+
+    void CheckMission()
+    {
+        if(points >= 100 && !SaveManager.Instance.Load().missions[6])
+        {
+            missionChecker.Mission6();
+        }
+        else if(points >= 500 && !SaveManager.Instance.Load().missions[7])
+        {
+            missionChecker.Mission7();
+        }
+        else if (points >= 1000 && !SaveManager.Instance.Load().missions[8])
+        {
+            missionChecker.Mission8();
+        }
+        else if (points >= 3000 && !SaveManager.Instance.Load().missions[9])
+        {
+            missionChecker.Mission9();
+        }
+        else if (points >= 5000 && !SaveManager.Instance.Load().missions[10])
+        {
+            missionChecker.Mission10();
+        }
+        else if (points >= 10000 && !SaveManager.Instance.Load().missions[11])
+        {
+            missionChecker.Mission11();
+        }
+    }
+
+    public void MissionPopUp(string missionText)
+    {
+        notification.SetActive(true);
+        notification.GetComponentInChildren<TextMeshProUGUI>().text = missionText;
+        PlayMissionSound();
+        FunctionTimer.Create(DisablePopUp, 2f);
+    }
+    void MovePopUp()
+    {
+        if (notification.activeInHierarchy)
+        {
+            float delta = 3f * Time.unscaledDeltaTime;
+            notification.transform.position = Vector2.Lerp(notification.transform.position, targetPos.position, delta);
+        }
+    }
+    void DisablePopUp()
+    {
+        notification.transform.position = inicialPos.position;
+        notification.SetActive(false);
+        
+    }
+
+    void PlayMissionSound()
+    {
+        if(missionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(missionSound, mainCamera.transform.position, 0.3f);
         }
     }
     

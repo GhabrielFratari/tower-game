@@ -1,1 +1,3 @@
 8bit bossa: https://opengameart.org/content/bossa-nova
+button sound: https://opengameart.org/content/ui-sfx-pack-2-sample
+buying sound: https://opengameart.org/content/coins-sound-effects-library

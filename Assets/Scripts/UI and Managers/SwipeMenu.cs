@@ -10,9 +10,11 @@ public class SwipeMenu : MonoBehaviour
     float[] pos;
     string towerID;
     string outfitID;
+    SelectButton selectButton;  
+
     void Start()
     {
-        
+        selectButton = FindObjectOfType<SelectButton>();
     }
 
     void Update()
@@ -48,11 +50,13 @@ public class SwipeMenu : MonoBehaviour
                 instance.gameObject.GetComponent<Button>().interactable = true;
                 if (gameObject.tag == "Outfit")
                 {
+                    selectButton.OnOutfitSelect(instance.gameObject.GetComponent<OutfitTowerID>().GetIndex());
                     outfitID = instance.gameObject.GetComponent<OutfitTowerID>().GetName();
                     //Debug.Log(outfitID);
                 }
                 else if (gameObject.tag == "Tower")
                 {
+                    selectButton.OnTowerSelect(instance.gameObject.GetComponent<OutfitTowerID>().GetIndex());
                     towerID = instance.gameObject.GetComponent<OutfitTowerID>().GetName();
                     //Debug.Log(towerID);
 

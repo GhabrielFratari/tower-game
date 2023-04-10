@@ -8,23 +8,23 @@ public class ChangeOutfitTower : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] Towers[] towers;
     [SerializeField] Outfits[] outfits;
-    JSONsaving jsonSaving;
 
     [System.Serializable]
     public struct Towers
     {
         public string towerName;
         public GameObject prefab;
+        public int index;
     }
     [System.Serializable]
     public struct Outfits
     {
         public string outfitName;
         public RuntimeAnimatorController outfit;
+        public int index;
     }
     private void Awake()
     {
-        jsonSaving = FindObjectOfType<JSONsaving>();
        
     }
     private void Start()
@@ -35,7 +35,7 @@ public class ChangeOutfitTower : MonoBehaviour
     private void ChangeTower()
     {
         //string name = Get tower name from file
-        string name = jsonSaving.LoadData().towerID;
+        string name = SaveManager.Instance.Load().currentTower;
         if (name == null || name == "") name = "MainTower";
 
         for(int i = 0; i < towers.Length; i++)
@@ -50,7 +50,7 @@ public class ChangeOutfitTower : MonoBehaviour
     private void ChangeOutfit()
     {
         //string name = Get outfit name from file
-        string name = jsonSaving.LoadData().outfitID;
+        string name = SaveManager.Instance.Load().currentOutfit;
         if(name == null || name == "") name = "MainOutfit";
 
         for (int i = 0; i < outfits.Length; i++)

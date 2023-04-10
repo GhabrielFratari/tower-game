@@ -62,7 +62,7 @@ public class Collectable : MonoBehaviour
             PlayCollectableVFX();
             Destroy(gameObject);
         }*/
-        if((other.tag == "Player" || other.tag == "Shield") && this.tag == "Coin")
+        if((other.tag == "Player" || other.tag == "Shield") && this.CompareTag("Coin"))
         {
             if (collectableVFX != null)
             {
@@ -71,6 +71,7 @@ public class Collectable : MonoBehaviour
             }
 
             scoreSystem.AddCoins(coinValue);
+            SaveManager.Instance.AddCoins(coinValue);
             Destroy(gameObject, 0.1f);
         }
     }

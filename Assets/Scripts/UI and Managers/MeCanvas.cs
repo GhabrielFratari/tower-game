@@ -12,14 +12,12 @@ public class MeCanvas : MonoBehaviour
     [SerializeField] Button towersButton;
     [SerializeField] Button outfitsButton;
     [SerializeField] TextMeshProUGUI coinsText;
+    UISound uiSound;
 
-
-    private void Awake()
-    {
-        coinsText.text = SaveManager.Instance.Load().coins.ToString();
-    }
     private void Update()
     {
+        coinsText.text = SaveManager.Instance.Load().coins.ToString();
+
         if (outfitsScroll.activeInHierarchy)
         {
             outfitsButton.transform.localScale = Vector2.Lerp(outfitsButton.transform.localScale, new Vector2(1f, 1f), 0.1f);
@@ -50,5 +48,10 @@ public class MeCanvas : MonoBehaviour
             towersButton.image.color = Color.white;
             outfitsButton.image.color = buttonCollor;
         }
+    }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
     }
 }

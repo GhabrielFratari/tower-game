@@ -8,16 +8,14 @@ public class MenuCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject optionsMenuUI;
-    JSONsaving jsonSaving;
-    private void Awake()
-    {
-        jsonSaving = FindObjectOfType<JSONsaving>();
-    }
+
+    UISound uiSound;
+   
 
     void Start()
     {
         bestScoreText.text = "Best Score: " + SaveManager.Instance.Load().score;
-        coinsText.text = "Coins: " + SaveManager.Instance.Load().coins;
+        coinsText.text = SaveManager.Instance.Load().coins.ToString();
 
     }
 
@@ -31,4 +29,9 @@ public class MenuCanvas : MonoBehaviour
         optionsMenuUI.SetActive(false);
     }
     
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
+    }
 }

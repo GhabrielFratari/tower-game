@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CollectableIcon : MonoBehaviour
 {
-    [SerializeField] private float duration;
+    private float duration;
     Slider mySlider;
     Wings wingsObj;
     Shield shieldObj;
@@ -17,11 +17,13 @@ public class CollectableIcon : MonoBehaviour
         if (wings)
         {
             wingsObj = FindObjectOfType<Wings>();
+            duration = wingsObj.GetDuration();
 
         }
         else if (shield)
         {
             shieldObj = FindObjectOfType<Shield>();
+            duration = shieldObj.GetDuration();
         }
         mySlider = GetComponentInChildren<Slider>();
         mySlider.maxValue = duration;

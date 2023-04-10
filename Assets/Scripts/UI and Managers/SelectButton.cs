@@ -7,48 +7,151 @@ using UnityEngine.UI;
 public class SelectButton : MonoBehaviour
 {
     [SerializeField] Color blue;
-    TextMeshProUGUI text;
-    JSONsaving jsonSaving;
-    
+    [SerializeField] Color yellow;
+    [SerializeField] Color mainColor;
+    [SerializeField] GameObject coinImage;
+    [SerializeField] RectTransform textPos;
+    [SerializeField] TextMeshProUGUI selectedText;
+    [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] AudioClip buySound;
+    [SerializeField] AudioClip failSound;
+    UISound selectSound;
 
-    private void Awake()
+    string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
+    string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden", "Astronaut"};
+    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000, 10};
+    private int[] towerCost = new int[] { 0, 1000, 1000, 1000, 1000 };
+    private int selectedOutfitIndex;
+    private int selectedTowerIndex;
+
+    private void SelectOutfit(int index)
     {
-        text = GetComponentInChildren<TextMeshProUGUI>();
-        jsonSaving = FindObjectOfType<JSONsaving>();
+        SaveManager.Instance.ChangeOutfit(outfits[index]);
     }
-    void Start()
+    private void SelectTower(int index)
     {
-        
+        SaveManager.Instance.ChangeTower(towers[index]);
     }
 
-    void Update()
+    public void OnOutfitSelect(int currentIndex)
     {
-        if (tag == "Outfit")
+        selectedOutfitIndex = currentIndex;
+
+        if (SaveManager.Instance.isOutfitOwned(currentIndex))
         {
-            if (FindObjectOfType<SwipeMenu>().GetOutfitID() == jsonSaving.LoadData().outfitID)
+            selectedText.gameObject.SetActive(true);
+            costText.gameObject.SetActive(false);
+
+            if (SaveManager.Instance.Load().currentOutfit == outfits[currentIndex])
             {
-                text.text = "Selected";
+                selectedText.text = "Selected";
                 gameObject.GetComponent<Image>().color = blue;
             }
             else
             {
-                text.text = "Select";
+                selectedText.text = "Select";
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
-        else if (tag == "Tower")
+        else
         {
-            if (FindObjectOfType<SwipeMenu>().GetTowerID() == jsonSaving.LoadData().towerID)
+            selectedText.gameObject.SetActive(false);
+            costText.gameObject.SetActive(true);
+            costText.text = outfitCost[currentIndex].ToString();
+            gameObject.GetComponent<Image>().color = yellow;
+        }
+    }
+    public void OnTowerSelect(int currentIndex)
+    {
+        selectedTowerIndex = currentIndex;
+
+        if (SaveManager.Instance.isTowerOwned(currentIndex))
+        {
+            selectedText.gameObject.SetActive(true);
+            costText.gameObject.SetActive(false);
+
+            if (SaveManager.Instance.Load().currentTower == towers[currentIndex])
             {
-                text.text = "Selected";
+                selectedText.text = "Selected";
                 gameObject.GetComponent<Image>().color = blue;
             }
             else
             {
-                text.text = "Select";
+                selectedText.text = "Select";
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
-        
+        else
+        {
+            selectedText.gameObject.SetActive(false);
+            costText.gameObject.SetActive(true);
+            costText.text = towerCost[currentIndex].ToString();
+            gameObject.GetComponent<Image>().color = yellow;
+        }
+    }
+
+    public void OutfitBuySelect()
+    {
+        if (SaveManager.Instance.isOutfitOwned(selectedOutfitIndex))
+        {
+            SelectOutfit(selectedOutfitIndex);
+            PlaySelectSound();
+        }
+        else
+        {
+            if(SaveManager.Instance.buyOutfit(selectedOutfitIndex, outfitCost[selectedOutfitIndex]))
+            {
+                SelectOutfit(selectedOutfitIndex);
+                PlayBuySound();
+            }
+            else
+            {
+                Debug.Log("Not enough gold!");
+                PlayFailSound();
+            }
+        }
+    }
+    public void TowerBuySelect()
+    {
+        if (SaveManager.Instance.isTowerOwned(selectedTowerIndex))
+        {
+            SelectTower(selectedTowerIndex);
+            PlaySelectSound();
+        }
+        else
+        {
+            if (SaveManager.Instance.buyTower(selectedTowerIndex, towerCost[selectedTowerIndex]))
+            {
+                SelectTower(selectedTowerIndex);
+                PlayBuySound();
+            }
+            else
+            {
+                Debug.Log("Not enough gold!");
+                PlayFailSound();
+            }
+        }
+    }
+
+    public void PlaySelectSound()
+    {
+        selectSound = FindObjectOfType<UISound>();
+        selectSound.PlayButtonSound();
+    }
+    public void PlayBuySound()
+    {
+        if(buySound != null)
+        {
+            AudioSource.PlayClipAtPoint(buySound, Camera.main.transform.position, 0.7f);
+
+        }
+    }
+    public void PlayFailSound()
+    {
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, Camera.main.transform.position, 0.7f);
+
+        }
     }
 }

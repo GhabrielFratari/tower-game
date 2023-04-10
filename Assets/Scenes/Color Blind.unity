@@ -5081,6 +5081,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
+      propertyPath: coinDouble
+      value: 
+      objectReference: {fileID: 156534346946914542, guid: 2a439d8720e7acb49a0426043a6f0025,
+        type: 3}
+    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
+        type: 3}
       propertyPath: respawnTime
       value: 30
       objectReference: {fileID: 0}

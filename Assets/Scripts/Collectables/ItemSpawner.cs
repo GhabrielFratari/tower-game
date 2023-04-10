@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
+
 
 public class ItemSpawner : MonoBehaviour
 {
@@ -12,54 +14,74 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] private int maxTime;
 
     [Header("Items Chance")]
-    [SerializeField] private float shieldChance;
-    [SerializeField] private float wingsChance;
-    [SerializeField] private float superJumpChance;
-    [SerializeField] private float magnetChance;
-    [SerializeField] private float nothingChance;
+    private float shieldChance = 0;
+    private float wingsChance = 0;
+    private float superJumpChance = 0;
+    private float maxChance = 66f;
+    private float[] powerUpChances = {0, 0, 0};
+
+    bool[] hasPowerUps = {false, false, false};
+    private void Awake()
+    {
+        hasPowerUps[0] = SaveManager.Instance.Load().shieldOwned;
+        hasPowerUps[1] = SaveManager.Instance.Load().wingsOwned;
+        hasPowerUps[2] = SaveManager.Instance.Load().superJump;
+    }
 
     void Start()
     {
-        wingsChance = wingsChance + shieldChance;
-        superJumpChance = superJumpChance + wingsChance;
-        magnetChance = magnetChance + superJumpChance;
+        CheckPowerUpOwned();
+        
         StartCoroutine(CoroutinePowerUps());
+        FunctionTimer.Create(SpawnPowerUp, 5);
     }
 
     private void SpawnPowerUp()
     {
         int randomPos = Random.Range(0, positions.Length);
         float randomNumber = Random.Range(0, 101);
-        //Debug.Log("Random Number is: " + randomNumber);
-        if (randomNumber <= shieldChance)
+        //Debug.Log("Change %" + randomNumber);
+        if (randomNumber <= shieldChance && hasPowerUps[0])
         {
             //spawn shield
             Instantiate(powerUps[0], positions[randomPos].transform.position, Quaternion.identity);
-            //Debug.Log("shield");
         }
-        else if (randomNumber <= wingsChance && randomNumber > shieldChance)
+        else if (randomNumber <= wingsChance && randomNumber > shieldChance && hasPowerUps[1])
         {
             //spawn wings
             Instantiate(powerUps[1], positions[randomPos].transform.position, Quaternion.identity);
-            //Debug.Log("wings");
         }
-        else if (randomNumber <= superJumpChance && randomNumber > wingsChance)
+        else if (randomNumber <= superJumpChance && randomNumber > wingsChance && hasPowerUps[2])
         {
             //spawn super jump
             Instantiate(powerUps[2], positions[randomPos].transform.position, Quaternion.identity);
-            //Debug.Log("super jump");
         }
-        /*else if (randomNumber <= magnetChance && randomNumber > superJumpChance)
+    }
+
+    void CheckPowerUpOwned()
+    {
+        int j = 0;
+        for(int i = 0; i < 3; i++)
         {
-            //spawn magnet
-            GameObject a = Instantiate(powerUps[3], positions[randomPos].transform.position, Quaternion.identity);
-            //Debug.Log("magnet");
-        }*/
-        else
-        {
-            //nothing happens :)
-            //Debug.Log("nothing");
+            if (hasPowerUps[i])
+            {
+                j++;
+            }
         }
+        for (int i = 0; i < 3; i++)
+        {
+            if (hasPowerUps[i])
+            {
+                powerUpChances[i] = maxChance / j;
+            }
+        }
+        shieldChance = powerUpChances[0];
+        wingsChance = powerUpChances[1] + shieldChance;
+        superJumpChance = powerUpChances[2] + wingsChance;
+
+        //Debug.Log(shieldChance);
+        //Debug.Log(wingsChance);
+        //Debug.Log(superJumpChance);
     }
 
 
@@ -70,7 +92,6 @@ public class ItemSpawner : MonoBehaviour
         {
             int respawnTime = Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(respawnTime);
-            //Debug.Log(respawnTime);
             SpawnPowerUp();
         }
 

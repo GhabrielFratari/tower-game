@@ -4,41 +4,44 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using CodeMonkey.Utils;
 using TMPro;
+using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject gameOverMenuUI;
+    [SerializeField] GameObject newHighScoreMenuUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] TextMeshProUGUI newHighScoreText;
     [SerializeField] float delay = 3f;
     [SerializeField] GameObject shieldIcon;
     [SerializeField] GameObject wingsIcon;
     [SerializeField] GameObject iconSpawner;
+    [SerializeField] AudioClip scoreBeatenSFX;
 
+    AudioSource src;
     private GameObject shieldInstance;
     private GameObject wingsInstance;
+    Camera mainCam;
     ScoreSystem scoreSystem;
-    PlayerDataManager playerDataMan;
     AudioSource[] allSounds;
+    UISound uiSound;
     public static bool gameIsPaused = false;
     float currentTimeScale;
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
-        playerDataMan = FindObjectOfType<PlayerDataManager>();
+        mainCam = Camera.main;
+        src = GetComponent<AudioSource>();
     }
 
     public void Pause()
     {
-        allSounds = FindObjectsOfType<AudioSource>();
         pauseMenuUI.SetActive(true);
         currentTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         gameIsPaused = true;
-        foreach (AudioSource a in allSounds)
-        {
-            a.Pause();
-        }
+        PauseAllSounds();
     }
 
     public void Resume()
@@ -46,48 +49,85 @@ public class MenuManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = currentTimeScale;
         gameIsPaused = false;
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
     }
 
     public void Restart()
     {
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Playing");
     }
 
     public void LoadMenu()
     {
-        foreach (AudioSource a in allSounds)
-        {
-            a.Play();
-        }
+        PlayAllSounds();
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
     private void GameOver()
     {
-        allSounds = FindObjectsOfType<AudioSource>();
         DestroyShieldIcon();
         DestroyWingsIcon();
         finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
-        SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        //SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        
+        if(SaveManager.Instance.Load().score >= scoreSystem.GetScore())
+        {
+            gameOverMenuUI.SetActive(true);
+            PauseAllSounds();
+        }
+        else
+        {
+            newHighScoreMenuUI.SetActive(true);
+            newHighScoreText.text = scoreSystem.GetScore().ToString();
+            PauseAllSounds();
+            AudioSource.PlayClipAtPoint(scoreBeatenSFX, mainCam.transform.position, 0.7f);
+        }
         SaveManager.Instance.SetBestScore(scoreSystem.GetScore());
-        gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+   
+
+    public void PauseAllSounds()
+    {
+        allSounds = FindObjectsOfType<AudioSource>();
+       
         foreach (AudioSource a in allSounds)
         {
-            a.Pause();
+            if (a != null)
+            {
+                a.Pause();
+            }
+            else
+            {
+                Debug.Log("Audio Source null!");
+            }
         }
     }
 
+    public void PlayAllSounds()
+    {
+        
+        foreach (AudioSource a in allSounds)
+        {
+            if(a != null)
+            {
+                a.Play();
+            }
+            else
+            {
+                Debug.Log("Audio Source null!");
+            }
+        }
+    }
+    public void PlayUISound()
+    {
+        uiSound = FindObjectOfType<UISound>();
+        uiSound.PlayButtonSound();
+    }
     public void GameOverDelay()
     {
         FunctionTimer.Create(GameOver, delay);
