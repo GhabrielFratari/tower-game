@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CodeMonkey.Utils;
+using MoreMountains.Feedbacks;
 
 public class Player : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] ParticleSystem superJumpFlash;
     [SerializeField] ParticleSystem shieldExplosion;
+    [SerializeField] MMFeedbacks collectableFeedback;
     [SerializeField] GameObject shieldObject;
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
@@ -432,6 +434,7 @@ public class Player : MonoBehaviour
     void Up(Collider2D other)
     {
         other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
+        collectableFeedback?.PlayFeedbacks();
         scoreSystem.AddToScore(50);
         SuperJump(other);
         superJumpCounter++;

@@ -92,6 +92,8 @@ MonoBehaviour:
     type: 3}
   shieldExplosionVFX: {fileID: 4181061678998139188, guid: 33f00a60d2b296543bdb0ba4e9fac3ce,
     type: 3}
+  feedbackGameObject: {fileID: 1668508233895838470, guid: 0904aebc6a1d6314d9cfdc5e6105ab0f,
+    type: 3}
 --- !u!95 &7880016386746574957
 Animator:
   serializedVersion: 4

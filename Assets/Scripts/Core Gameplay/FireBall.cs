@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class FireBall : MonoBehaviour
 {
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private ParticleSystem explosionVFX;
     [SerializeField] private ParticleSystem shieldExplosionVFX;
+    [SerializeField] private GameObject feedbackGameObject;
+    private MMFeedbacks explosionFeedback;
 
     private Vector2 screenBounds;
     private Camera mainCam;
@@ -20,6 +23,8 @@ public class FireBall : MonoBehaviour
         mainCam = Camera.main;
         cameraShake = Camera.main.GetComponent<GameSpeed>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        feedbackGameObject = Instantiate(feedbackGameObject);
+        explosionFeedback = feedbackGameObject.GetComponent<MMFeedbacks>();
     }
 
     void Update()
@@ -37,6 +42,7 @@ public class FireBall : MonoBehaviour
             PlayExplosionEffect();
             AudioSource.PlayClipAtPoint(explosionSound, mainCam.transform.position, 0.2f);
             ShakeCamera();
+            explosionFeedback?.PlayFeedbacks();
             Destroy(this.gameObject);
         }
         else if(other.tag == "Shield")
