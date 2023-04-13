@@ -31,6 +31,7 @@ public class FireBall : MonoBehaviour
     {
         if (myTransform.position.y > screenBounds.y + 1)
         {
+            Destroy(feedbackGameObject);
             Destroy(this.gameObject);
         }
     }

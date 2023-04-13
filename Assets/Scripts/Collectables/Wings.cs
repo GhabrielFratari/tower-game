@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
+using MoreMountains.Feedbacks;
 
 public class Wings : MonoBehaviour
 {
+    [SerializeField] private MMFeedbacks flapFeedback;
+    //[SerializeField] private MMFeedbacks flapFeedback2;
     Player player;
     MenuManager menuManager;
     private int duration;
@@ -33,6 +35,11 @@ public class Wings : MonoBehaviour
                 duration = 7 + (i * 3);
             }
         }
+    }
+    public void PlayFlapVFX()
+    {
+        flapFeedback?.PlayFeedbacks();
+        //flapFeedback2?.PlayFeedbacks();
     }
 
     public int GetDuration()

@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem wingsExplosion;
     [SerializeField] ParticleSystem superJumpFlash;
     [SerializeField] ParticleSystem shieldExplosion;
-    [SerializeField] MMFeedbacks collectableFeedback;
+    [SerializeField] MMFeedbacks upFeedback;
+    [SerializeField] MMFeedbacks wingsFeedback;
     [SerializeField] GameObject shieldObject;
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
@@ -417,7 +418,7 @@ public class Player : MonoBehaviour
     }
     public void Fly(Collider2D other)
     {
-        other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
+        wingsFeedback?.PlayFeedbacks();
         PlayerCanFly();
         Instantiate(wingsObject, body.gameObject.transform);
         hasPowerUp = true;
@@ -434,7 +435,7 @@ public class Player : MonoBehaviour
     void Up(Collider2D other)
     {
         other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
-        collectableFeedback?.PlayFeedbacks();
+        upFeedback?.PlayFeedbacks();
         scoreSystem.AddToScore(50);
         SuperJump(other);
         superJumpCounter++;
