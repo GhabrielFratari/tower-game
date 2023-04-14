@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using CodeMonkey.Utils;
 using MoreMountains.Feedbacks;
 
 public class Player : MonoBehaviour
@@ -30,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem shieldExplosion;
     [SerializeField] MMFeedbacks upFeedback;
     [SerializeField] MMFeedbacks wingsFeedback;
+    [SerializeField] MMFeedbacks deathFeedback;
     [SerializeField] GameObject shieldObject;
     [SerializeField] GameObject wingsObject;
     [SerializeField] GameObject body;
@@ -227,13 +225,13 @@ public class Player : MonoBehaviour
                 if (myTransform.position.x == 0f)
                 {
                     left = true;
-                    AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
+                    //AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
                     isOtherButtonPressed = false;
                 }
                 else if(myTransform.position.x == 1.5f)
                 {
                     mid = true;
-                    AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
+                    //AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
                     isOtherButtonPressed = false;
                 }
                 else
@@ -258,13 +256,13 @@ public class Player : MonoBehaviour
                 if (myTransform.position.x == 0f)
                 {
                     right = true;
-                    AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
+                    //AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
                     isOtherButtonPressed = false;
                 }
                 else if (myTransform.position.x == -1.5f)
                 {
                     mid = true;
-                    AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
+                    //AudioSource.PlayClipAtPoint(wingsSound, mainCam.transform.position, 0.8f);
                     isOtherButtonPressed = false;
                 }
                 else
@@ -353,7 +351,7 @@ public class Player : MonoBehaviour
     }
     void JumpGravity()
     {
-        if(myRigidBody.velocity.y < 0)
+        if(myRigidBody.velocity.y < 0 && !isDead)
         {
             myRigidBody.gravityScale = gravity * fallGravityMultiplier;
         }
@@ -418,6 +416,7 @@ public class Player : MonoBehaviour
     }
     public void Fly(Collider2D other)
     {
+        other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
         wingsFeedback?.PlayFeedbacks();
         PlayerCanFly();
         Instantiate(wingsObject, body.gameObject.transform);
@@ -462,6 +461,7 @@ public class Player : MonoBehaviour
     void PlayerDeath()
     {
         isDead = true;
+        deathFeedback?.PlayFeedbacks();
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.gravityScale = gravity;
         myAnimator.SetTrigger("Dying");

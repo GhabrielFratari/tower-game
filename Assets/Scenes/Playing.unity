@@ -1347,26 +1347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1479341785845856570, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: PositionMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1479341785845856570, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: InstantiateParticlesPosition
-      value: 
-      objectReference: {fileID: 2112215679923389243}
-    - target: {fileID: 1479341785845856965, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: PositionMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1479341785845856965, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: InstantiateParticlesPosition
-      value: 
-      objectReference: {fileID: 2112215679923389243}
     - target: {fileID: 2112215679371347584, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
       propertyPath: flyingPoint
@@ -1442,14 +1422,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3321709354888347065, guid: b091990de6e7e2b42a217f9495223122,
+        type: 3}
+      propertyPath: ParticlesPrefab
+      value: 
+      objectReference: {fileID: 5595320805522459213, guid: f8e3581c47c024e479fca0237cf76f25,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b091990de6e7e2b42a217f9495223122, type: 3}
---- !u!4 &2112215679923389243 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2112215679386889692, guid: b091990de6e7e2b42a217f9495223122,
-    type: 3}
-  m_PrefabInstance: {fileID: 2112215679923389242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4304519838464710883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1472,6 +1452,12 @@ PrefabInstance:
       propertyPath: yPos
       value: -6.75
       objectReference: {fileID: 0}
+    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
+        type: 3}
+      propertyPath: fireBallPrefab
+      value: 
+      objectReference: {fileID: 628086756280769194, guid: dd756b09c041a014cb1f6556a0a42429,
+        type: 3}
     - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
       propertyPath: outOfScreenPos

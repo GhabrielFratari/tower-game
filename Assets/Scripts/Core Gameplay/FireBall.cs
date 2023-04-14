@@ -10,6 +10,7 @@ public class FireBall : MonoBehaviour
     [SerializeField] private ParticleSystem shieldExplosionVFX;
     [SerializeField] private GameObject feedbackGameObject;
     private MMFeedbacks explosionFeedback;
+    private MMFeedbacks squashFeedback;
 
     private Vector2 screenBounds;
     private Camera mainCam;
@@ -23,8 +24,14 @@ public class FireBall : MonoBehaviour
         mainCam = Camera.main;
         cameraShake = Camera.main.GetComponent<GameSpeed>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        squashFeedback = GetComponentInChildren<MMFeedbacks>();
+        squashFeedback.Initialization();
         feedbackGameObject = Instantiate(feedbackGameObject);
         explosionFeedback = feedbackGameObject.GetComponent<MMFeedbacks>();
+    }
+    private void Start() 
+    {
+        squashFeedback.PlayFeedbacks();    
     }
 
     void Update()
