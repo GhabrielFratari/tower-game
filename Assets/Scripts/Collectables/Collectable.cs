@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour
@@ -14,6 +12,11 @@ public class Collectable : MonoBehaviour
     ScoreSystem scoreSystem;
     Transform myTransform;
     private int bitMask;
+    private bool attracted = false;
+    private bool coinAdded = false;
+    private Vector3 attractorTarget;
+    private float attractorSpeed;
+    
 
     void Awake()
     {
@@ -48,11 +51,34 @@ public class Collectable : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(0, -speed * Time.deltaTime);
+        if(!attracted)
+        {
+            rb.velocity = new Vector2(0, -speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, attractorTarget, attractorSpeed * Time.deltaTime);
+            if(transform.position == attractorTarget)
+            {
+                if (collectableVFX != null)
+                {
+                    ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
+                    Destroy(instance.gameObject, instance.main.duration);
+                }
+            }
+        }
+        
         if (myTransform.position.y < -screenBounds.y * 3)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void SetAttractorCollider(Vector3 attractorTarget, float attractorSpeed)
+    {
+        this.attractorTarget = attractorTarget;
+        this.attractorSpeed = attractorSpeed;
+        attracted = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -62,17 +88,13 @@ public class Collectable : MonoBehaviour
             PlayCollectableVFX();
             Destroy(gameObject);
         }*/
-        if((other.tag == "Player" || other.tag == "Shield") && this.CompareTag("Coin"))
+        if((other.tag == "Player" || other.tag == "Shield") && this.CompareTag("Coin") && !coinAdded)
         {
-            if (collectableVFX != null)
-            {
-                ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
-                Destroy(instance.gameObject, instance.main.duration);
-            }
+            coinAdded = true;
 
             scoreSystem.AddCoins(coinValue);
             SaveManager.Instance.AddCoins(coinValue);
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.3f);
         }
     }
 

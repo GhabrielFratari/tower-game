@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
+
     [SerializeField] GameObject coin;
     [SerializeField] GameObject coinDouble;
     [SerializeField] Transform[] positions;

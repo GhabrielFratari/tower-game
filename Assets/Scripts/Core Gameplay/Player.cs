@@ -304,6 +304,7 @@ public class Player : MonoBehaviour
         myRigidBody.velocity = otherRB.velocity;
         up = false;
         playerPosition = myTransform.position.x;
+        other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     void PlayerUpOnAir()

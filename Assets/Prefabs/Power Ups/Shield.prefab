@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6780106196562021373}
   - component: {fileID: 4807260921692448185}
   - component: {fileID: 7183979485513127436}
+  - component: {fileID: 4577669948292409451}
   m_Layer: 14
   m_Name: Shield
   m_TagString: Shield
@@ -222,3 +223,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!122 &4577669948292409451
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780106196562021374}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294952019
+  m_Size: 1.4

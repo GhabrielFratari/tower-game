@@ -6,14 +6,13 @@ using MoreMountains.Feedbacks;
 public class Wings : MonoBehaviour
 {
     [SerializeField] private MMFeedbacks flapFeedback;
-    //[SerializeField] private MMFeedbacks flapFeedback2;
     Player player;
     MenuManager menuManager;
     private int duration;
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = GetComponentInParent<Player>();
         menuManager = FindObjectOfType<MenuManager>();
         CheckUpgradeState(SaveManager.Instance.Load().wings);
     }
@@ -39,7 +38,6 @@ public class Wings : MonoBehaviour
     public void PlayFlapVFX()
     {
         flapFeedback?.PlayFeedbacks();
-        //flapFeedback2?.PlayFeedbacks();
     }
 
     public int GetDuration()
