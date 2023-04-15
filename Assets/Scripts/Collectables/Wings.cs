@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
+using MoreMountains.Feedbacks;
 
 public class Wings : MonoBehaviour
 {
+    [SerializeField] private MMFeedbacks flapFeedback;
     Player player;
     MenuManager menuManager;
     private int duration;
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = GetComponentInParent<Player>();
         menuManager = FindObjectOfType<MenuManager>();
         CheckUpgradeState(SaveManager.Instance.Load().wings);
     }
@@ -33,6 +34,10 @@ public class Wings : MonoBehaviour
                 duration = 7 + (i * 3);
             }
         }
+    }
+    public void PlayFlapVFX()
+    {
+        flapFeedback?.PlayFeedbacks();
     }
 
     public int GetDuration()

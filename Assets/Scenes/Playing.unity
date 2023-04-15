@@ -645,6 +645,195 @@ Transform:
   m_Father: {fileID: 196740246}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &868002004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 940162888957998894, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 352337658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &868002005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868002004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efc6a4a233d87b4fbc72cda82ca4a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  ShakeDuration: 0.8
+  PlayOnAwake: 0
+  PermanentShake: 0
+  Interruptible: 1
+  AlwaysResetTargetValuesAfterShake: 0
+  CooldownBetweenShakes: 0
+  Shaking: 0
+  ForwardDirection: 1
+  TimescaleMode: 0
+  RelativeIntensity: 0
+  ShakeIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.35
+      value: 0.7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4
+      value: -0.7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.65
+      value: -0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.85
+      value: -0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapIntensityZero: 0
+  RemapIntensityOne: 50
+--- !u!114 &868002006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868002004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1297b688774526f418895a2f09176619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  ShakeDuration: 0.2
+  PlayOnAwake: 0
+  PermanentShake: 0
+  Interruptible: 1
+  AlwaysResetTargetValuesAfterShake: 0
+  CooldownBetweenShakes: 0
+  Shaking: 0
+  ForwardDirection: 1
+  TimescaleMode: 0
+  RelativeIntensity: 0
+  ShakeIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapIntensityZero: 0
+  RemapIntensityOne: 1
 --- !u!1 &1007984103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,26 +1417,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347596, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e2d623a25d46e994e97ef2ad623567ca, type: 2}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679371347597, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347599, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
       propertyPath: m_Name
@@ -1258,31 +1427,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889692, guid: b091990de6e7e2b42a217f9495223122,
+    - target: {fileID: 3321709354888347065, guid: b091990de6e7e2b42a217f9495223122,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889692, guid: b091990de6e7e2b42a217f9495223122,
+      propertyPath: ParticlesPrefab
+      value: 
+      objectReference: {fileID: 5595320805522459213, guid: f8e3581c47c024e479fca0237cf76f25,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112215679386889693, guid: b091990de6e7e2b42a217f9495223122,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b091990de6e7e2b42a217f9495223122, type: 3}
 --- !u!1001 &4304519838464710883
@@ -1307,6 +1457,12 @@ PrefabInstance:
       propertyPath: yPos
       value: -6.75
       objectReference: {fileID: 0}
+    - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
+        type: 3}
+      propertyPath: fireBallPrefab
+      value: 
+      objectReference: {fileID: 628086756280769194, guid: dd756b09c041a014cb1f6556a0a42429,
+        type: 3}
     - target: {fileID: 4304519839137193589, guid: 06479818b0aef4a40a3d4afa77e7d696,
         type: 3}
       propertyPath: outOfScreenPos
@@ -1505,7 +1661,7 @@ PrefabInstance:
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: coinChance
-      value: 35
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
@@ -1516,7 +1672,7 @@ PrefabInstance:
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: respawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
