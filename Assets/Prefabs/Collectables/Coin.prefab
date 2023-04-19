@@ -67,6 +67,7 @@ MonoBehaviour:
     type: 3}
   coinValue: 1
   raySize: 3
+  coinSound: {fileID: 8300000, guid: 00a6c0eca4e339d4d9777182298b9a24, type: 3}
 --- !u!50 &569199904920432957
 Rigidbody2D:
   serializedVersion: 4

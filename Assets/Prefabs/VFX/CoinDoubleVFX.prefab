@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8233991672358193885}
   - component: {fileID: 8233991672358193884}
   m_Layer: 0
-  m_Name: CoinVFX
+  m_Name: CoinDoubleVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.9622642, g: 0.931474, b: 0.748932, a: 1}
-      maxColor: {r: 1, g: 0.8578947, b: 0, a: 1}
+      minColor: {r: 0.9339623, g: 0.25857532, b: 0.13656995, a: 1}
+      maxColor: {r: 0.990566, g: 0.62515676, b: 0.55602527, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

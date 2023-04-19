@@ -63,10 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 170
-  collectableVFX: {fileID: 8233991672358193885, guid: 54d6a5b7b29900243b0298ba260648f7,
+  collectableVFX: {fileID: 8233991672358193885, guid: e0abbfa02ffc6e84e8a0148707b3bbfc,
     type: 3}
   coinValue: 2
   raySize: 3
+  coinSound: {fileID: 8300000, guid: 00a6c0eca4e339d4d9777182298b9a24, type: 3}
 --- !u!50 &569199904920432957
 Rigidbody2D:
   serializedVersion: 4

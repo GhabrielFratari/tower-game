@@ -6,6 +6,7 @@ public class Collectable : MonoBehaviour
     [SerializeField] ParticleSystem collectableVFX;
     [SerializeField] private int coinValue = 1;
     [SerializeField] private float raySize = 3f;
+    [SerializeField] private AudioClip coinSound;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     Player player;
@@ -64,7 +65,9 @@ public class Collectable : MonoBehaviour
                 {
                     ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);
                     Destroy(instance.gameObject, instance.main.duration);
+                    Destroy(gameObject, .1f);
                 }
+                
             }
         }
         
@@ -83,18 +86,16 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (other.tag == "Player" && !player.PlayerHasPowerUp() && this.tag != "Coin")
-        {
-            PlayCollectableVFX();
-            Destroy(gameObject);
-        }*/
+        
         if((other.tag == "Player" || other.tag == "Shield") && this.CompareTag("Coin") && !coinAdded)
         {
             coinAdded = true;
 
             scoreSystem.AddCoins(coinValue);
             SaveManager.Instance.AddCoins(coinValue);
-            Destroy(gameObject, 0.3f);
+            if(coinSound != null) AudioSource.PlayClipAtPoint(coinSound, transform.position, 0.4f);
+            //gameObject.SetActive(false);
+            
         }
     }
 

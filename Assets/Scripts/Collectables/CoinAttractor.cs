@@ -15,7 +15,7 @@ public class CoinAttractor : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") || other.CompareTag("Shield"))
         {
             Vector3 colliderCenter = new Vector3(other.bounds.center.x, other.bounds.center.y, other.bounds.center.z);
             coin.SetAttractorCollider(colliderCenter, attractorSpeed);

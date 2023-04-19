@@ -190,7 +190,8 @@ public class Player : MonoBehaviour
         }
         if(other.tag == "Coin")
         {
-            AudioSource.PlayClipAtPoint(coinSound, mainCam.transform.position, 0.4f);
+            
+            //AudioSource.PlayClipAtPoint(coinSound, mainCam.transform.position, 0.4f);
         }
     }
 
@@ -202,7 +203,7 @@ public class Player : MonoBehaviour
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 up = true;
-                PlayerJumping(0f);
+                PlayerJumping(0f, "isJumping");
             }
             else
             {
@@ -218,7 +219,7 @@ public class Player : MonoBehaviour
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                PlayerJumping(-xForce);
+                PlayerJumping(-xForce, "isJumpingLeft");
             }
             else if (canFly)
             {
@@ -249,7 +250,7 @@ public class Player : MonoBehaviour
             isOtherButtonPressed = true;
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
-                PlayerJumping(xForce);
+                PlayerJumping(xForce, "isJumpingRight");
             }
             else if (canFly)
             {
@@ -315,6 +316,8 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("isFalling", false);
             myAnimator.SetBool("isLanding", false);
             myAnimator.SetBool("isJumping", false);
+            myAnimator.SetBool("isJumpingLeft", false);
+            myAnimator.SetBool("isJumpingRight", false);
             myAnimator.SetBool("isUpOnAir", true);
         }
     }
@@ -331,13 +334,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    void PlayerJumping(float xValue)
+    void PlayerJumping(float xValue, string animationName)
     {
         PlayDustEffect();
         AudioSource.PlayClipAtPoint(jumpSound, mainCam.transform.position, 0.25f);
         playerPosition = myTransform.position.x;
         myAnimator.SetBool("isLanding", false);
-        myAnimator.SetBool("isJumping", true);
+        myAnimator.SetBool(animationName, true);
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
         myRigidBody.velocity += new Vector2(xValue, jumpForce);
     }
