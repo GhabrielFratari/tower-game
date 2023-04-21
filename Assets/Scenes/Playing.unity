@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
         type: 3}
@@ -537,7 +537,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &523106225 stripped
 Transform:
@@ -560,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5537754518658365172, guid: 0a590875d78adc443ae1d9b121468862,
         type: 3}
@@ -964,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 3296665149711250324, guid: dc9051184a0da1043b9ae39906ca8ebf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3296665149711250324, guid: dc9051184a0da1043b9ae39906ca8ebf,
         type: 3}
@@ -1141,12 +1141,6 @@ Transform:
   m_Father: {fileID: 196740246}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1476020408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2112215679371347599, guid: b091990de6e7e2b42a217f9495223122,
-    type: 3}
-  m_PrefabInstance: {fileID: 2112215679923389242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607398314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1247,7 @@ Transform:
   m_Children:
   - {fileID: 523106225}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1701317462
 MonoBehaviour:
@@ -1304,7 +1298,7 @@ PrefabInstance:
     - target: {fileID: 2112215679371347586, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2112215679371347586, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
         type: 3}
@@ -1356,6 +1350,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2112215679371347596, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6649ec8df05f28e4f80f8a367e67c50f, type: 2}
     - target: {fileID: 2112215679371347599, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
         type: 3}
       propertyPath: m_Name
@@ -1368,6 +1367,132 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626b68e8b1e9f2445bbf74e5d47ac185, type: 3}
+--- !u!1 &1815153696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2112215679371347599, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
+    type: 3}
+  m_PrefabInstance: {fileID: 1815153695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1815153697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 754251362494829625, guid: 626b68e8b1e9f2445bbf74e5d47ac185,
+    type: 3}
+  m_PrefabInstance: {fileID: 1815153695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1815153698
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815153697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1326a5f4dbb874f9c42effa0befa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: Haptics DEPRECATED!
+  Chance: 100
+  Timing:
+    TimescaleMode: 0
+    ExcludeFromHoldingPauses: 0
+    ContributeToTotalDuration: 1
+    InitialDelay: 0
+    CooldownDuration: 0
+    InterruptsOnStop: 1
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
+  DebugActive: 0
+  HapticMethod: 0
+  HapticType: 9
+  TransientIntensity: 1
+  TransientSharpness: 1
+  ATVibrateIOS: 1
+  ATIOSIntensity: 1
+  ATIOSSharpness: 1
+  ATVibrateAndroid: 1
+  ATVibrateAndroidIfNoSupport: 0
+  ATAndroidIntensity: 1
+  ATAndroidSharpness: 1
+  ATRumble: 1
+  ATRumbleIntensity: 1
+  ATRumbleSharpness: 1
+  ATRumbleControllerID: -1
+  InitialContinuousIntensity: 1
+  ContinuousIntensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  InitialContinuousSharpness: 1
+  ContinuousSharpnessCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ContinuousDuration: 1
+  APVibrateIOS: 1
+  AHAPFileForIOS: {fileID: 0}
+  APVibrateAndroid: 1
+  APVibrateAndroidIfNoSupport: 0
+  APRumble: 1
+  AndroidRepeat: -1
+  RumbleRepeat: -1
+  OldIOSFallback: 0
+  Timescale: 1
+  AllowRumble: 1
+  ControllerID: -1
+  OutputDeprecationWarning: 1
 --- !u!1 &1960968011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +2098,7 @@ PrefabInstance:
     - target: {fileID: 5435887499192335055, guid: cb0f6112718cf6f409cbcdf657641f99,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5435887499192335055, guid: cb0f6112718cf6f409cbcdf657641f99,
         type: 3}
@@ -2217,7 +2342,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1476020408}
+      objectReference: {fileID: 1815153696}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.size
@@ -2272,27 +2397,27 @@ PrefabInstance:
         type: 3}
       propertyPath: outfits.Array.data[1].outfit
       value: 
-      objectReference: {fileID: 9100000, guid: 3d6f24f503613804981213493e5e3691, type: 2}
+      objectReference: {fileID: 9100000, guid: a6a9cae438c2fcc4887fed8530b8bc6e, type: 2}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.data[2].outfit
       value: 
-      objectReference: {fileID: 9100000, guid: a6501c20aa8e2504e97ddbb261e9137e, type: 2}
+      objectReference: {fileID: 9100000, guid: fe6819ed0c80f7d45a44b6a04cc59b9c, type: 2}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.data[3].outfit
       value: 
-      objectReference: {fileID: 9100000, guid: 8357db5f0ef50a448b4a652ea687fbb5, type: 2}
+      objectReference: {fileID: 9100000, guid: 5af3c39847553074abd29267cf24e532, type: 2}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.data[4].outfit
       value: 
-      objectReference: {fileID: 9100000, guid: ac40833ea5b262647bfe97f20e909ff2, type: 2}
+      objectReference: {fileID: 9100000, guid: e9d8a1bc5b34da248a31d0f86d4dbf1c, type: 2}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.data[5].outfit
       value: 
-      objectReference: {fileID: 9100000, guid: e2d623a25d46e994e97ef2ad623567ca, type: 2}
+      objectReference: {fileID: 9100000, guid: 6649ec8df05f28e4f80f8a367e67c50f, type: 2}
     - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: outfits.Array.data[1].outfitName

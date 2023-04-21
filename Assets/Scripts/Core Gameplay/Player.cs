@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
         if(other.tag == "ShieldCollectable" && !shield && !wings)
         {
             other.gameObject.GetComponent<Collectable>().PlayCollectableVFX();
-            Instantiate(shieldObject, body.transform.position, Quaternion.identity, body.gameObject.transform);
+            Instantiate(shieldObject, body.transform.position, shieldObject.transform.rotation, body.transform);
             hasPowerUp = true;
             shieldCounter++;
             if (shieldCounter == 3 && !SaveManager.Instance.Load().missions[1])
