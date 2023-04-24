@@ -556,7 +556,7 @@ MonoBehaviour:
   upFeedback: {fileID: 754251362494829607}
   wingsFeedback: {fileID: 1479341785845856964}
   deathFeedback: {fileID: 1919744934587274605}
-  shieldObject: {fileID: 2296275245931275365, guid: 0a71a0df650bb2f40a7e8e0c36a72c1e,
+  shieldObject: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
     type: 3}
   wingsObject: {fileID: 9178635753042282062, guid: 93e5292558e46d143872833fd758d13b,
     type: 3}
@@ -1186,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 2899024435277723557, guid: ae408ee920a4af54a9316f8702adfec6,
         type: 3}
       propertyPath: Feedbacks.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2899024435277723558, guid: ae408ee920a4af54a9316f8702adfec6,
         type: 3}
@@ -1248,7 +1248,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpCollectable_MMFeedbacks
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2899024435277723556, guid: ae408ee920a4af54a9316f8702adfec6, type: 3}
+    - {fileID: 2899024435277723559, guid: ae408ee920a4af54a9316f8702adfec6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae408ee920a4af54a9316f8702adfec6, type: 3}
 --- !u!4 &754251362494829604 stripped
 Transform:

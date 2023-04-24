@@ -53,31 +53,34 @@ MonoBehaviour:
   - towerName: RockTower
     prefab: {fileID: 4709885716805421311, guid: ecadb1e867607594683d20901355cc57,
       type: 3}
-    index: 0
+    index: 1
   - towerName: WoodTower
     prefab: {fileID: 8120033690646014413, guid: 80cc546ec8663264780bee3a59c73566,
       type: 3}
-    index: 0
+    index: 2
   - towerName: BoulderingTower
     prefab: {fileID: 3645046261385527783, guid: 97b84e4013c395143806a51bac681870,
       type: 3}
-    index: 0
+    index: 3
   - towerName: PlantTower
     prefab: {fileID: 865207740226188508, guid: 20dac8147402bad48bc1e55307fbb8c6, type: 3}
-    index: 0
+    index: 4
   outfits:
   - outfitName: MainOutfit
     outfit: {fileID: 9100000, guid: 58c99a26addb6754f9b07d4dfc53f558, type: 2}
     index: 0
-  - outfitName: Chocolate
-    outfit: {fileID: 9100000, guid: a6501c20aa8e2504e97ddbb261e9137e, type: 2}
-    index: 0
-  - outfitName: Golden
-    outfit: {fileID: 9100000, guid: ac40833ea5b262647bfe97f20e909ff2, type: 2}
-    index: 0
   - outfitName: RedKnight
-    outfit: {fileID: 9100000, guid: 3d6f24f503613804981213493e5e3691, type: 2}
-    index: 0
+    outfit: {fileID: 9100000, guid: a6a9cae438c2fcc4887fed8530b8bc6e, type: 2}
+    index: 1
+  - outfitName: Chocolate
+    outfit: {fileID: 9100000, guid: fe6819ed0c80f7d45a44b6a04cc59b9c, type: 2}
+    index: 2
   - outfitName: Space
-    outfit: {fileID: 9100000, guid: 8357db5f0ef50a448b4a652ea687fbb5, type: 2}
-    index: 0
+    outfit: {fileID: 9100000, guid: 5af3c39847553074abd29267cf24e532, type: 2}
+    index: 3
+  - outfitName: Golden
+    outfit: {fileID: 9100000, guid: e9d8a1bc5b34da248a31d0f86d4dbf1c, type: 2}
+    index: 4
+  - outfitName: Astronaut
+    outfit: {fileID: 9100000, guid: 6649ec8df05f28e4f80f8a367e67c50f, type: 2}
+    index: 5

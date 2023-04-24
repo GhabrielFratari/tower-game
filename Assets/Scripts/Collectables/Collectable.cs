@@ -101,6 +101,7 @@ public class Collectable : MonoBehaviour
 
     public void PlayCollectableVFX()
     {
+        AndroidVibration.Vibrate(100);
         if (collectableVFX != null)
         {
             ParticleSystem instance = Instantiate(collectableVFX, myTransform.position, collectableVFX.transform.rotation);

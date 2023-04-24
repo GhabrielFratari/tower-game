@@ -711,75 +711,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108246294}
   m_CullTransparentMesh: 1
---- !u!1001 &114718802
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998880, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 940162888957998894, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
-        type: 3}
-      propertyPath: m_Name
-      value: PostProcessing
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5, type: 3}
 --- !u!1 &152812623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3710,6 +3641,7 @@ GameObject:
   - component: {fileID: 1120002869}
   - component: {fileID: 1120002868}
   - component: {fileID: 1120002872}
+  - component: {fileID: 1120002873}
   m_Layer: 5
   m_Name: Mission Canvas
   m_TagString: Untagged
@@ -3826,6 +3758,18 @@ MonoBehaviour:
   - {fileID: 1443000058}
   - {fileID: 1085416045}
   - {fileID: 1963906359}
+--- !u!114 &1120002873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120002867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f8e7ced1871eb46880d21442495dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1127760097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8936,6 +8880,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1120002872}
         m_TargetAssemblyTypeName: MissionCanvas, Assembly-CSharp
         m_MethodName: PlayUISound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1120002873}
+        m_TargetAssemblyTypeName: VibrationTest, Assembly-CSharp
+        m_MethodName: Vibrate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

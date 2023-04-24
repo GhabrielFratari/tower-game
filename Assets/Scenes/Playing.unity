@@ -422,6 +422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessing
       objectReference: {fileID: 0}
+    - target: {fileID: 940162888957998894, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dabe3d68cd6bbf4bb9cbef2a5bc95b5, type: 3}
 --- !u!1 &472713645
@@ -1023,6 +1028,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9051184a0da1043b9ae39906ca8ebf, type: 3}
+--- !u!114 &1056766841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3296665149711250327, guid: dc9051184a0da1043b9ae39906ca8ebf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056766840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfd6f5be200ed740a1b8fec05d703f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1286545213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1548,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 71986331084614600, guid: 3eb282c84cf097e4a915a4ddfb864441,
+        type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 1056766841}
     - target: {fileID: 71986331084614602, guid: 3eb282c84cf097e4a915a4ddfb864441,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1905,46 +1927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Items Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389073, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: maxTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: minTime
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: wingsChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: magnetChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: shieldChance
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: superJumpChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: powerUps.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4756956418619389075, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: positions.Array.data[0]
@@ -1960,38 +1942,6 @@ PrefabInstance:
       propertyPath: positions.Array.data[2]
       value: 
       objectReference: {fileID: 56917067}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: coin
-      value: 
-      objectReference: {fileID: 156534346946914542, guid: b7cbe3df88b3f264e9eb977eb30c50f6,
-        type: 3}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: coinChance
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: coinDouble
-      value: 
-      objectReference: {fileID: 156534346946914542, guid: 2a439d8720e7acb49a0426043a6f0025,
-        type: 3}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: respawnTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: doubleCoinChance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
-        type: 3}
-      propertyPath: positions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8909064335861734942, guid: 9b7680b9b57e0394b851efc7b3633f82,
         type: 3}
       propertyPath: positions.Array.data[0]
@@ -2329,6 +2279,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5516725133616700583, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: m_ShowToolkit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516725133616700583, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: antialiasingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516725133616700583, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516725133616700583, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516725133616700583, guid: 472f06b2e5c5e474e8e4a836d50f8c09,
+        type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 472f06b2e5c5e474e8e4a836d50f8c09, type: 3}
 --- !u!1001 &6595079152330512453
@@ -2343,106 +2318,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1815153696}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: towers.Array.data[1].index
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: towers.Array.data[2].index
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: towers.Array.data[3].index
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: towers.Array.data[4].index
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[1].index
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[2].index
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[3].index
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[4].index
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[5].index
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[1].outfit
-      value: 
-      objectReference: {fileID: 9100000, guid: a6a9cae438c2fcc4887fed8530b8bc6e, type: 2}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[2].outfit
-      value: 
-      objectReference: {fileID: 9100000, guid: fe6819ed0c80f7d45a44b6a04cc59b9c, type: 2}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[3].outfit
-      value: 
-      objectReference: {fileID: 9100000, guid: 5af3c39847553074abd29267cf24e532, type: 2}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[4].outfit
-      value: 
-      objectReference: {fileID: 9100000, guid: e9d8a1bc5b34da248a31d0f86d4dbf1c, type: 2}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[5].outfit
-      value: 
-      objectReference: {fileID: 9100000, guid: 6649ec8df05f28e4f80f8a367e67c50f, type: 2}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[1].outfitName
-      value: RedKnight
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[2].outfitName
-      value: Chocolate
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[3].outfitName
-      value: Space
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[4].outfitName
-      value: Golden
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595079150367716764, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
-        type: 3}
-      propertyPath: outfits.Array.data[5].outfitName
-      value: Astronaut
-      objectReference: {fileID: 0}
     - target: {fileID: 6595079150367716765, guid: c6a3a02be76e4f94db68f2b98e4b4de2,
         type: 3}
       propertyPath: m_Name

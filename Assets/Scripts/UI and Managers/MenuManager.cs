@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject wingsIcon;
     [SerializeField] GameObject iconSpawner;
     [SerializeField] AudioClip scoreBeatenSFX;
+    [SerializeField] SceneLoader sceneLoader;
 
     AudioSource src;
     private GameObject shieldInstance;
@@ -56,7 +57,7 @@ public class MenuManager : MonoBehaviour
     {
         PlayAllSounds();
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Playing");
+        sceneLoader.LoadNextScene();
     }
 
     public void LoadMenu()

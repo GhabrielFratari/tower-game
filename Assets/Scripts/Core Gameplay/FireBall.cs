@@ -8,8 +8,7 @@ public class FireBall : MonoBehaviour
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private ParticleSystem explosionVFX;
     [SerializeField] private ParticleSystem shieldExplosionVFX;
-    [SerializeField] private GameObject feedbackGameObject;
-    private MMFeedbacks explosionFeedback;
+
     private MMFeedbacks squashFeedback;
 
     private Vector2 screenBounds;
@@ -26,8 +25,7 @@ public class FireBall : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         squashFeedback = GetComponentInChildren<MMFeedbacks>();
         squashFeedback.Initialization();
-        feedbackGameObject = Instantiate(feedbackGameObject);
-        explosionFeedback = feedbackGameObject.GetComponent<MMFeedbacks>();
+        
     }
     private void Start() 
     {
@@ -38,7 +36,6 @@ public class FireBall : MonoBehaviour
     {
         if (myTransform.position.y > screenBounds.y + 1)
         {
-            Destroy(feedbackGameObject);
             Destroy(this.gameObject);
         }
     }
@@ -47,10 +44,10 @@ public class FireBall : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            AndroidVibration.Vibrate(300);
             PlayExplosionEffect();
             AudioSource.PlayClipAtPoint(explosionSound, mainCam.transform.position, 0.2f);
             ShakeCamera();
-            explosionFeedback?.PlayFeedbacks();
             Destroy(this.gameObject);
         }
         else if(other.tag == "Shield")
@@ -59,6 +56,7 @@ public class FireBall : MonoBehaviour
             {
                 PlayShieldExplosionEffect();
             }
+            AndroidVibration.Vibrate(200);
             ShakeCamera();
             Destroy(this.gameObject);
         }

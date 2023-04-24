@@ -188,11 +188,6 @@ public class Player : MonoBehaviour
             }
             
         }
-        if(other.tag == "Coin")
-        {
-            
-            //AudioSource.PlayClipAtPoint(coinSound, mainCam.transform.position, 0.4f);
-        }
     }
 
     public void JumpUp()
@@ -306,6 +301,7 @@ public class Player : MonoBehaviour
         up = false;
         playerPosition = myTransform.position.x;
         other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+        AndroidVibration.Vibrate(50);
     }
 
     void PlayerUpOnAir()
