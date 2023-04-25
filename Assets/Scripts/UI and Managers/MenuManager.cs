@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using CodeMonkey.Utils;
 using TMPro;
-using UnityEngine.Audio;
 
 public class MenuManager : MonoBehaviour
 {
@@ -29,11 +26,14 @@ public class MenuManager : MonoBehaviour
     UISound uiSound;
     public static bool gameIsPaused = false;
     float currentTimeScale;
+    private int bestScore;
+    private int currentScore;
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
         mainCam = Camera.main;
         src = GetComponent<AudioSource>();
+        bestScore = SaveManager.Instance.Load().score;
     }
 
     public void Pause()
@@ -71,10 +71,11 @@ public class MenuManager : MonoBehaviour
     {
         DestroyShieldIcon();
         DestroyWingsIcon();
-        finalScoreText.text = "Score: " + scoreSystem.GetScore().ToString();
+        currentScore = scoreSystem.GetScore();
+        finalScoreText.text = "Score: " + currentScore.ToString();
         //SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
         
-        if(SaveManager.Instance.Load().score >= scoreSystem.GetScore())
+        if(bestScore >= currentScore)
         {
             gameOverMenuUI.SetActive(true);
             PauseAllSounds();
@@ -82,11 +83,11 @@ public class MenuManager : MonoBehaviour
         else
         {
             newHighScoreMenuUI.SetActive(true);
-            newHighScoreText.text = scoreSystem.GetScore().ToString();
+            newHighScoreText.text = currentScore.ToString();
             PauseAllSounds();
             AudioSource.PlayClipAtPoint(scoreBeatenSFX, mainCam.transform.position, 0.7f);
         }
-        SaveManager.Instance.SetBestScore(scoreSystem.GetScore());
+        SaveManager.Instance.SetBestScore(currentScore);
         Time.timeScale = 0f;
     }
 

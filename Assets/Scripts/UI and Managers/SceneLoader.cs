@@ -18,7 +18,8 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene("Playing");
+        //SceneManager.LoadScene("Playing");
+        SceneManager.LoadScene("SecretLevel");
     }
 
     public void LoadColorBlindScene()
