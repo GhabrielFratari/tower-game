@@ -12,5 +12,5 @@ public class SaveState
     public bool doubleCoin = false;
     public bool wingsOwned = false;
     public bool shieldOwned = false;
-    public bool[] missions = { false, false, false, false, false, false, false, false, false, false, false, false };
+    public bool[] missions = { false, false, false, false, false, false, false, false, false, false, false, false, false, false };
 }

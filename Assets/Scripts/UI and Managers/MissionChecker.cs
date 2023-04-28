@@ -117,6 +117,7 @@ public class MissionChecker : MonoBehaviour
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(300);
+            SaveManager.Instance.buyOutfit(4, 0);
             myScoreSystem.MissionPopUp("Hit 3000 points!");
             //Unlock GoldSkin
         }
@@ -142,6 +143,32 @@ public class MissionChecker : MonoBehaviour
             SaveManager.Instance.AddCoins(1000);
             myScoreSystem.MissionPopUp("Hit 10000 points!");
             //Unlock King Bilou Skin
+        }
+    }
+    public void Mission12()
+    {
+        //Hit 30000 points
+        int index = 12;
+        if (!SaveManager.Instance.Load().missions[index])
+        {
+            SaveManager.Instance.MissionCompleted(index);
+            SaveManager.Instance.AddCoins(1000);
+            SaveManager.Instance.buyTower(5, 0);
+            myScoreSystem.MissionPopUp("Hit 30000 points!");
+            //Unlock old tower 
+        }
+    }
+    public void Mission13()
+    {
+        //Hit 50000 points
+        int index = 13;
+        if (!SaveManager.Instance.Load().missions[index])
+        {
+            SaveManager.Instance.MissionCompleted(index);
+            SaveManager.Instance.AddCoins(1000);
+            SaveManager.Instance.buyOutfit(6, 0);
+            myScoreSystem.MissionPopUp("Hit 50000 points!");
+            //Unlock Sketch Skin
         }
     }
 }

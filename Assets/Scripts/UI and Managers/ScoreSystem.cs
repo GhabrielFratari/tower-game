@@ -147,6 +147,14 @@ public class ScoreSystem : MonoBehaviour
         {
             missionChecker.Mission11();
         }
+        else if (points >= 30000 && !SaveManager.Instance.Load().missions[12])
+        {
+            missionChecker.Mission12();
+        }
+        else if (points >= 50000 && !SaveManager.Instance.Load().missions[13])
+        {
+            missionChecker.Mission13();
+        }
     }
 
     public void MissionPopUp(string missionText)

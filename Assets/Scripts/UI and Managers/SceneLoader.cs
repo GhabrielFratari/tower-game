@@ -18,8 +18,14 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadPlayScene()
     {
-        //SceneManager.LoadScene("Playing");
-        SceneManager.LoadScene("SecretLevel");
+        if(SaveManager.Instance.Load().currentTower == "OldTower")
+        {
+            SceneManager.LoadScene("SecretLevel");
+        }
+        else
+        {
+            SceneManager.LoadScene("Playing");
+        }
     }
 
     public void LoadColorBlindScene()

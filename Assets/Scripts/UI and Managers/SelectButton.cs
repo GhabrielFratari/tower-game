@@ -17,10 +17,10 @@ public class SelectButton : MonoBehaviour
     [SerializeField] AudioClip failSound;
     UISound selectSound;
 
-    string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower"};
-    string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden", "Astronaut"};
-    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000, 10};
-    private int[] towerCost = new int[] { 0, 1000, 1000, 1000, 1000 };
+    string[] towers = new string[] { "MainTower", "RockTower", "WoodTower", "BoulderingTower", "PlantTower", "OldTower"};
+    string[] outfits = new string[] { "MainOutfit", "RedKnight", "Chocolate", "Space", "Golden", "Astronaut", "Sketch"};
+    private int[] outfitCost = new int[] {0, 200, 500, 500, 10000, 1000, 10000};
+    private int[] towerCost = new int[] { 0, 1000, 1000, 1000, 1000, 10000};
     private int selectedOutfitIndex;
     private int selectedTowerIndex;
 
@@ -55,10 +55,20 @@ public class SelectButton : MonoBehaviour
         }
         else
         {
-            selectedText.gameObject.SetActive(false);
-            costText.gameObject.SetActive(true);
-            costText.text = outfitCost[currentIndex].ToString();
-            gameObject.GetComponent<Image>().color = yellow;
+            if(currentIndex == 4 || currentIndex == 6)
+            {
+                selectedText.gameObject.SetActive(true);
+                costText.gameObject.SetActive(false);
+                selectedText.text = "Locked";
+                gameObject.GetComponent<Image>().color = Color.grey;
+            }
+            else
+            {
+                selectedText.gameObject.SetActive(false);
+                costText.gameObject.SetActive(true);
+                costText.text = outfitCost[currentIndex].ToString();
+                gameObject.GetComponent<Image>().color = yellow;
+            }
         }
     }
     public void OnTowerSelect(int currentIndex)
@@ -83,10 +93,20 @@ public class SelectButton : MonoBehaviour
         }
         else
         {
-            selectedText.gameObject.SetActive(false);
-            costText.gameObject.SetActive(true);
-            costText.text = towerCost[currentIndex].ToString();
-            gameObject.GetComponent<Image>().color = yellow;
+            if(currentIndex == 5)
+            {
+                selectedText.gameObject.SetActive(true);
+                costText.gameObject.SetActive(false);
+                selectedText.text = "Locked";
+                gameObject.GetComponent<Image>().color = Color.grey;
+            }
+            else
+            {
+                selectedText.gameObject.SetActive(false);
+                costText.gameObject.SetActive(true);
+                costText.text = towerCost[currentIndex].ToString();
+                gameObject.GetComponent<Image>().color = yellow;
+            }
         }
     }
 

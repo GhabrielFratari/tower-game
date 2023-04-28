@@ -36,7 +36,7 @@ public class ChangeOutfitTower : MonoBehaviour
     {
         //string name = Get tower name from file
         string name = SaveManager.Instance.Load().currentTower;
-        if (name == null || name == "") name = "MainTower";
+        if (name == null || name == "" || name == "OldTower") name = "MainTower";
 
         for(int i = 0; i < towers.Length; i++)
         {
