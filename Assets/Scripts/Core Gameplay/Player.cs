@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float fallGravityMultiplier;
 
     [Header("References")]
-    [SerializeField] CapsuleCollider2D handsCollider;
+    [SerializeField] public CapsuleCollider2D handsCollider;
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landingSound;
     [SerializeField] AudioClip wingsSound;
@@ -198,6 +198,7 @@ public class Player : MonoBehaviour
             if (handsCollider.IsTouchingLayers(LayerMask.GetMask("stones")))
             {
                 up = true;
+                
                 PlayerJumping(0f, "isJumping");
             }
             else

@@ -9,6 +9,7 @@ public class CollectableIcon : MonoBehaviour
     Slider mySlider;
     Wings wingsObj;
     Shield shieldObj;
+    private bool hasPlayed = false;
     [SerializeField] bool wings, shield;
  
     // Start is called before the first frame update
@@ -38,19 +39,34 @@ public class CollectableIcon : MonoBehaviour
 
     void DecreaseSlider()
     {
-        mySlider.value -= Time.unscaledDeltaTime;
-
-        if(mySlider.value == 0)
+        if(Time.timeScale != 0f)
         {
-            if (wings)
+            mySlider.value -= Time.unscaledDeltaTime;
+            if (mySlider.value < 1.5f && !hasPlayed)
             {
-                wingsObj.DestroyWings();
+                hasPlayed = true;
+                if (wings)
+                {
+                    wingsObj.PlayFlashFeedback();
+                }
+                else if (shield)
+                {
+                    shieldObj.PlayFlashFeedback();
+                }
             }
-            else if (shield)
+
+            if (mySlider.value == 0)
             {
-                shieldObj.DestroyShield();
+                if (wings)
+                {
+                    wingsObj.DestroyWings();
+                }
+                else if (shield)
+                {
+                    shieldObj.DestroyShield();
+                }
+
             }
-            
         }
     }
 

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
+using MoreMountains.Feedbacks;
+
 
 public class Shield : MonoBehaviour
 {
     [SerializeField] private AudioClip shieldSound;
+    [SerializeField] private MMFeedbacks flashFeedback;
     private int durability = 1;
     private int duration;
     Player player;
@@ -59,6 +62,10 @@ public class Shield : MonoBehaviour
                 }
             }
         }
+    }
+    public void PlayFlashFeedback()
+    {
+        flashFeedback?.PlayFeedbacks();
     }
 
     public int GetDuration()

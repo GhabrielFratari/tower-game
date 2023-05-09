@@ -6,6 +6,7 @@ using MoreMountains.Feedbacks;
 public class Wings : MonoBehaviour
 {
     [SerializeField] private MMFeedbacks flapFeedback;
+    [SerializeField] private MMFeedbacks flashFeedback;
     Player player;
     MenuManager menuManager;
     private int duration;
@@ -38,6 +39,10 @@ public class Wings : MonoBehaviour
     public void PlayFlapVFX()
     {
         flapFeedback?.PlayFeedbacks();
+    }
+    public void PlayFlashFeedback()
+    {
+        flashFeedback?.PlayFeedbacks();
     }
 
     public int GetDuration()

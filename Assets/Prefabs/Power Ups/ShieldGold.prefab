@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4577669948292409451, guid: 88f67db914403fc41b5f289a96440295,
         type: 3}
       propertyPath: m_Color.rgba
-      value: 4294967295
+      value: 4286375145
       objectReference: {fileID: 0}
     - target: {fileID: 6780106196562021371, guid: 88f67db914403fc41b5f289a96440295,
         type: 3}
@@ -73,6 +73,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5cbb4f5342e05304baf42cfa9651f064,
         type: 3}
+    - target: {fileID: 6780106196562021373, guid: 88f67db914403fc41b5f289a96440295,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5672728
+      objectReference: {fileID: 0}
     - target: {fileID: 6780106196562021374, guid: 88f67db914403fc41b5f289a96440295,
         type: 3}
       propertyPath: m_Name
