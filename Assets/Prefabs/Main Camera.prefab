@@ -142,12 +142,15 @@ MonoBehaviour:
   - {fileID: 5608750208842782597, guid: f3547c50d9712aa498902d5abaf49118, type: 3}
   - {fileID: 7571988371636216576, guid: 9117d1115fa66e54cb62ba2b20e47fdc, type: 3}
   - {fileID: 7091178703042123564, guid: aaad6eb56fc45094ead7defd861aa89e, type: 3}
+  singleRock: {fileID: 56145000713317742, guid: 330be4a65fe58374cb1fa539cff3b7eb,
+    type: 3}
   respawnTime: 0.8
   spawningPoint: {fileID: 0}
   positions:
   - 0
   - 1.5
   - -1.5
+  raySize: 3
 --- !u!114 &69540808
 MonoBehaviour:
   m_ObjectHideFlags: 0

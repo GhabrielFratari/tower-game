@@ -5,12 +5,20 @@ using UnityEngine;
 public class RockSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] rocksPrefabs;
+    [SerializeField] GameObject singleRock;
     [SerializeField] float respawnTime = 1.0f;
     [SerializeField] GameObject spawningPoint;
     [SerializeField] float[] positions;
+    [SerializeField] private float raySize = 3f;
+    private int bitMask;
     float lastPosition = 0;
     int lastPositionCounter1 = 0;
     int lastPositionCounter2 = 0;
+
+    private void Awake() 
+    {
+        bitMask = 1 << 10;    
+    }
     void Start()
     {
         StartCoroutine(coroutineAgarras());
@@ -82,5 +90,22 @@ public class RockSpawner : MonoBehaviour
             spawnAgarra();
         }
        
+    }
+
+    public void SpawnSingleRock(Transform myTransform)
+    {
+        RaycastHit2D hitDown = Physics2D.Raycast(myTransform.position, myTransform.TransformDirection(Vector2.down), raySize, bitMask);
+        if(hitDown.collider == null)
+        {
+            RaycastHit2D hitUp = Physics2D.Raycast(myTransform.position, myTransform.TransformDirection(Vector2.up), 1.35f, bitMask);
+            if(hitUp.collider != null)
+            {
+                Destroy(hitUp.collider.gameObject);
+            }      
+            Vector3 pos = new Vector3(myTransform.position.x, myTransform.position.y - 1f, myTransform.position.z);
+            Instantiate(singleRock, myTransform.position, Quaternion.identity);
+
+        }
+
     }
 }

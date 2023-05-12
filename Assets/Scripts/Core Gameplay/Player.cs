@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     Camera mainCam;
     Transform myTransform;
     MissionChecker missionChecker;
+    RockSpawner rockSpawner;
 
     private float playerPosition;
     private float gravity;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     private bool right, left, mid = false;
     private bool dropping = false;
     private bool hasPowerUp = false;
+    private bool superJump = false;
 
     private int wingsCounter = 0;
     private int shieldCounter = 0;
@@ -73,6 +75,7 @@ public class Player : MonoBehaviour
         playerCollider = GetComponent <CapsuleCollider2D>();
         mainCam = Camera.main;
         missionChecker = FindObjectOfType<MissionChecker>();
+        rockSpawner = FindObjectOfType<RockSpawner>();
     }
 
     private void Update()
@@ -328,6 +331,11 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("isUpOnAir", false);
             myAnimator.SetBool("isFlying", false);
             myAnimator.SetBool("isFalling", true);
+            if(superJump)
+            {
+                superJump = false;
+                rockSpawner.SpawnSingleRock(myTransform);
+            }
         }
     }
 
@@ -450,6 +458,7 @@ public class Player : MonoBehaviour
     }
     void SuperJump(Collider2D other)
     {
+        superJump = true;
         myTransform.position = new Vector2(other.transform.position.x, myTransform.position.y);
         AudioSource.PlayClipAtPoint(boingSound, mainCam.transform.position, 0.5f);
         PlaySuperJumpFlash();
