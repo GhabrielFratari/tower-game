@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 71986330321694446}
   - component: {fileID: 71986330321694447}
   m_Layer: 5
-  m_Name: Missions
+  m_Name: BestScore Numbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Missions
+  m_text: 1000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a48c118038879f48bf559e680392351, type: 2}
   m_sharedMaterial: {fileID: -729604008163269181, guid: 3a48c118038879f48bf559e680392351,
@@ -1429,8 +1429,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
-  m_fontSizeBase: 140
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1910,7 +1910,7 @@ GameObject:
   - component: {fileID: 71986330416361811}
   - component: {fileID: 71986330416361820}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 100000'
+  m_text: Score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a48c118038879f48bf559e680392351, type: 2}
   m_sharedMaterial: {fileID: -729604008163269181, guid: 3a48c118038879f48bf559e680392351,
@@ -2872,8 +2872,9 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 71986330852231794}
   gameOverMenuUI: {fileID: 71986329933231025}
   newHighScoreMenuUI: {fileID: 71986330822591369}
-  finalScoreText: {fileID: 71986330416361820}
+  finalScoreText: {fileID: 71986331265360315}
   newHighScoreText: {fileID: 71986330866604725}
+  bestScoreTextPauseMenu: {fileID: 71986330321694447}
   delay: 1
   shieldIcon: {fileID: 5721014486338833076, guid: 0fed95b945c6d8049a34155a701da14a,
     type: 3}
@@ -3127,7 +3128,7 @@ GameObject:
   - component: {fileID: 71986331187121581}
   - component: {fileID: 71986331187121582}
   m_Layer: 5
-  m_Name: Best
+  m_Name: Best Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3181,7 +3182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Best: 100000'
+  m_text: Best Score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a48c118038879f48bf559e680392351, type: 2}
   m_sharedMaterial: {fileID: -729604008163269181, guid: 3a48c118038879f48bf559e680392351,
@@ -3339,7 +3340,7 @@ GameObject:
   - component: {fileID: 71986331265360314}
   - component: {fileID: 71986331265360315}
   m_Layer: 5
-  m_Name: Missions
+  m_Name: Score Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3393,7 +3394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Missions
+  m_text: 1000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a48c118038879f48bf559e680392351, type: 2}
   m_sharedMaterial: {fileID: -729604008163269181, guid: 3a48c118038879f48bf559e680392351,
@@ -3421,8 +3422,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
-  m_fontSizeBase: 140
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

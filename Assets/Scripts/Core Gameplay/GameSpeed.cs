@@ -12,17 +12,22 @@ public class GameSpeed : MonoBehaviour
     [Header("Camera Shake")]
     [SerializeField] float shakeDuration = 1f;
     [SerializeField] float shakeMagnitude = 0.5f;
-
+    [SerializeField] private bool isTutorial = false;
     Vector3 initialPosition;
     Transform myTransform;
+
     private void Awake()
     {
         myTransform = transform;
         initialPosition = transform.position;
+        if(isTutorial) Time.timeScale = gameSpeed;
     }
     void FixedUpdate()
     {
-        IncreaseSpeed();
+        if(!isTutorial)
+        {
+            IncreaseSpeed();
+        }
     }
 
     void IncreaseSpeed()

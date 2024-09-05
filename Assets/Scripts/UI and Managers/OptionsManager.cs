@@ -8,6 +8,7 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] Toggle musicToggle;
     [SerializeField] Toggle modeToggle;
     [SerializeField] Toggle soundsToggle;
+    [SerializeField] Toggle postProcessingToggle;
 
 
     bool test;
@@ -41,6 +42,15 @@ public class OptionsManager : MonoBehaviour
             modeToggle.isOn = false;
         }
 
+        if (GameManager.GetPostProcessing() == 1)
+        {
+            postProcessingToggle.isOn = true;
+        }
+        else
+        {
+            postProcessingToggle.isOn = false;
+        }
+
 
     }
 
@@ -65,6 +75,10 @@ public class OptionsManager : MonoBehaviour
         {
             GameManager.SetMode("standart");
         }
+    }
+    public void PostProcessingToggle(bool tog)
+    {
+        GameManager.SetPostProcessing(tog);
     }
 
 }

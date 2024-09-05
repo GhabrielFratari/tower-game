@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject newHighScoreMenuUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] TextMeshProUGUI newHighScoreText;
+    [SerializeField] TextMeshProUGUI bestScoreTextPauseMenu;
     [SerializeField] float delay = 3f;
     [SerializeField] GameObject shieldIcon;
     [SerializeField] GameObject wingsIcon;
@@ -34,6 +35,7 @@ public class MenuManager : MonoBehaviour
         mainCam = Camera.main;
         src = GetComponent<AudioSource>();
         bestScore = SaveManager.Instance.Load().score;
+        bestScoreTextPauseMenu.text = bestScore.ToString();
     }
 
     public void Pause()
@@ -59,6 +61,12 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         sceneLoader.LoadNextScene();
     }
+    public void RestartTutorial()
+    {
+        PlayAllSounds();
+        Time.timeScale = 1f;
+        sceneLoader.LoadTutorialScene();
+    }
 
     public void LoadMenu()
     {
@@ -72,8 +80,7 @@ public class MenuManager : MonoBehaviour
         DestroyShieldIcon();
         DestroyWingsIcon();
         currentScore = scoreSystem.GetScore();
-        finalScoreText.text = "Score: " + currentScore.ToString();
-        //SaveManager.Instance.AddCoins(scoreSystem.GetCoins());
+        finalScoreText.text = currentScore.ToString();
         
         if(bestScore >= currentScore)
         {

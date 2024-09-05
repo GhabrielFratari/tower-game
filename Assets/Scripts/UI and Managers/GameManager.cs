@@ -5,10 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     AudioSource[] allSounds;
+    private int firstTime;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
+
+        firstTime = PlayerPrefs.GetInt("FirstTime");
+
+        if(firstTime == 0)
+        {
+            SetMusic(true);
+            SetSounds(true);
+            SetPostProcessing(false);
+
+            firstTime = 1;
+            PlayerPrefs.SetInt("FirstTime", firstTime);
+        }
     }
     public static void SetMusic(bool toggle)
     {
@@ -51,4 +64,21 @@ public class GameManager : MonoBehaviour
     {
         return PlayerPrefs.GetString("mode");
     }
+    public static void SetPostProcessing(bool toggle)
+    {
+        if (!toggle)
+        {
+            PlayerPrefs.SetInt("postProcessingBool", 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("postProcessingBool", 1);
+        }
+    }
+
+    public static int GetPostProcessing()
+    {
+        return PlayerPrefs.GetInt("postProcessingBool");
+    }
+
 }
