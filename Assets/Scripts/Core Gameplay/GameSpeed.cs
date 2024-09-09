@@ -55,4 +55,9 @@ public class GameSpeed : MonoBehaviour
         }
         myTransform.position = initialPosition;
     }
+
+    public bool IsTutorial()
+    {
+        return isTutorial;
+    }
 }

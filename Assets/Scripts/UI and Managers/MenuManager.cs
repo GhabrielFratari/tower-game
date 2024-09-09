@@ -29,6 +29,7 @@ public class MenuManager : MonoBehaviour
     float currentTimeScale;
     private int bestScore;
     private int currentScore;
+    GameSpeed gameSpeed;
     void Awake()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
@@ -36,6 +37,7 @@ public class MenuManager : MonoBehaviour
         src = GetComponent<AudioSource>();
         bestScore = SaveManager.Instance.Load().score;
         bestScoreTextPauseMenu.text = bestScore.ToString();
+        gameSpeed = FindObjectOfType<GameSpeed>();
     }
 
     public void Pause()
@@ -82,19 +84,19 @@ public class MenuManager : MonoBehaviour
         currentScore = scoreSystem.GetScore();
         finalScoreText.text = currentScore.ToString();
         
-        if(bestScore >= currentScore)
+        if(bestScore >= currentScore || gameSpeed.IsTutorial())
         {
             gameOverMenuUI.SetActive(true);
             PauseAllSounds();
         }
-        else
+        else if(!gameSpeed.IsTutorial())
         {
             newHighScoreMenuUI.SetActive(true);
             newHighScoreText.text = currentScore.ToString();
             PauseAllSounds();
             AudioSource.PlayClipAtPoint(scoreBeatenSFX, mainCam.transform.position, 0.7f);
+            SaveManager.Instance.SetBestScore(currentScore);
         }
-        SaveManager.Instance.SetBestScore(currentScore);
         Time.timeScale = 0f;
     }
 

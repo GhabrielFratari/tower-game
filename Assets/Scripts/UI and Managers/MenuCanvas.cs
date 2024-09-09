@@ -8,6 +8,7 @@ public class MenuCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject optionsMenuUI;
+    [SerializeField] GameObject tutorialUI;
 
     UISound uiSound;
    
@@ -27,6 +28,15 @@ public class MenuCanvas : MonoBehaviour
     public void ExitSettings()
     {
         optionsMenuUI.SetActive(false);
+    }
+    public void Tutorial()
+    {
+        tutorialUI.SetActive(true);
+    }
+    
+    public void ExitTutorial()
+    {
+        tutorialUI.SetActive(false);
     }
     
     public void PlayUISound()
