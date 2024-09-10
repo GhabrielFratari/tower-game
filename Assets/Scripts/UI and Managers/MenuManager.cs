@@ -63,12 +63,6 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         sceneLoader.LoadNextScene();
     }
-    public void RestartTutorial()
-    {
-        PlayAllSounds();
-        Time.timeScale = 1f;
-        sceneLoader.LoadTutorialScene();
-    }
 
     public void LoadMenu()
     {
@@ -84,12 +78,12 @@ public class MenuManager : MonoBehaviour
         currentScore = scoreSystem.GetScore();
         finalScoreText.text = currentScore.ToString();
         
-        if(bestScore >= currentScore || gameSpeed.IsTutorial())
+        if(bestScore >= currentScore)
         {
             gameOverMenuUI.SetActive(true);
             PauseAllSounds();
         }
-        else if(!gameSpeed.IsTutorial())
+        else
         {
             newHighScoreMenuUI.SetActive(true);
             newHighScoreText.text = currentScore.ToString();

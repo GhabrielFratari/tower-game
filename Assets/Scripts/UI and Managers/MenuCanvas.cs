@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Video;
 
 public class MenuCanvas : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MenuCanvas : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject optionsMenuUI;
     [SerializeField] GameObject tutorialUI;
+    [SerializeField] VideoPlayer videoPlayerTutorial;
 
     UISound uiSound;
    
@@ -31,11 +33,13 @@ public class MenuCanvas : MonoBehaviour
     }
     public void Tutorial()
     {
+        videoPlayerTutorial.Play();
         tutorialUI.SetActive(true);
     }
     
     public void ExitTutorial()
     {
+        videoPlayerTutorial.Stop();
         tutorialUI.SetActive(false);
     }
     

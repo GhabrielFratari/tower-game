@@ -55,13 +55,26 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isWingsOwned())
         {
-            SaveManager.Instance.buyWings(upgradeCost[0]);
-            PlayBuySound();
+            if(SaveManager.Instance.buyWings(upgradeCost[0]))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
+            
         }
         else if(SaveManager.Instance.Load().wings < 3)
         {
-            SaveManager.Instance.buyWings(upgradeCost[SaveManager.Instance.Load().wings + 1]);
-            PlayBuySound();
+            if(SaveManager.Instance.buyWings(upgradeCost[SaveManager.Instance.Load().wings + 1]))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
         }
         else { PlayFailSound(); }
     }
@@ -101,13 +114,25 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isShieldOwned())
         {
-            SaveManager.Instance.buyShield(upgradeCost[0]);
-            PlayBuySound();
+            if(SaveManager.Instance.buyShield(upgradeCost[0]))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
         }
         else if (SaveManager.Instance.Load().shield < 3)
         {
-            SaveManager.Instance.buyShield(upgradeCost[SaveManager.Instance.Load().shield + 1]);
-            PlayBuySound();
+            if(SaveManager.Instance.buyShield(upgradeCost[SaveManager.Instance.Load().shield + 1]))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
         }
         else { PlayFailSound(); }
     }
@@ -145,8 +170,14 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isSuperJumpOwned())
         {
-            SaveManager.Instance.buySuperJump(100);
-            PlayBuySound();
+            if(SaveManager.Instance.buySuperJump(100))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
         }
         else { PlayFailSound(); }
     }
@@ -166,8 +197,15 @@ public class ShopCanvas : MonoBehaviour
     {
         if (!SaveManager.Instance.isDoubleCoinOwned())
         {
-            SaveManager.Instance.buyDoubleCoin(500);
-            PlayBuySound();
+            if(SaveManager.Instance.buyDoubleCoin(500))
+            {
+                PlayBuySound();
+            }
+            else
+            {
+                PlayFailSound();
+            }
+            
         }
         else { PlayFailSound(); }
     }

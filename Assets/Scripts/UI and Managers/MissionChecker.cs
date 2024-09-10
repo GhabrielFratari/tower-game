@@ -16,7 +16,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 3 wings
         int index = 0;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
@@ -27,7 +27,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 3 shields
         int index = 1;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
@@ -38,7 +38,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 3 super jumps
         int index = 2;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(30);
@@ -49,7 +49,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 5 wings
         int index = 3;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
@@ -60,7 +60,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 5 shields
         int index = 4;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
@@ -71,7 +71,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Take 5 super jumps
         int index = 5;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
@@ -82,7 +82,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 100 points
         int index = 6;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(10);
@@ -93,7 +93,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 500 points
         int index = 7;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(50);
@@ -104,7 +104,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 1000 points
         int index = 8;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(100);
@@ -115,7 +115,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 3000 points
         int index = 9;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(300);
@@ -128,7 +128,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 5000 points
         int index = 10;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(500);
@@ -139,7 +139,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 10000 points
         int index = 11;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(1000);
@@ -151,7 +151,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 30000 points
         int index = 12;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(1000);
@@ -164,7 +164,7 @@ public class MissionChecker : MonoBehaviour
     {
         //Hit 50000 points
         int index = 13;
-        if (!SaveManager.Instance.Load().missions[index] && !gameSpeed.IsTutorial())
+        if (!SaveManager.Instance.Load().missions[index])
         {
             SaveManager.Instance.MissionCompleted(index);
             SaveManager.Instance.AddCoins(1000);

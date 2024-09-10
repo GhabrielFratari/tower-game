@@ -112,7 +112,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void buyWings(int cost)
+    public bool buyWings(int cost)
     {
         if(state.coins >= cost)
         {
@@ -122,6 +122,7 @@ public class SaveManager : MonoBehaviour
                 state.wingsOwned = true;
                 Save();
                 Debug.Log(state.wingsOwned);
+                return true;
             }
             else if (state.wings < 3)
             {
@@ -129,11 +130,13 @@ public class SaveManager : MonoBehaviour
                 state.wings++;
                 Save();
                 Debug.Log(state.wings);
+                return true;
             }
             
         }
+        return false;
     }
-    public void buyShield(int cost)
+    public bool buyShield(int cost)
     {
         if (state.coins >= cost)
         {
@@ -142,35 +145,42 @@ public class SaveManager : MonoBehaviour
                 state.coins -= cost;
                 state.shieldOwned = true;
                 Save();
+                return true;
             }
             else if (state.shield < 3)
             {
                 state.coins -= cost;
                 state.shield++;
                 Save();
+                return true;
             }
 
         }
+        return false;
     }
 
-    public void buySuperJump(int cost)
+    public bool buySuperJump(int cost)
     {
         if (state.coins >= cost && !isSuperJumpOwned())
         {
             state.coins -= cost;
             state.superJump = true;
             Save();
+            return true;
         }
+        return false;
     }
 
-    public void buyDoubleCoin(int cost)
+    public bool buyDoubleCoin(int cost)
     {
         if (state.coins >= cost && !isDoubleCoinOwned())
         {
             state.coins -= cost;
             state.doubleCoin = true;
             Save();
+            return true;
         }
+        return false;
     }
 
     public void UnlockTower(int index)

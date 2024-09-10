@@ -5294,6 +5294,7 @@ MonoBehaviour:
   coinsText: {fileID: 1066975988}
   optionsMenuUI: {fileID: 1393628045}
   tutorialUI: {fileID: 1521647490}
+  videoPlayerTutorial: {fileID: 27260464}
 --- !u!114 &1912657095
 MonoBehaviour:
   m_ObjectHideFlags: 0

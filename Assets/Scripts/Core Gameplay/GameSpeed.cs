@@ -12,7 +12,6 @@ public class GameSpeed : MonoBehaviour
     [Header("Camera Shake")]
     [SerializeField] float shakeDuration = 1f;
     [SerializeField] float shakeMagnitude = 0.5f;
-    [SerializeField] private bool isTutorial = false;
     Vector3 initialPosition;
     Transform myTransform;
 
@@ -20,14 +19,10 @@ public class GameSpeed : MonoBehaviour
     {
         myTransform = transform;
         initialPosition = transform.position;
-        if(isTutorial) Time.timeScale = gameSpeed;
     }
     void FixedUpdate()
     {
-        if(!isTutorial)
-        {
-            IncreaseSpeed();
-        }
+        IncreaseSpeed();
     }
 
     void IncreaseSpeed()
@@ -54,10 +49,5 @@ public class GameSpeed : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         myTransform.position = initialPosition;
-    }
-
-    public bool IsTutorial()
-    {
-        return isTutorial;
     }
 }
